@@ -57,18 +57,18 @@ const Footer = () => {
           <h3 className="text-xl font-bold text-white mb-4 font-sora">
             Follow Us
           </h3>
-          <div className="flex gap-2">
+          <div className="flex gap-4">
             <a className="font-inter cursor-pointer" href="#">
-              <img src="/facebook.png" alt="Facebook Logo" />
+              <img className="h-9 transition-transform duration-300 ease-in-out hover:scale-110" src="/facebook.png" alt="Facebook Logo" />
             </a>
             <a className="font-inter cursor-pointer" href="#">
-              <img src="/twitter.png" alt="Twitter Logo" />
+              <img className="h-9 transition-transform duration-300 ease-in-out hover:scale-110" src="/twitter.png" alt="Twitter Logo" />
             </a>
             <a className="font-inter cursor-pointer" href="#">
-              <img src="/instagram.png" alt="Instagram Logo" />
+              <img className="h-9 transition-transform duration-300 ease-in-out hover:scale-110" src="/instagram.png" alt="Instagram Logo" />
             </a>
             <a className="font-inter cursor-pointer" href="#">
-              <img src="/tiktok.png" alt="Tiktok Logo" />
+              <img className="h-9 transition-transform duration-300 ease-in-out hover:scale-110" src="/tiktok.png" alt="Tiktok Logo" />
             </a>
           </div>
         </div>
