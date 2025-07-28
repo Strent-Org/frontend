@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Nav from './components/Nav';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import Nav from './components/Nav';
 function App() {
 
 
@@ -14,6 +15,10 @@ function App() {
 
     <div className='main'>
       {/* nav should be here */}
+      <Nav />
+      
+      {/* main content should be here */} 
+
        <Nav />
       {/* section should he here rout */}
       <Routes>
