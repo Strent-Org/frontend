@@ -1,11 +1,11 @@
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="h-fit w-full px-36 py-16 bg-[#201A6B]">
+    <footer className="h-fit w-full px-20 py-16 bg-[#201A6B]">
       <div className="grid gap-6 sm:grid-cols-2 sm:gap-16 lg:flex lg:gap-14">
         <div className="max-w-[18rem]">
-          <h3 className="text-2xl font-bold text-white mb-4 font-sora">LOGO</h3>
-          {/* <img className="h-[8rem]" src="/strent-logo.svg" alt="Logo" /> */}
+          {/* <h3 className="text-2xl font-bold text-white mb-4 font-sora">LOGO</h3> */}
+          <img className="h-16 sm:h-20 md:h-24 lg:h-26 w-auto mb-4" src="/strent-logo.svg" alt="Logo" />
           <span className="w-full h-fit text-white">
             Strent is a trusted platform for renting and booking shortlets in
             Nigeria. We connect you with verified listings, flexible payment
@@ -85,7 +85,7 @@ const Footer = () => {
             <a href="#">
               <img
                 src="/oui_arrow-up.png"
-                className="cursor-pointer"
+                className="cursor-pointer h-4 sm:h-6"
                 alt="Back to Top Arrow"
               />
             </a>
