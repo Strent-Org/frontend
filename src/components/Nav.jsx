@@ -15,6 +15,7 @@ const Navbar = () => {
 
         {/* Menu Links */}
         <ul className="flex space-x-6 text-sm font-normal text-[#1E1E1E]">
+
           {["about", "listings", "shortlet", "agents", "contact"].map(
             (page, index) => (
               <li key={index}>
@@ -36,18 +37,21 @@ const Navbar = () => {
           <Link
             to="/login"
             className="text-sm text-[#1E1E1E] font-normal hover:text-[#4B3DFE]"
+
           >
             Log In
           </Link>
           <Link
             to="/signup"
             className="text-sm text-[#1E1E1E] font-normal hover:text-[#4B3DFE]"
+
           >
             Sign Up
           </Link>
           <Link
             to="/post-property"
             className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-sm font-normal transition-colors duration-200"
+
           >
             Post Property
           </Link>
@@ -58,3 +62,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
