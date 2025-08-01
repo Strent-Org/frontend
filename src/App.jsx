@@ -12,7 +12,9 @@ function App() {
 
     <div className='main'>
       {/* nav should be here */}
-      Nav
+      <Nav />
+      
+      {/* main content should be here */} 
 
       {/* section should he here rout */}
       <Routes>
