@@ -4,7 +4,7 @@ import './index.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import Nav from './components/Nav';
+import Footer from './components/Footer';
 function App() {
 
 
@@ -22,7 +22,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* footer should be here */}
-      footer
+      <Footer />
     </div>
 
   )
