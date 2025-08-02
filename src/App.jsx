@@ -10,10 +10,7 @@ function App() {
 
     <div className='main'>
       {/* nav should be here */}
-      <Nav />
-      
-      {/* main content should be here */} 
-
+       <Nav />
       {/* section should he here rout */}
       <Routes>
         section i.e home
