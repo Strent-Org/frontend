@@ -4,10 +4,10 @@ import {
   neighbourhoods,
   faqs,
 } from "../data/homepagedata.js";
-import BgImg from "../assets/pexels-ben-iwara-1033992193-27741697 1.png";
-import ArrowUp from "../assets/arrow_upward_alt_40dp_FFF_FILL0_wght100_GRAD0_opsz40.svg";
-import ArrowDown from "../assets/arrow_downward_alt_40dp_1F1F1F_FILL0_wght100_GRAD0_opsz40.svg";
-import CloseImg from "../assets/close.svg"
+import BgImg from "../assets/images/pexels-ben-iwara-1033992193-27741697 1.png";
+import ArrowUp from "../assets/icons/arrow_upward_alt_40dp_FFF_FILL0_wght100_GRAD0_opsz40.svg";
+import ArrowDown from "../assets/icons/arrow_downward_alt_40dp_1F1F1F_FILL0_wght100_GRAD0_opsz40.svg";
+import CloseIcon from "../assets/icons/close.svg"
 import { useState } from "react";
 
 function FaqList({ faq }) {
@@ -37,7 +37,7 @@ function FaqList({ faq }) {
         {isOpen &&
         <div>
          <p className="text-left text-gray-700  text-2xs p-[3%]">{faq.answer} </p>
-        <h3 className="flex justify-end font-semibold items-center" onClick={toggleOpen}>Close <img src= {CloseImg}  className="w-3 ml-2 " /></h3>
+        <h3 className="flex justify-end font-semibold items-center" onClick={toggleOpen}>Close <img src= {CloseIcon}  className="w-3 ml-2 " /></h3>
         </div>}
       </article>
     </div>

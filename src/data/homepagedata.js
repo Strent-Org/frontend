@@ -1,19 +1,19 @@
-import img1 from "../assets/Hp1.jpg";
-import img2 from "../assets/Hp2.png";
-import img3 from "../assets/Hp3.png";
-import img4 from "../assets/Hp4.png";
-import img5 from "../assets/Hp5.png";
-import img6 from "../assets/Hp6.png";
-import img7 from "../assets/Hp7.png";
-import img8 from "../assets/Hp8.png";
-import img9 from "../assets/Hp9.png";
-import img10 from "../assets/Hp10.png";
-import img11 from "../assets/Hp11.png";
-import img12 from "../assets/Hp12.png";
-import img13 from "../assets/Hp13.png";
-import img14 from "../assets/Hp14.png";
-import img15 from "../assets/Hp15.png";
-import img16 from "../assets/Hp16.png";
+import img1 from "../assets/images/Hp1.jpg";
+import img2 from "../assets/images/Hp2.png";
+import img3 from "../assets/images/Hp3.png";
+import img4 from "../assets/images/Hp4.png";
+import img5 from "../assets/images/Hp5.png";
+import img6 from "../assets/images/Hp6.png";
+import img7 from "../assets/images/Hp7.png";
+import img8 from "../assets/images/Hp8.png";
+import img9 from "../assets/images/Hp9.png";
+import img10 from "../assets/images/Hp10.png";
+import img11 from "../assets/images/Hp11.png";
+import img12 from "../assets/images/Hp12.png";
+import img13 from "../assets/images/Hp13.png";
+import img14 from "../assets/images/Hp14.png";
+import img15 from "../assets/images/Hp15.png";
+import img16 from "../assets/images/Hp16.png";
 
 export const topRental = [
   {
