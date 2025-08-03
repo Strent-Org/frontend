@@ -22,7 +22,11 @@ export default {
         '2xs': ['0.625rem', { // 10px
           lineHeight: '0.75rem', // 12px
         }],
-      }
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        sora: ['Sora', 'sans-serif'],
+      },
       
     },
   },
