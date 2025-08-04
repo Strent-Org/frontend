@@ -4,6 +4,7 @@ import './index.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
+import Nav from './components/Nav';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 function App() {
