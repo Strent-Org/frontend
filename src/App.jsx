@@ -5,12 +5,13 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import Nav from  './components/Nav';
 function App() {
   return (
 
     <div className='main'>
       {/* nav should be here */}
-       <Nav />
+       <nav />
       {/* section should he here rout */}
       <Routes>
         section i.e home
