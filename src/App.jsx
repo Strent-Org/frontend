@@ -3,6 +3,7 @@ import './App.css'
 import './index.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import Nav from  './components/Nav';
@@ -11,11 +12,12 @@ function App() {
 
     <div className='main'>
       {/* nav should be here */}
-       <nav />
+       <Nav />
       {/* section should he here rout */}
       <Routes>
         section i.e home
         <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       {/* footer should be here */}
       <Footer />
