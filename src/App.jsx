@@ -8,6 +8,7 @@ import Shortlets from './pages/Shortlets'
 import Nav from './components/Nav';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import InnerShortlet from './pages/InnerShortlet';
 function App() {
 
 
