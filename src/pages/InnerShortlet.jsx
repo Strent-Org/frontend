@@ -1,6 +1,4 @@
-import React from "react";
 import InnerShortletHero from "../components/shortlet/InnerShortletHero";
-import ShortletCards from "../components/shortlet/ShortletCards";
 import InnerShortletRight from "../components/shortlet/InnerShortletRight";
 import InnerShortletLeft from "../components/shortlet/InnerShortletLeft";
 
