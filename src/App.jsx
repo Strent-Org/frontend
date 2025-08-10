@@ -7,7 +7,6 @@ import Home from './pages/Home'
 import Nav from './components/Nav';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
-import Nav from './components/Nav';
 function App() {
 
 
