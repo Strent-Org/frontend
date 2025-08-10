@@ -14,7 +14,7 @@ const ShortletCards = () => {
               </div>
 
               {/* Details */}
-              <div className="flex md:h-[195px] h-[140px] flex-col gap-2 flex-[6]">
+              <div className="flex  flex-col gap-2 flex-[6]">
                 <div className='h-[100%]'>
                   <div className="md:border-r-2  pr-6 ">
                     <h1 className="font-bold text-lg">Studio Pentfloor</h1>
