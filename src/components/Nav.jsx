@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-// import logo from "../assets/images/strent-logo.svg";
+import logo from "../assets/images/strent-logo.svg";
 
 const Navbar = () => {
   return (
     <header className="bg-white shadow-sm">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-[32px] font-bold text-[#4B3DFE]">
+        {/* <div className="text-[32px] font-bold text-[#4B3DFE]">
           LOGO
-        </div>
-        {/* <Link to="/" className="flex items-center">
+        </div> */}
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="h-14 w-auto object-contain" />
-        </Link> */}
+        </Link>
 
         {/* Menu Links */}
         <ul className="flex space-x-6 text-base font-normal text-[#1E1E1E]">
