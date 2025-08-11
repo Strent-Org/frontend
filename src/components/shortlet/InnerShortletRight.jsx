@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ShortletCards from "./ShortletCards";
 
 const InnerShortletRight = () => {
-  const [activeTab, setActiveTab] = useState("overview");
+  const [activeTab, setActiveTab] = useState("Overview");
   return (
     <div className="flex-[2.6] flex flex-col gap-4 order-1 lg:order-2">
       {/* Property Title - 2 Bedroom Apartment With Notch Amenities */}
@@ -74,7 +74,7 @@ const InnerShortletRight = () => {
           <button
             key={i}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 cursor-pointer text-lg sm:text-2xl font-semibold ${
+            className={`pb-2 cursor-pointer text-lg sm:text-2xl font-semibold transition-colors duration-200 ${
               activeTab === tab
                 ? "border-b-2 border-[#4B3DFE]"
                 : "text-gray-500 hover:text-black"
