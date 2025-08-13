@@ -6,18 +6,23 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
-import Nav from  './components/Nav';
+import Nav from './components/Nav';
+import LoginForm from './pages/LoginForm';
+import SignupForm from './pages/SignupForm';
+
+
 function App() {
   return (
 
     <div className='main'>
       {/* nav should be here */}
-       <Nav />
+      <Nav />
       {/* section should he here rout */}
       <Routes>
-        section i.e home
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={< SignupForm />} />
       </Routes>
       {/* footer should be here */}
       <Footer />
@@ -26,4 +31,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
