@@ -162,13 +162,30 @@ const InnerShortletRight = () => {
 
         {activeTab === "Location" && (
           <div className="flex flex-col gap-2 text-sm sm:text-base text-[#1E1E1E] leading-relaxed">
-            <h1 className="text-3xl">Location</h1>
+            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7926.73620503506!2d3.420001!3d6.42805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4cae62b65f7%3A0x6e799d3b1a02c1d1!2sEko%20Hotels%20%26%20Suites!5e0!3m2!1sen!2sng!4v1691774105023!5m2!1sen!2sng"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full border-0"
+                title="Eko Hotels Map"
+              />
+            </div>
           </div>
         )}
 
         {activeTab === "Video" && (
           <div className="flex flex-col gap-2 text-sm sm:text-base text-[#1E1E1E] leading-relaxed">
-            <h1 className="text-3xl">Video</h1>
+            <div className="w-full aspect-video rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/6J1lsyf_1nc"
+                title="Victoria Island & Eko Atlantic Aerial Tour"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
           </div>
         )}
       </div>
