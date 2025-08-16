@@ -9,7 +9,6 @@ import ArrowUp from "../assets/icons/arrow_upward_alt_40dp_FFF_FILL0_wght100_GRA
 import ArrowDown from "../assets/icons/arrow_downward_alt_40dp_1F1F1F_FILL0_wght100_GRAD0_opsz40.svg";
 import CloseIcon from "../assets/icons/close.svg"
 import SearchIcon from "../assets/icons/search.svg";
-import ChatIcon from "../assets/icons/chat.svg";
 import { useState } from "react";
 
 function FaqList({ faq }) {
@@ -115,10 +114,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="luxury-best-listings" className="py-10 px-[10%] text-sm bg-neutral w-full mb-[5%] flex flex-col gap-4 relative">
-          <div id="chat-icon">
-            <img src={`${ChatIcon}`} alt="chat-icon" className="absolute right-0 sm:right-5 md:right-10 top-[33%] cursor-pointer " />
-          </div>
+        <section id="luxury-best-listings" className="py-10 px-[10%] text-sm bg-neutral w-full mb-[5%] flex flex-col gap-4">
           <div id="luxury-listings" className="mb-[5%]">
           <div className="flex flex-col gap-2 mb-3">
           <h2 className="text-2xl font-semibold font-sora tracking-[0.02em]">Top Rental Properties in the Market</h2>
