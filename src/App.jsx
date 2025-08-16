@@ -1,4 +1,3 @@
-
 import './App.css'
 import './index.css';
 import React from 'react';
@@ -7,29 +6,27 @@ import Home from './pages/Home'
 import Nav from './components/Nav';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
-import Nav from './components/Nav';
+import Listings from './pages/listing';
+import ListingDetails from './pages/ListingDetails';
+
 function App() {
-
-
   return (
-
     <div className='main'>
       {/* nav should be here */}
       <Nav />
       
       {/* main content should be here */} 
 
-       <Nav />
-      {/* section should he here rout */}
+      {/* section should be here route */}
       <Routes>
-        section i.e home
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
+        <Route path="/listings" element={<Listings />} />
+        <Route path="/listing/:id" element={<ListingDetails />} />
       </Routes>
       {/* footer should be here */}
       <Footer />
     </div>
-
   )
 }
 
