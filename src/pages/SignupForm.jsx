@@ -332,7 +332,7 @@ const SignupForm = () => {
           
          
 
-          <div className="text-left text-xs text-muted-foreground font-inter text-[#565658] text-[12px]">
+          <div className="text-left text-xs text-muted-foreground font-inter text-[#565658] text-[12px] ">
             By registering, you accept our terms of use and privacy and agree
             that we and our selected partners may contact you with relevant
             offers and services.
