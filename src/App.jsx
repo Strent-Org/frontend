@@ -1,7 +1,5 @@
-
 import './App.css'
 import './index.css';
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import Shortlets from './pages/Shortlets'
@@ -14,7 +12,6 @@ import InnerShortlet from './pages/InnerShortlet';
 import Agents from './pages/agents';
 import InnerAgents from './pages/innerAgents';
 import { Properties, Reviews, Overview } from './pages/innerAgents';
-import ChatIcon from './components/chat-icon';
 function App() {
   return (
 
@@ -23,7 +20,6 @@ function App() {
       <Nav />
       {/* main content should be here */} 
       {/* section should he here rout */}
-      <ChatIcon />
 
       <Routes>
         <Route path="*" element={<NotFound />} />

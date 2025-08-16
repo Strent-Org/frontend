@@ -10,6 +10,7 @@ import Location from "../assets/icons/location.svg";
 import Call from "../assets/icons/call.svg";
 import Rating from "../components/agentpage-components/rating";
 import Pagination from "../components/agentpage-components/pagination";
+import ChatIcon from "../assets/icons/chat.svg";
 
 
 export default function InnerAgents() {
@@ -21,6 +22,9 @@ export default function InnerAgents() {
 
   return (
     <main className="font-inter px-[15%] py-8 flex flex-col gap-8 bg-neutral relative">
+      <div id="chat-icon">
+        <img src={`${ChatIcon}`} alt="chat-icon" className="absolute right-0 sm:right-5 md:right-10 top-[750px] cursor-pointer " />
+      </div>
       <section id="header" className="flex flex-col gap-2">
         <div>
           <ul className="flex gap-2">
