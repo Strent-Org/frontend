@@ -12,14 +12,18 @@ import InnerShortlet from './pages/InnerShortlet';
 import Agents from './pages/agents';
 import InnerAgents from './pages/innerAgents';
 import { Properties, Reviews, Overview } from './pages/innerAgents';
+import Listings from './pages/listing';
+import ListingDetails from './pages/ListingDetails';
+
 function App() {
   return (
-
     <div className='main relative'>
       {/* nav should be here */}
       <Nav />
       {/* main content should be here */} 
       {/* section should he here rout */}
+
+      {/* section should be here route */}
 
       <Routes>
         <Route path="*" element={<NotFound />} />
@@ -28,6 +32,8 @@ function App() {
         <Route path="/signup" element={< SignupForm />} />
         <Route path="/shortlet" element={<Shortlets />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
+        <Route path="/listings" element={<Listings />} />
+        <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
           <Route index element={<Overview />} />
@@ -38,7 +44,6 @@ function App() {
       {/* footer should be here */}
       <Footer />
     </div>
-
   )
 }
 
