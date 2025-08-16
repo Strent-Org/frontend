@@ -3,9 +3,17 @@ import './index.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
+import Shortlets from './pages/Shortlets'
 import Nav from './components/Nav';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import LoginForm from './pages/LoginForm';
+import SignupForm from './pages/SignupForm';
+import InnerShortlet from './pages/InnerShortlet';
+
+
+
+
 import Listings from './pages/listing';
 import ListingDetails from './pages/ListingDetails';
 
@@ -14,13 +22,17 @@ function App() {
     <div className='main'>
       {/* nav should be here */}
       <Nav />
-      
       {/* main content should be here */} 
+      {/* section should he here rout */}
 
       {/* section should be here route */}
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={< SignupForm />} />
+        <Route path="/shortlet" element={<Shortlets />} />
+        <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/listing/:id" element={<ListingDetails />} />
       </Routes>
@@ -30,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

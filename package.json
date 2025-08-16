@@ -7,14 +7,23 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "jdb": "json-server --watch ./data/db.json --port 8080"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@heroicons/react": "^2.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.7.0"
+=======
+    "axios": "^1.11.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.7.0",
+    "recoil": "0.7.7"
+>>>>>>> d9e771365912bad3bfe8edff79f63295e698dbda
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
