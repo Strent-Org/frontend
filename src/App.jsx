@@ -14,6 +14,8 @@ import InnerAgents from './pages/innerAgents';
 import { Properties, Reviews, Overview } from './pages/innerAgents';
 import Listings from './pages/listing';
 import ListingDetails from './pages/ListingDetails';
+import ForgotPassword from './pages/ForgotPassword';
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/signup" element={< SignupForm />} />
         <Route path="/shortlet" element={<Shortlets />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
@@ -36,9 +39,10 @@ function App() {
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
-          <Route index element={<Overview />} />
-          <Route path="properties" element={<Properties />} />
-          <Route path="reviews" element={<Reviews />} /> 
+        <Route index element={<Overview />} />
+        <Route path="properties" element={<Properties />} />
+        <Route path="reviews" element={<Reviews />} />
+        
         </Route>
       </Routes>
       {/* footer should be here */}
