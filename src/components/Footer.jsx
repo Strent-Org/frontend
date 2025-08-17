@@ -18,10 +18,10 @@ const Footer = () => {
             Quick Links
           </h3>
           <ul className="w-full h-fit text-white font-inter text-[14px] sm:text-[1rem] tracking-[0.4%]">
-            <li className="mb-4">About Us</li>
-            <li className="mb-4 whitespace-nowrap">Find an Agent</li>
-            <li className="mb-4 whitespace-nowrap">Privacy Policy</li>
-            <li className="whitespace-nowrap mb-4">Terms and Agreement</li>
+            <li className="mb-4"><a href="/about">About Us</a></li>
+            <li className="mb-4 whitespace-nowrap"><a href="/agents">Find an Agent</a></li>
+            <li className="mb-4 whitespace-nowrap"><a href="#">Privacy Policy</a></li>
+            <li className="whitespace-nowrap mb-4"><a href="#">Terms and Agreement</a></li>
             <li>FAQs</li>
           </ul>
         </div>

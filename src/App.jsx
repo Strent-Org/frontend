@@ -14,6 +14,7 @@ import InnerAgents from './pages/innerAgents';
 import { Properties, Reviews, Overview } from './pages/innerAgents';
 import Listings from './pages/listing';
 import ListingDetails from './pages/ListingDetails';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={< SignupForm />} />
         <Route path="/shortlet" element={<Shortlets />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/listing/:id" element={<ListingDetails />} />
