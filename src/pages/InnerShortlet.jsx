@@ -6,19 +6,33 @@ const InnerShortlet = () => {
   return (
     <>
       <InnerShortletHero />
-      
+
       <main className="relative px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-6 md:py-10 mt-6">
         <img
-        className="hidden lg:block absolute right-4 bottom-[142rem] w-16 h-16"
-        src="/chat.png"
-        alt="chat icon"
-      />
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
         {/* Breadcrumb + Actions */}
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
           <ul className="flex flex-wrap items-center gap-1 text-sm sm:text-base text-[#6E6F70]">
-            <li>Home</li>&gt; <li>Shortlets</li> &gt;{" "}
-            <li>Property for shortlet in Lekki</li> &gt;{" "}
-            <li>Flat Apartment for shortlet in Lekki</li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            &gt;{" "}
+            <li>
+              <a href="/shortlet">Shortlets</a>
+            </li>{" "}
+            &gt;{" "}
+            <li>
+              <a href="/innershortlet/1">Property for shortlet in Lekki</a>
+            </li>{" "}
+            &gt;{" "}
+            <li>
+              <a href="/innershortlet/1">
+                Flat Apartment for shortlet in Lekki
+              </a>
+            </li>
           </ul>
           <div className="flex items-center gap-4 md:ml-auto text-[#1E1E1E] text-sm sm:text-base">
             <div className="flex items-center gap-2">
@@ -43,7 +57,10 @@ const InnerShortlet = () => {
         {/* Back Link */}
         <div className="flex gap-2 items-center mt-4">
           <img src="/arrow-left.png" alt="Back-arrow" className="w-4 h-4" />
-          <a className="text-[#1E1E1E] font-medium text-sm sm:text-base" href="/shortlet">
+          <a
+            className="text-[#1E1E1E] font-medium text-sm sm:text-base"
+            href="/shortlet"
+          >
             Back to search results
           </a>
         </div>
@@ -53,10 +70,8 @@ const InnerShortlet = () => {
           {/* Left Sidebar */}
           <InnerShortletLeft />
 
-
           {/* Right Content */}
           <InnerShortletRight />
-
         </div>
       </main>
     </>

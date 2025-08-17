@@ -1,0 +1,107 @@
+
+const whatWeOffer = [
+  {
+    icon: "/aboutLogo1.png",
+    title: "Verified Access & Communication",
+    desc: "We connect renters directly with verified landlords and agents, building trust and ensuring transparency throughout the rental process.",
+  },
+  {
+    icon: "/aboutLogo2.png",
+    title: "Intelligent Property Search & Discovery",
+    desc: "Our smart filters and recommendations help renters find properties that match their exact needs, budget, and location without the guesswork.",
+  },
+  {
+    icon: "/aboutLogo3.png",
+    title: "Visual Property Tour Experience",
+    desc: "Every listing comes with rich descriptions, verified photos, and walkthrough videos helping renters make confident choices before needing a physical visit.",
+  },
+];
+
+const AboutMain = () => {
+  return (
+    <main className="relative px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-6 md:py-10">
+      <img
+        className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+        src="/chat.png"
+        alt="chat icon"
+      />
+      {/* Top section */}
+      <section className="flex flex-col md:flex-row gap-8 md:gap-12 mt-6 h-full relative">
+        {/* Left Image */}
+        <div className="flex-1 relative">
+          <img
+            className="relative object-cover z-10 w-full rounded-lg shadow-md"
+            src="/aboutLeft1.png"
+            alt="Ikoyi Link bridge Image"
+          />
+          
+          <img
+            className="hidden lg:block absolute -bottom-12 left-12 object-cover w-100"
+            src="/aboutPattern.png"
+            alt="Image Pattern"
+          />
+        </div>
+
+        {/* Right Text */}
+        <div className="flex-1 flex flex-col gap-4">
+          <h2 className="text-[#4B3DFE] font-bold text-base md:text-lg mt-4 font-sora">
+            // Discover our Story
+          </h2>
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold font-sora text-[#1E1E1E]">
+            Simplifying Renting, <br /> Securing Homes.
+          </h1>
+          <p className="font-sora text-sm md:text-base leading-relaxed tracking-[0.04em]">
+            Strent was born from a simple frustration, the endless stress of
+            trying to rent a home in Nigeria. From fake listings to upfront
+            agent fees and lack of trust, the rental journey has often been a
+            gamble. We’ve been there, and we knew there had to be a better way.
+            <br />
+            That’s why we created Strent, a platform built to bring honesty,
+            ease, and peace of mind back to the rental process. Whether you’re
+            searching for a long-term apartment or a short-term stay, Strent
+            connects you with verified agents, landlords, secure payment
+            options, and a renter-first experience that puts you in control.
+          </p>
+
+          <div className="flex flex-wrap gap-4 md:gap-6 mt-2">
+            <button className="flex-1 md:flex-none bg-[#4B3DFE] hover:bg-[#6257f8] px-6 py-2 text-white font-semibold rounded-lg cursor-pointer text-sm md:text-base">
+              Our Vision
+            </button>
+            <button className="flex-1 md:flex-none px-6 py-2 hover:bg-[#333] hover:text-white hover:border-none border-2 border-gray rounded-lg font-semibold cursor-pointer text-sm md:text-base">
+              Our Mission
+            </button>
+          </div>
+
+          <p className="font-sora text-sm md:text-base leading-relaxed tracking-[0.04em]">
+            To become Nigeria’s most trusted home rental platform, empowering
+            millions to find real homes, without the hassle, doubt, or fear.
+          </p>
+        </div>
+      </section>
+
+      {/* What We Offer Section */}
+      <section className="mt-10 md:mt-24 flex flex-col gap-10">
+        <h1 className="text-2xl md:text-3xl font-bold text-center text-[#1E1E1E]">
+          What We Offer
+        </h1>
+
+        {/* Grid for cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {whatWeOffer.map((weo, i) => (
+            <div key={i} className="flex flex-col gap-4 border rounded-lg p-6">
+              <img className="h-12 w-12" src={weo.icon} alt="Icon" />
+              <h2 className="font-semibold text-xl md:text-2xl text-[#1E1E1E] font-sora">
+                {weo.title}
+              </h2>
+              <p className="font-sora text-sm md:text-base flex-1">
+                {weo.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default AboutMain;

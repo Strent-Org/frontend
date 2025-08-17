@@ -95,10 +95,10 @@ const ShortletDetails = () => {
   return (
     <section className="relative w-full h-fit flex flex-col lg:flex-row gap-2 px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-10 mt-10 my-20">
       <img
-        className="hidden lg:block absolute right-4 bottom-[142rem] w-16 h-16"
-        src="/chat.png"
-        alt="chat icon"
-      />
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
       <div className="flex flex-col flex-[1] gap-5">
         {/* Advanced Search */}
         <div className="w-full border-2 border-gray-300 rounded-lg px-4 py-5">

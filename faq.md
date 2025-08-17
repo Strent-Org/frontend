@@ -8,9 +8,10 @@ A: You should create a new branch instead of reusing the old one. Here's how:
 
 1. Pull the Latest Changes from dev
 
-Make sure your local dev branch is up to date:
 
+Make sure your local dev branch is up to date: 
 git checkout dev
+
 git pull origin dev
 
 2. Create a New Feature Branch
@@ -31,7 +32,8 @@ git push origin feature/footer-update
 
 5. Create a Pull Request
 
-Open a new pull request from feature/footer-update into dev. The team
+Open a new pull request from feature/footer-update into dev. The team 
+
 will review and merge it again.
 
 🌟 Why Not Reuse the Old Branch?
@@ -42,6 +44,8 @@ Creating a new branch keeps Git history clean.
 
 It avoids confusion and potential merge conflicts.
 
+
 This approach ensures a clean, organized workflow and smooth collaboration within the team.
 
 You can always repeat this process for any feature you wish to improve or update later.
+
