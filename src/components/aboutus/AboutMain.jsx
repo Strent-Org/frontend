@@ -19,38 +19,38 @@ const whatWeOffer = [
 
 const AboutMain = () => {
   return (
-    <main className="relative px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-6 md:py-10">
+    <main className="relative px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-6 md:py-12">
       <img
         className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
         src="/chat.png"
         alt="chat icon"
       />
       {/* Top section */}
-      <section className="flex flex-col md:flex-row gap-8 md:gap-12 mt-6 h-full relative">
+      <section className="flex flex-col md:flex-row md:mt-6 h-full relative">
         {/* Left Image */}
-        <div className="flex-1 relative">
+        <div className="flex-[1.3] relative">
           <img
-            className="relative object-cover z-10 w-full rounded-lg shadow-md"
+            className="relative object-cover md:object-contain md:h-[660px] w-full z-10 rounded-lg"
             src="/aboutLeft1.png"
             alt="Ikoyi Link bridge Image"
           />
           
           <img
-            className="hidden lg:block absolute -bottom-12 left-12 object-cover w-100"
+            className="hidden lg:block absolute -bottom-10 left-[210px] object-cover w-80"
             src="/aboutPattern.png"
             alt="Image Pattern"
           />
         </div>
 
-        {/* Right Text */}
-        <div className="flex-1 flex flex-col gap-4">
-          <h2 className="text-[#4B3DFE] font-bold text-base md:text-lg mt-4 font-sora">
+        {/* Right */}
+        <div className="flex-[1.7] flex flex-col gap-4 md:mt-10">
+          <h2 className="text-[#4B3DFE] font-bold text-base md:text-lg mt-6 md:mt-0 font-sora">
             // Discover our Story
           </h2>
           <h1 className="text-xl md:text-2xl lg:text-3xl font-bold font-sora text-[#1E1E1E]">
             Simplifying Renting, <br /> Securing Homes.
           </h1>
-          <p className="font-sora text-sm md:text-base leading-relaxed tracking-[0.04em]">
+          <p className="font-inter text-sm md:text-xl leading-relaxed tracking-[0.04em]">
             Strent was born from a simple frustration, the endless stress of
             trying to rent a home in Nigeria. From fake listings to upfront
             agent fees and lack of trust, the rental journey has often been a
@@ -64,15 +64,15 @@ const AboutMain = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 md:gap-6 mt-2">
-            <button className="flex-1 md:flex-none bg-[#4B3DFE] hover:bg-[#6257f8] px-6 py-2 text-white font-semibold rounded-lg cursor-pointer text-sm md:text-base">
+            <button className="flex-1 md:flex-none bg-[#4B3DFE] hover:bg-[#6257f8] md:px-8 md:py-4 px-6 py-2 text-white font-bold rounded-lg cursor-pointer text-sm md:text-base">
               Our Vision
             </button>
-            <button className="flex-1 md:flex-none px-6 py-2 hover:bg-[#333] hover:text-white hover:border-none border-2 border-gray rounded-lg font-semibold cursor-pointer text-sm md:text-base">
+            <button className="flex-1 md:flex-none md:px-8 md:py-4 px-6 py-2 hover:bg-[#333] hover:text-white hover:border-none border-2 border-gray rounded-lg font-bold cursor-pointer text-sm md:text-base">
               Our Mission
             </button>
           </div>
 
-          <p className="font-sora text-sm md:text-base leading-relaxed tracking-[0.04em]">
+          <p className="font-inter text-sm md:text-xl leading-relaxed tracking-[0.04em]">
             To become Nigeria’s most trusted home rental platform, empowering
             millions to find real homes, without the hassle, doubt, or fear.
           </p>
@@ -81,7 +81,7 @@ const AboutMain = () => {
 
       {/* What We Offer Section */}
       <section className="mt-10 md:mt-24 flex flex-col gap-10">
-        <h1 className="text-2xl md:text-3xl font-bold text-center text-[#1E1E1E]">
+        <h1 className="text-xl md:text-3xl font-bold text-center text-[#1E1E1E]">
           What We Offer
         </h1>
 
@@ -93,7 +93,7 @@ const AboutMain = () => {
               <h2 className="font-semibold text-xl md:text-2xl text-[#1E1E1E] font-sora">
                 {weo.title}
               </h2>
-              <p className="font-sora text-sm md:text-base flex-1">
+              <p className="font-sora text-sm md:text-xl flex-1">
                 {weo.desc}
               </p>
             </div>
