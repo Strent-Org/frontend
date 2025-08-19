@@ -28,7 +28,7 @@ const AboutMain = () => {
       {/* Top section */}
       <section className="flex flex-col md:flex-row md:mt-6 h-full relative">
         {/* Left Image */}
-        <div className="flex-[1.3] relative">
+        <div className="flex-[1.3] relative md:mr-8">
           <img
             className="relative object-cover md:object-contain md:h-[660px] w-full z-10 rounded-lg"
             src="/aboutLeft1.png"
