@@ -1,0 +1,36 @@
+{
+  "User": [
+    {
+      "accountType": "Landlord",
+      "fullName": "Abdullahi Abdulkadir",
+      "id": "abdullahi@gmail.com",
+      "password": "00000000Hh1&",
+      "phoneNumber": "08166161213",
+      "agreeToTerms": true
+    },
+    {
+      "accountType": "Tenant",
+      "fullName": "wendi dev",
+      "id": "wendi@gmail.com",
+      "password": "00000000Hh1&",
+      "phoneNumber": "1234567890",
+      "agreeToTerms": true
+    },
+    {
+      "id": "omo@gmail.com",
+      "accountType": "Tenant",
+      "fullName": "omo omoshe",
+      "password": "00000000Hh1&",
+      "phoneNumber": "8166161213",
+      "agreeToTerms": true
+    },
+    {
+      "id": "agent@gmail.com",
+      "accountType": "Agent",
+      "fullName": "omo Agent",
+      "password": "00000000Hh1&",
+      "phoneNumber": "1234567000",
+      "agreeToTerms": true
+    }
+  ]
+}

@@ -8,11 +8,15 @@ export default {
     extend: {
       colors: {
         'primary': '#4B3DFE',
+        'primary-50': '#EDECFF',
         'secondary': '#FF6B57',
         'neutral': '#FCFCFD',
         'neutral2': '#DDDDE1',
         'neutral-darker': '#565658',
-        'neutral-normal': '#F5F6FA'
+        'neutral-normal': '#F5F6FA',
+        'secondary-500': '#FF6B57',
+        'green-450': '#60D669'
+
 
       },
       fontSize: {
