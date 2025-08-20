@@ -1,25 +1,22 @@
+import './App.css'
+import './index.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'
+import Shortlets from './pages/Shortlets'
+import Nav from './components/Nav';
+import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
+import LoginForm from './pages/LoginForm';
+import SignupForm from './pages/SignupForm';
+import InnerShortlet from './pages/InnerShortlet';
+import Agents from './pages/agents';
+import InnerAgents from './pages/innerAgents';
+import { Properties, Reviews, Overview } from './pages/innerAgents';
+import Listings from './pages/listing';
+import ListingDetails from './pages/ListingDetails';
+import ForgotPassword from './pages/ForgotPassword';
 
-import "./App.css";
-import "./index.css";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Shortlets from "./pages/Shortlets";
-import Nav from "./components/Nav";
-import NotFound from "./pages/NotFound";
-import Footer from "./components/Footer";
-import LoginForm from "./pages/LoginForm";
-import SignupForm from "./pages/SignupForm";
-import InnerShortlet from "./pages/InnerShortlet";
-import Agents from "./pages/agents";
-import InnerAgents from "./pages/innerAgents";
-import { Properties, Reviews, Overview } from "./pages/innerAgents";
-import Listings from "./pages/listing";
-import ListingDetails from "./pages/ListingDetails";
-import ForgotPassword from "./pages/ForgotPassword";
-import Privacy from "./pages/Privacy";
-import AboutUs from "./pages/AboutUs";
-import Terms from "./pages/Terms";
-import Contact from './pages/ContactUs';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
