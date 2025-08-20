@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   FaMapMarkerAlt,
-  FaPhone,
   FaWhatsapp,
   FaCamera,
   FaBed,
@@ -10,8 +9,7 @@ import {
   FaRuler,
   FaCalendarAlt,
   FaArrowLeft,
-  FaHeart,
-  FaShare,
+  FaPhone, // Added missing import
 } from "react-icons/fa";
 import ListImage from "../assets/images/unsplash_t33SZJ_ZboQ.png";
 import AgentImage from "../assets/images/Frame 803.png";
@@ -19,14 +17,15 @@ import VerifiedBadge from "../assets/images/verified.png";
 import like from "../assets/icons/like.svg";
 import share from "../assets/icons/share.svg";
 import arrowLeft from "../assets/icons/arrow-left.svg";
+import PropertyBadge from "../assets/images/verified-property.png";
 
 const ListingDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState("overview");
 
   // Mock data for listings
-
   const listings = [
     {
       id: 1,
@@ -281,6 +280,7 @@ const ListingDetails = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Property Not Found</h1>
+          <p className="mb-4">Looking for property with ID: {id}</p>
           <Link to="/listings" className="text-[#4B3DFE] hover:underline">
             Back to Listings
           </Link>
@@ -302,7 +302,7 @@ const ListingDetails = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4">
         <div className="">
@@ -314,11 +314,13 @@ const ListingDetails = () => {
               </p>
             </div>
             <div className="flex gap-2">
-              <button className="p-2 ">
-                <img src={like} alt="Like" className="w-[20px] h-[18px]" />
+              <button className="p-2 flex items-center gap-2 text-xs text-[#6E6F70]">
+                <img src={like} alt="Like" className="w-[20px] h-[17px]" />
+                <p>Save to Favorite</p>
               </button>
-              <button className="p-2 ">
-                <img src={share} alt="share" className="w-[20px] h-[18px]" />
+              <button className="p-2 flex items-center gap-2 text-xs text-[#6E6F70]">
+                <img src={share} alt="share" className="w-[20px] h-[17px]" />
+                <p>Share</p>
               </button>
             </div>
           </div>
@@ -355,19 +357,19 @@ const ListingDetails = () => {
                         className="w-4 h-4"
                       />
                     </div>
-                    <p className="text-sm text-[#FF6B57] font[400]">
-                      Varified Agent
+                    <p className="text-sm text-[#FF6B57] font-[400]">
+                      Verified Agent
                     </p>
                   </div>
                 </div>
-                <p className="text-sm text-[#1E1E1E] font[400]">
-                  View more properties from this link <span>agent</span>
+                <p className="text-sm text-[#1E1E1E] font-[400]">
+                  View more properties from this <span>agent</span>
                 </p>
               </div>
 
               <div className="space-y-3">
                 <button className="w-full bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold">
-                  show phone number
+                  Show Phone Number
                 </button>
               </div>
             </div>
@@ -404,7 +406,7 @@ const ListingDetails = () => {
                     className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
                   ></textarea>
                 </div>
-                <button className="w-full border border-[#4B3DFE] text-[#4B3DFE] hover:bg-[#4B3DFE] hover:text-white py-3 rounded-lg font-semibold transition-colors">
+                <button className="w-full border border-[#4B3DFE]  bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-3 rounded-lg font-semibold transition-colors">
                   Enquire Now
                 </button>
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold">
@@ -414,46 +416,14 @@ const ListingDetails = () => {
               </form>
             </div>
 
-            {/* Similar Properties */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-xl font-semibold mb-4">Similar Properties</h2>
-              <div className="space-y-4">
-                {listings
-                  .slice(0, 3)
-                  .filter((l) => l.id !== listing.id)
-                  .map((similar) => (
-                    <Link
-                      key={similar.id}
-                      to={`/listing/${similar.id}`}
-                      className="flex gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
-                    >
-                      <img
-                        src={similar.images[0]}
-                        alt={similar.title}
-                        className="w-16 h-16 object-cover rounded"
-                      />
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold line-clamp-2">
-                          {similar.title}
-                        </h4>
-                        <p className="text-xs text-gray-600">
-                          {similar.location}
-                        </p>
-                        <p className="text-sm font-bold text-[#4B3DFE]">
-                          {similar.price}
-                          {similar.priceType}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-            </div>
             {/* Advertisement */}
             <div className="bg-[#EDECFF] rounded-lg shadow-sm p-10">
-                <h2 className="text-xl font-semibold mb-4 text-center">Advertise/market your property on Strent</h2>
-                <button className="w-full border border-[#4B3DFE]  bg-[#4B3DFE] text-white py-3 rounded-lg font-semibold transition-colors">
-                  Enquire Now
-                </button>
+              <h2 className="text-xl font-semibold mb-4 text-center">
+                Advertise/market your property on Strent
+              </h2>
+              <button className="w-full border border-[#4B3DFE]  bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-3 rounded-lg font-semibold transition-colors">
+                Enquire Now
+              </button>
             </div>
           </div>
           {/* Main Content */}
@@ -493,141 +463,361 @@ const ListingDetails = () => {
                   </>
                 )}
               </div>
+            </div>
 
-              {/* Thumbnail strip */}
-              <div className="p-4">
-                <div className="flex gap-2 overflow-x-auto">
-                  {listing.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`${listing.title} ${index + 1}`}
-                      className={`w-16 h-16 object-cover rounded cursor-pointer flex-shrink-0 ${
-                        index === currentImageIndex
-                          ? "ring-2 ring-[#4B3DFE]"
-                          : ""
-                      }`}
-                      onClick={() => setCurrentImageIndex(index)}
-                    />
-                  ))}
+            {/* Property Header */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <h1 className="text-2xl font-[600] font-sora text-[#1E1E1E] mb-2">
+                    {listing.title}
+                  </h1>
+                  <div className="flex items-center gap-2 text-gray-600 mb-2">
+                    <FaMapMarkerAlt className="text-[#4B3DFE]" />
+                    <span className="text-[14px] font-[400] font-inter text[#1E1E1E]">{listing.location}</span>
+                  </div>
+                  <div className="text-left">
+                    <p className="text-2xl font-bold text-[#1E1E1E] font-sora">
+                      {listing.price}
+                      <span className="text-2xl font-bold text-[#1E1E1E] font-sora">
+                        {listing.priceType}
+                      </span>
+                    </p>
+                    <p className="font-[400] text-[14px] leading-[20px] text-[#1E1E1E] mt-2 font-inter">
+                      <span>
+                        {listing.title} To let at {listing.location}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="lg:flex md:grid gap-4 grid-cols-2 md:grid-cols-4 py-2 border-b-2 border-[#DDDDE1]">
+                <div className="flex items-center gap-2">
+                  <FaBed className="text-[#4B3DFE]" />
+                  <span className="text-[14px] font-[400] font-inter text[#1E1E1E]">{listing.bedrooms} Beds</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaBath className="text-[#4B3DFE]" />
+                  <span className="text-[14px] font-[400] font-inter text[#1E1E1E]">{listing.bathrooms} Bath</span>
                 </div>
               </div>
             </div>
 
-            {/* Property Details */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <div className="flex justify-between items-start mb-4">
+            {/* Safety tips */}
+            <div className="px-5 py-6 bg-[#F9F9FF]">
+              <h3 className="font-sora text-[20px] font-[600] text-[#1E1E1E] mt-2">
+                Safety Tips
+              </h3>
+              <ul className="list-disc pl-5 text-[16px] leading-[24px] text-[#1E1E1E] font-inter mt-2">
+                <li>
+                  Do not make any inspection fee without seeing the agent and
+                  property.
+                </li>
+                <li>
+                  Only pay Rental fee, Shortlet fee or any upfront payment after
+                  you verify the Landlord.
+                </li>
+                <li>Ensure you meet the Agent in an open location.</li>
+                <li>
+                  The Agent does not represent PropertyPro and PropertyPro is
+                  not liable for any monetary transaction between you and the
+                  Agent.
+                </li>
+              </ul>
+            </div>
+
+            {/* Tab Navigation */}
+            <div className="bg-white rounded-lg shadow-sm">
+              <div className="border-b border-gray-200">
+                <nav className="flex space-x-8 px-6">
+                  <button
+                    onClick={() => setActiveTab("overview")}
+                    className={`py-2 px-1 border-b-2 font-[600] text-[20px] font-sora ${
+                      activeTab === "overview"
+                        ? "border-[#4B3DFE] text-[#4B3DFE]"
+                        : "border-transparent text-[#1E1E1E] hover:border-[#4B3DFE]"
+                    }`}
+                  >
+                    Overview
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("location")}
+                    className={`py-2 px-1 border-b-2 font-[600] text-[20px] font-sora ${
+                      activeTab === "location"
+                        ? "border-[#4B3DFE] text-[#4B3DFE]"
+                        : "border-transparent text-[#1E1E1E] hover:border-[#4B3DFE]"
+                    }`}
+                  >
+                    Location
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("video")}
+                    className={`py-2 px-1 border-b-2 font-[600] text-[20px] font-sora ${
+                      activeTab === "video"
+                        ? "border-[#4B3DFE] text-[#4B3DFE]"
+                        : "border-transparent text-[#1E1E1E] hover:border-[#4B3DFE]"
+                    }`}
+                  >
+                    Video
+                  </button>
+                </nav>
+              </div>
+
+              {/* Tab Content */}
+              <div className="p-6">
+                {/* Overview Tab */}
+                {activeTab === "overview" && (
+                  <div className="space-y-6">
+                    {/* Description */}
+                    <div>
+                      <h2 className="text-xl font-semibold mb-3 font-sora ">
+                        Description
+                      </h2>
+                      <p className="text-[16px] font-[400] font-inter text[#1E1E1E] leading-relaxed">
+                        {listing.fullDescription}
+                      </p>
+                    </div>
+
+                    {/* Property Details */}
+                    <div>
+                      <h2 className="text-xl font-semibold mb-3 font-sora">
+                        Property Details
+                      </h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-[16px] font-[400] font-inter text[#1E1E1E]">Property Type</p>
+                          <p className="text-[14px] font-[400] font-inter text[#1E1E1E]">
+                            {listing.propertyType}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-[16px] font-[400] font-inter text[#1E1E1E]">
+                            Furnishing Status
+                          </p>
+                          <p className="text-[14px] font-[400] font-inter text[#1E1E1E]">
+                            {listing.furnishingStatus}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-[16px] font-[400] font-inter text[#1E1E1E]">Total Area</p>
+                          <p className="text-[14px] font-[400] font-inter text[#1E1E1E]">{listing.totalArea}</p>
+                        </div>
+                        <div>
+                          <p className="text-[16px] font-[400] font-inter text[#1E1E1E]">Year Built</p>
+                          <p className="text-[14px] font-[400] font-inter text[#1E1E1E]">{listing.yearBuilt}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Amenities */}
+                    <div>
+                      <h2 className="text-xl font-semibold mb-3 font-sora">Amenities</h2>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {listing.amenities.map((amenity, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-[#4B3DFE] rounded-full"></div>
+                            <span className="text-[16px] font-[400] font-inter text[#1E1E1E]">{amenity}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Location Tab */}
+                {activeTab === "location" && (
+                  <div className="space-y-4">
+                    <h2 className="text-xl font-semibold">Property Location</h2>
+                    <p className="text-gray-600 mb-4">{listing.location}</p>
+                    <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden">
+                      <iframe
+                        src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${listing.location}&zoom=15`}
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Property Location"
+                      ></iframe>
+                    </div>
+                    <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                      <h3 className="font-semibold mb-2">Address Details</h3>
+                      <p className="text-sm text-gray-600">
+                        <strong>Full Address:</strong> {listing.location}
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        <strong>Coordinates:</strong> {listing.coordinates.lat},{" "}
+                        {listing.coordinates.lng}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Video Tab */}
+                {activeTab === "video" && (
+                  <div className="space-y-4">
+                    <h2 className="text-xl font-semibold">
+                      Property Video Tour
+                    </h2>
+                    <p className="text-gray-600 mb-4">
+                      Take a virtual tour of {listing.title}
+                    </p>
+                    <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                      <iframe
+                        src={listing.videoUrl}
+                        width="100%"
+                        height="100%"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title="Property Video Tour"
+                      ></iframe>
+                    </div>
+                    <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                      <h3 className="font-semibold mb-2">Video Information</h3>
+                      <p className="text-sm text-gray-600">
+                        This video showcases the key features and layout of{" "}
+                        {listing.title}. Get a comprehensive view of the
+                        property before scheduling your visit.
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Report Property */}
+            <div className="bg-white rounded-lg  p-6 mt-6 flex flex-row items-center justify-between gap-4">
+              <div className="flex justify-center gap-4 items-center">
+                <img
+                  src={PropertyBadge}
+                  alt="Verified Property"
+                  className="w-[36px] h-[44px]"
+                />
                 <div>
-                  <h1 className="text-2xl font-bold text-[#1E1E1E] mb-2">
-                    {listing.title}
-                  </h1>
-                  <div className="flex items-center gap-2 text-gray-600 mb-2">
-                    <FaMapMarkerAlt />
-                    <span>{listing.location}</span>
-                  </div>
-                <div className="text-left">
-                  <p className="text-2xl font-bold text-[#1E1E1E]">
-                    {listing.price}
-                    <span className="text-sm font-normal">
-                      {listing.priceType}
-                    </span>
+                  <h2 className="font-sora text-[20px] font-[600] text-[#1E1E1E] mt-2">
+                    Property is verified as real
+                  </h2>
+                  <p className="text-[16px] leading-[24px] text-[#1E1E1E] font-inter">
+                    If reported as fake, we'll investigate to confirm if
                   </p>
-                  <p><span>{listing.title} To let at {listing.location}</span></p>
-                  {/* <p className="text-sm text-green-600 font-semibold">
-                    {listing.availability}
-                  </p> */}
-                </div>
-                </div>
-        
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y">
-                <div className="flex items-center gap-2">
-                  <FaBed className="text-[#4B3DFE]" />
-                  <span className="text-sm">{listing.bedrooms} Bedrooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaBath className="text-[#4B3DFE]" />
-                  <span className="text-sm">{listing.bathrooms} Bathrooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaRuler className="text-[#4B3DFE]" />
-                  <span className="text-sm">{listing.totalArea}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCalendarAlt className="text-[#4B3DFE]" />
-                  <span className="text-sm">Built {listing.yearBuilt}</span>
                 </div>
               </div>
+              <button className=" border border-[#4B3DFE]  bg-[#F5F6FA] hover:bg-[#352BB4] text-[#4B3DFE] hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors">
+                Report Property
+              </button>
+            </div>
 
-              {/* Description */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">Description</h2>
-                <p className="text-gray-700 leading-relaxed">
-                  {listing.fullDescription}
-                </p>
-              </div>
+            {/* Similar Properties */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h2 className="text-xl font-semibold mb-4">Similar Properties</h2>
+              <div className="space-y-4">
+                {listings
+                  .slice(0, 3)
+                  .filter((l) => l.id !== listing.id)
+                  .map((similar) => (
+                    <div
+                      key={similar.id}
+                      className="bg-white rounded-lg shadow-sm p-6 flex flex-col lg:flex-row gap-6 border"
+                    >
+                      {/* Image */}
+                      <Link
+                        to={`/listing/${similar.id}`}
+                        className="rounded relative flex-shrink-0 self-center lg:self-start cursor-pointer"
+                      >
+                        {similar.sponsored && (
+                          <span className="absolute top-2 -left-1 bg-[#FF6B57] text-white text-[10px] px-2 py-1 rounded-tr-md rounded-br-md z-10">
+                            Sponsored
+                          </span>
+                        )}
+                        <img
+                          src={ListImage}
+                          alt={similar.title}
+                          className="w-full lg:w-[212px] h-[196px] object-cover rounded hover:opacity-90 transition-opacity"
+                        />
+                        <div className="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-[10px] px-2 py-1 rounded flex items-center gap-1">
+                          <FaCamera size={12} /> {similar.photos}
+                        </div>
+                      </Link>
 
-              {/* Property Details */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">Property Details</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-600">Property Type</p>
-                    <p className="font-semibold">{listing.propertyType}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Furnishing Status</p>
-                    <p className="font-semibold">{listing.furnishingStatus}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Total Area</p>
-                    <p className="font-semibold">{listing.totalArea}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Year Built</p>
-                    <p className="font-semibold">{listing.yearBuilt}</p>
-                  </div>
-                </div>
-              </div>
+                      {/* Details Section */}
+                      <div className="flex flex-col flex-1 justify-between font-inter">
+                        <div>
+                          <Link to={`/listing/${similar.id}`}>
+                            <h3 className="font-semibold text-[16px] lg:text-[18px] hover:text-[#4B3DFE] transition-colors cursor-pointer">
+                              {similar.title}
+                            </h3>
+                          </Link>
+                          <p className="text-[12px] text-[#1E1E1E] mt-1">
+                            {similar.description}
+                          </p>
+                          <div className="flex items-center gap-1 text-[#6E6F70] mt-2">
+                            <FaMapMarkerAlt size={14} />
+                            <span className="text-[12px]">
+                              {similar.location}
+                            </span>
+                          </div>
 
-              {/* Amenities */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">Amenities</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {listing.amenities.map((amenity, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-[#4B3DFE] rounded-full"></div>
-                      <span className="text-sm">{amenity}</span>
+                          {/* Feature Tags */}
+                          <div className="flex gap-2 mt-3 flex-wrap">
+                            {similar.features.map((feature, index) => (
+                              <span
+                                key={index}
+                                className="bg-[#EDECFF] text-[#4B3DFE] text-[10px] px-3 py-1 rounded"
+                              >
+                                {feature}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Agent Info */}
+                        <div className="flex flex-col gap-1 mt-4 font-inter">
+                          <div className="flex gap-2 items-center">
+                            <img
+                              src={AgentImage}
+                              alt="Agent"
+                              className="w-[32px] h-[32px] rounded-full object-cover"
+                            />
+                            <p className="text-sm font-[400] flex items-center gap-1">
+                              {similar.agent}
+                              <img
+                                src={VerifiedBadge}
+                                alt="Verified"
+                                className="w-[12px] h-[12px]"
+                              />
+                            </p>
+                          </div>
+                          <p className="text-[11px] text-gray-400">
+                            {similar.updated}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Price & Actions */}
+                      <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0 lg:border-l border-[#DDDDE1] pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
+                        <div className="text-left lg:text-right">
+                          <p className="text-[18px] font-bold text-[#1E1E1E]">
+                            {similar.price}
+                          </p>
+                          <p className="text-[12px] text-gray-500">
+                            {similar.bedrooms} Bed {similar.bathrooms} Bath
+                          </p>
+                        </div>
+                        <div className="flex gap-3 mt-4">
+                          <button className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm">
+                            <FaPhone className="transform scale-x-[-1]" /> Call
+                          </button>
+                          <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm">
+                            <FaWhatsapp />
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              {/* Pricing Breakdown */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">
-                  Pricing Breakdown
-                </h2>
-                <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                  <div className="flex justify-between">
-                    <span>Annual Rent</span>
-                    <span className="font-semibold">{listing.price}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Service Charge</span>
-                    <span>{listing.serviceCharge}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Legal Fee</span>
-                    <span>{listing.legalFee}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Agency Fee</span>
-                    <span>{listing.agencyFee}</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

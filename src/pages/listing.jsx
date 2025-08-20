@@ -152,7 +152,7 @@ const Listings = () => {
             <h2 className="font-semibold mb-6">Latest Properties</h2>
             {listings.slice(0, 3).map((listing, i) => (
               <Link key={i} to={`/listing/${listing.id}`} className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors">
-                <div>
+                <div className=''>
                   <img
                     src={ListImage}
                     alt="Listing"
