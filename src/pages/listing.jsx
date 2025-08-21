@@ -5,6 +5,7 @@ import AgentImage from "../assets/images/Frame 803.png";
 import VerifiedBadge from "../assets/images/verified.png";
 import AdvertImage from "../assets/images/advert2.png";
 import { FaMapMarkerAlt, FaPhone, FaWhatsapp, FaCamera } from "react-icons/fa";
+import ListingHero from '../components/Listing/ListingHero.jsx';
 
 const Listings = () => {
   const listings = [
@@ -96,30 +97,14 @@ const Listings = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Breadcrumb + Title */}
-      <div
-        className="relative w-full h-80 text-white flex items-center px-4 sm:px-8 bg-cover bg-center bg-black bg-opacity-60 p-4"
-        style={{
-          backgroundImage: "url('/unsplash_P84xh3q3ccE.png')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-
-        <div className="font-inter relative z-10">
-          <p className="text-xs sm:text-sm opacity-80">
-            Home &gt; <span className="text-[#FF6B57]">Latest Listings</span>
-          </p>
-          <h1 className="text-2xl sm:text-3xl font-bold mt-2 text-[#fff] opacity-80">
-            Latest Listings
-          </h1>
-        </div>
-      </div>
+      {/* Hero */}
+      <ListingHero />
 
       <div className="max-w-7xl mx-auto px-12 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10">
         {/* Left Sidebar - Advanced Search, Latest Properties, Advertisement */}
         <aside className="space-y-6 order-1 lg:order-1">
           {/* Advanced Search */}
-          <div className="bg-white w-full rounded-lg p-6 shadow-sm border font-inter">
+          <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] border font-inter">
             <h2 className="font-semibold mb-4">Advanced Search</h2>
             <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px]">
               <option className="text-[#000]  font-[400] text-[14px]">Location</option>
@@ -148,7 +133,7 @@ const Listings = () => {
           </div>
 
           {/* Latest Properties */}
-          <div className="bg-white rounded-lg p-6 shadow-sm border font-inter">
+          <div className="bg-white rounded-lg p-6 border border-[#DDDDE1] border font-inter">
             <h2 className="font-semibold mb-6">Latest Properties</h2>
             {listings.slice(0, 3).map((listing, i) => (
               <Link key={i} to={`/listing/${listing.id}`} className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors">
@@ -192,7 +177,7 @@ const Listings = () => {
           {/* Listings */}
           <div className="space-y-6">
             {listings.map((listing) => (
-              <div key={listing.id} className="bg-white rounded-lg shadow-sm p-6 flex flex-col lg:flex-row gap-6 border">
+              <div key={listing.id} className="bg-white rounded-lg border border-[#DDDDE1] p-6 flex flex-col lg:flex-row gap-6 border">
                 {/* Image */}
                 <Link to={`/listing/${listing.id}`} className="rounded relative flex-shrink-0 self-center lg:self-start cursor-pointer">
                   {listing.sponsored && (
@@ -290,7 +275,7 @@ const Listings = () => {
           {/* Pagination */}
           <div className="flex justify-center mt-12 space-x-2">
             <button className="px-4 py-2 border rounded hover:bg-gray-100">1</button>
-            <button className="px-4 py-2 border rounded hover:bg-gray-100 bg-purple-600 text-white">2</button>
+            <button className="px-4 py-2 border rounded hover:bg-gray-100  ">2</button>
             <button className="px-4 py-2 border rounded hover:bg-gray-100">3</button>
             <span className="px-4 py-2">...</span>
             <button className="px-4 py-2 border rounded hover:bg-gray-100">Next</button>
