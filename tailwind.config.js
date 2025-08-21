@@ -5,7 +5,34 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#4B3DFE',
+        'primary-50': '#EDECFF',
+        'secondary': '#FF6B57',
+        'neutral': '#FCFCFD',
+        'neutral2': '#DDDDE1',
+        'neutral-darker': '#565658',
+        'neutral-normal': '#F5F6FA',
+        'secondary-500': '#FF6B57',
+        'green-450': '#60D669'
+
+
+      },
+      fontSize: {
+        'xxs': ['0.5rem',{ // 8px
+          lineHeight: '0.625rem', // 10px
+        }],
+        '2xs': ['0.625rem', { // 10px
+          lineHeight: '0.75rem', // 12px
+        }],
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        sora: ['Sora', 'sans-serif'],
+      },
+      
+    },
   },
   plugins: [],
 }
