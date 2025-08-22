@@ -15,8 +15,8 @@ import { Properties, Reviews, Overview } from './pages/innerAgents';
 import Listings from './pages/listing';
 import ListingDetails from './pages/listingDetails';
 import ForgotPassword from './pages/ForgotPassword';
-
 import AboutUs from './pages/AboutUs';
+import Contact from './pages/ContactUs';
 
 function App() {
   return (
@@ -38,12 +38,14 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
         <Route index element={<Overview />} />
         <Route path="properties" element={<Properties />} />
         <Route path="reviews" element={<Reviews />} />
+
         
         </Route>
       </Routes>
