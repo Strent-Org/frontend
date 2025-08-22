@@ -18,6 +18,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Privacy from "./pages/Privacy";
 
 import AboutUs from "./pages/AboutUs";
+import Terms from "./pages/Terms";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
       {/* footer should be here */}
       <Footer />

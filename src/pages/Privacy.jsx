@@ -2,7 +2,7 @@
 const Privacy = () => {
   return (
     <section className="w-full">
-      <div className="px-6 sm:px-8 md:px-16 lg:px-32 py-10">
+      <div className="px-6 sm:px-8 md:px-16 lg:px-32 py-12">
         {/* Breadcrumb */}
         <ul className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-inter text-[#6E6F70]">
           <li>
