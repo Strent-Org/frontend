@@ -100,22 +100,22 @@ const Listings = () => {
       {/* Hero */}
       <ListingHero />
 
-      <div className="max-w-7xl mx-auto px-12 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-12 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10 mt-6">
         {/* Left Sidebar - Advanced Search, Latest Properties, Advertisement */}
         <aside className="space-y-6 order-1 lg:order-1">
           {/* Advanced Search */}
           <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] border font-inter">
             <h2 className="font-semibold mb-4">Advanced Search</h2>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px]">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option className="text-[#000]  font-[400] text-[14px]">Location</option>
             </select>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px]">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option>Category</option>
             </select>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px]">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option>Property Type</option>
             </select>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px]">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option>Number of Beds</option>
             </select>
 
@@ -124,7 +124,7 @@ const Listings = () => {
               <p className="text-xs sm:text-sm text-center">From NGN 0 to 5,000,000,000</p>
               <input
                 type="range"
-                className="w-full h-2 bg-gray-300 rounded-lg cursor-pointer accent-[#4B3DFE] hover:accent-[#352BB4]"
+                className="w-full h-2 bg-gray-300 rounded-lg cursor-pointer accent-[#4B3DFE] hover:accent-[#352BB4] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
               />
             </div>
             <button className="w-full bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-2 rounded mt-4 text-sm transition-colors">
@@ -250,8 +250,8 @@ const Listings = () => {
                 </div>
 
                 {/* Price & Actions */}
-                <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0 lg:border-l border-[#DDDDE1] pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
-                  <div className="text-left lg:text-right">
+                <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0  pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
+                  <div className="text-left lg:text-right lg:border-l border-[#DDDDE1] lg:pl-6">
                     <p className="text-[18px] font-bold text-[#1E1E1E]">
                       {listing.price}
                     </p>

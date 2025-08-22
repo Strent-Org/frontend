@@ -681,8 +681,8 @@ const ListingDetails = () => {
                         </div>
 
                         {/* Price & Actions */}
-                        <div className="flex flex-col sm:flex-row lg:flex-col items-start justify-between font-inter border-t sm:border-t-0 lg:border-t-0 lg:border-l border-[#DDDDE1] pt-4 sm:pt-0 lg:pt-0 lg:pl-6 w-full lg:w-auto gap-4 sm:gap-0">
-                          <div className="text-left lg:text-right">
+                        <div className="flex flex-col sm:flex-row lg:flex-col items-start justify-between font-inter border-t sm:border-t-0  pt-4 sm:pt-0 lg:pt-0 lg:pl-6 w-full lg:w-auto gap-4 sm:gap-0">
+                          <div className="text-left lg:text-right lg:border-t-0 lg:border-l border-[#DDDDE1] lg:pl-6">
                             <p className="text-[16px] lg:text-[18px] font-bold text-[#1E1E1E]">
                               {similar.price}
                             </p>
