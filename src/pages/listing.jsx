@@ -104,7 +104,7 @@ const Listings = () => {
         {/* Left Sidebar - Advanced Search, Latest Properties, Advertisement */}
         <aside className="space-y-6 order-1 lg:order-1">
           {/* Advanced Search */}
-          <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] border font-inter">
+          <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] font-inter">
             <h2 className="font-semibold mb-4">Advanced Search</h2>
             <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option className="text-[#000]  font-[400] text-[14px]">Location</option>
@@ -133,7 +133,7 @@ const Listings = () => {
           </div>
 
           {/* Latest Properties */}
-          <div className="bg-white rounded-lg p-6 border border-[#DDDDE1] border font-inter">
+          <div className="bg-white rounded-lg p-6 border border-[#DDDDE1] font-inter">
             <h2 className="font-semibold mb-6">Latest Properties</h2>
             {listings.slice(0, 3).map((listing, i) => (
               <Link key={i} to={`/listing/${listing.id}`} className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors">
@@ -177,7 +177,7 @@ const Listings = () => {
           {/* Listings */}
           <div className="space-y-6">
             {listings.map((listing) => (
-              <div key={listing.id} className="bg-white rounded-lg border border-[#DDDDE1] p-6 flex flex-col lg:flex-row gap-6 border">
+              <div key={listing.id} className="bg-white rounded-lg border-[#DDDDE1] p-6 flex flex-col lg:flex-row gap-6 border">
                 {/* Image */}
                 <Link to={`/listing/${listing.id}`} className="rounded relative flex-shrink-0 self-center lg:self-start cursor-pointer">
                   {listing.sponsored && (

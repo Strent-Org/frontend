@@ -22,7 +22,7 @@ const Footer = () => {
             <li className="mb-4 whitespace-nowrap"><a href="/agents">Find an Agent</a></li>
             <li className="mb-4 whitespace-nowrap"><a href="/privacy">Privacy Policy</a></li>
             <li className="whitespace-nowrap mb-4"><a href="/terms">Terms and Agreement</a></li>
-            <li><a href="#">FAQs</a></li>
+            <li><a href="/faqs">FAQs</a></li>
             <li></li>
           </ul>
         </div>

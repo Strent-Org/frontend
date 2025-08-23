@@ -27,11 +27,11 @@ function FaqList({ faq }) {
           <span>
             {" "}
             {isOpen ? (
-              <img src={ArrowUp} className="text-white p-1 min-w-[48px] bg-primary" />
+              <img src={ArrowUp} className="text-white rounded-lg mb-2 p-1 min-w-[48px] bg-primary" />
             ) : (
               <img
                 src={ArrowDown}
-                className="text-neutral-darker p-1 min-w-[48px] bg-neutral-normal"
+                className="text-neutral-darker p-1 rounded-lg mb-2 min-w-[48px] bg-neutral-normal"
               />
             )}{" "}
           </span>

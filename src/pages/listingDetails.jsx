@@ -470,34 +470,34 @@ const ListingDetails = () => {
                         </h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                           <div>
-                            <p className="text-[14px] lg:text-[16px] font-[400] font-inter text-[#1E1E1E] font-medium">
+                            <p className="text-[14px] lg:text-[16px] font-inter text-[#1E1E1E] font-medium">
                               Property Type
                             </p>
-                            <p className="text-[12px] lg:text-[14px] font-[400] font-inter text-[#6E6F70]">
+                            <p className="text-[12px] lg:text-[14px] font-inter text-[#6E6F70]">
                               {listing.propertyType}
                             </p>
                           </div>
                           <div>
-                            <p className="text-[14px] lg:text-[16px] font-[400] font-inter text-[#1E1E1E] font-medium">
+                            <p className="text-[14px] lg:text-[16px] font-inter text-[#1E1E1E] font-medium">
                               Furnishing Status
                             </p>
-                            <p className="text-[12px] lg:text-[14px] font-[400] font-inter text-[#6E6F70]">
+                            <p className="text-[12px] lg:text-[14px] font-inter text-[#6E6F70]">
                               {listing.furnishingStatus}
                             </p>
                           </div>
                           <div>
-                            <p className="text-[14px] lg:text-[16px] font-[400] font-inter text-[#1E1E1E] font-medium">
+                            <p className="text-[14px] lg:text-[16px] font-inter text-[#1E1E1E] font-medium">
                               Total Area
                             </p>
-                            <p className="text-[12px] lg:text-[14px] font-[400] font-inter text-[#6E6F70]">
+                            <p className="text-[12px] lg:text-[14px] font-inter text-[#6E6F70]">
                               {listing.totalArea}
                             </p>
                           </div>
                           <div>
-                            <p className="text-[14px] lg:text-[16px] font-[400] font-inter text-[#1E1E1E] font-medium">
+                            <p className="text-[14px] lg:text-[16px] font-inter text-[#1E1E1E] font-medium">
                               Year Built
                             </p>
-                            <p className="text-[12px] lg:text-[14px] font-[400] font-inter text-[#6E6F70]">
+                            <p className="text-[12px] lg:text-[14px] font-inter text-[#6E6F70]">
                               {listing.yearBuilt}
                             </p>
                           </div>
