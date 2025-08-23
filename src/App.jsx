@@ -13,7 +13,7 @@ import Agents from './pages/agents';
 import InnerAgents from './pages/innerAgents';
 import { Properties, Reviews, Overview } from './pages/innerAgents';
 import Listings from './pages/listing';
-import ListingDetails from './pages/ListingDetails';
+import ListingDetails from './pages/listingDetails';
 import ForgotPassword from './pages/ForgotPassword';
 
 import AboutUs from './pages/AboutUs';
