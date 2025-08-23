@@ -20,9 +20,10 @@ const Footer = () => {
           <ul className="w-full h-fit text-white font-inter text-[14px] sm:text-[1rem] tracking-[0.4%]">
             <li className="mb-4"><a href="/about">About Us</a></li>
             <li className="mb-4 whitespace-nowrap"><a href="/agents">Find an Agent</a></li>
-            <li className="mb-4 whitespace-nowrap"><a href="#">Privacy Policy</a></li>
-            <li className="whitespace-nowrap mb-4"><a href="#">Terms and Agreement</a></li>
-            <li>FAQs</li>
+            <li className="mb-4 whitespace-nowrap"><a href="/privacy">Privacy Policy</a></li>
+            <li className="whitespace-nowrap mb-4"><a href="/terms">Terms and Agreement</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li></li>
           </ul>
         </div>
         <div className="max-w-[20rem]">
