@@ -12,7 +12,8 @@ const Contact = () => {
   return (
     <div className="">
       <ContactHero />
-      <div className="w-full px-4 py-10 md:px-16 lg:px-24 font-['Inter']">
+      <div className="w-full flex justify-center">
+      <div className="w-[960px]  px-4 py-10 md:px-16 :px-[120px] font-['Inter']">
         <div className=" lg:flex md:grid-cols-2 bg-white shadow-lg rounded-xl ">
           {/* Left - Contact Info */}
           <div className="bg-[linear-gradient(89.73deg,#352BB4_0.22%,#4438E7_31.8%,#4B3DFE_54.29%,#6F64FE_75.35%,#867DFE_94.97%)] text-white p-8 flex flex-col w-full lg:w-[385px] lg:rounded-l-xl ">
@@ -112,6 +113,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
