@@ -1,3 +1,4 @@
+
 import "./App.css";
 import "./index.css";
 import { Routes, Route } from "react-router-dom";
@@ -16,9 +17,9 @@ import Listings from "./pages/listing";
 import ListingDetails from "./pages/ListingDetails";
 import ForgotPassword from "./pages/ForgotPassword";
 import Privacy from "./pages/Privacy";
-
 import AboutUs from "./pages/AboutUs";
 import Terms from "./pages/Terms";
+import Contact from './pages/ContactUs';
 
 function App() {
   return (
@@ -40,12 +41,15 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
+
           <Route index element={<Overview />} />
           <Route path="properties" element={<Properties />} />
           <Route path="reviews" element={<Reviews />} />
+
         </Route>
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
