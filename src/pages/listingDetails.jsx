@@ -2,24 +2,16 @@ import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   FaMapMarkerAlt,
-<<<<<<< HEAD
-=======
   FaPhone,
->>>>>>> dev
   FaWhatsapp,
   FaCamera,
   FaBed,
   FaBath,
-<<<<<<< HEAD
-  FaArrowLeft,
-  FaPhone, 
-=======
   FaRuler,
   FaCalendarAlt,
   FaArrowLeft,
   FaHeart,
   FaShare,
->>>>>>> dev
 } from "react-icons/fa";
 import ListImage from "../assets/images/unsplash_t33SZJ_ZboQ.png";
 import AgentImage from "../assets/images/Frame 803.png";
@@ -27,26 +19,16 @@ import VerifiedBadge from "../assets/images/verified.png";
 import like from "../assets/icons/like.svg";
 import share from "../assets/icons/share.svg";
 import arrowLeft from "../assets/icons/arrow-left.svg";
-<<<<<<< HEAD
 import PropertyBadge from "../assets/images/verified-property.png";
 import InnerShortletHero from "../components/shortlet/InnerShortletHero";
-=======
->>>>>>> dev
 
 const ListingDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-<<<<<<< HEAD
   // const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("overview");
 
   // Mock data for listings
-=======
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // Mock data for listings
-
->>>>>>> dev
   const listings = [
     {
       id: 1,
@@ -298,16 +280,10 @@ const ListingDetails = () => {
 
   if (!listing) {
     return (
-<<<<<<< HEAD
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Property Not Found</h1>
           <p className="mb-4">Looking for property with ID: {id}</p>
-=======
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Property Not Found</h1>
->>>>>>> dev
           <Link to="/listings" className="text-[#4B3DFE] hover:underline">
             Back to Listings
           </Link>
@@ -316,7 +292,6 @@ const ListingDetails = () => {
     );
   }
 
-<<<<<<< HEAD
   // const nextImage = () => {
   //   setCurrentImageIndex((prev) =>
   //     prev === listing.images.length - 1 ? 0 : prev + 1
@@ -730,234 +705,10 @@ const ListingDetails = () => {
                         </div>
                       </div>
                     ))}
-=======
-  const nextImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === listing.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? listing.images.length - 1 : prev - 1
-    );
-  };
-
-  return (
-    <div className="bg-gray-50 min-h-screen">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="">
-          <div className="flex items-center gap-4">
-            <div className="flex-1">
-              <p className="text-xs text-[#6E6F70]">
-                Home &gt; Listings &gt;{" "}
-                <span className="text-[#6E6F70]">{listing.title}</span>
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <button className="p-2 ">
-                <img src={like} alt="Like" className="w-[20px] h-[18px]" />
-              </button>
-              <button className="p-2 ">
-                <img src={share} alt="share" className="w-[20px] h-[18px]" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-1 text-[#1E1E1E] font-[600] "
-        >
-          <img src={arrowLeft} alt="icon" className="w-[20px] h-[18px]" /> Back
-          to search results
-        </button>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Agent Info */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-xl font-semibold mb-4">Contact Agent</h2>
-              <div className="mb-4">
-                <div className="flex items-center gap-3 ">
-                  <img
-                    src={AgentImage}
-                    alt={listing.agent}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-semibold">{listing.agent}</h3>
-                      <img
-                        src={VerifiedBadge}
-                        alt="Verified"
-                        className="w-4 h-4"
-                      />
-                    </div>
-                    <p className="text-sm text-[#FF6B57] font[400]">
-                      Varified Agent
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm text-[#1E1E1E] font[400]">
-                  View more properties from this link <span>agent</span>
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <button className="w-full bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold">
-                  show phone number
-                </button>
-              </div>
-            </div>
-
-            {/* Request Tour */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-xl font-semibold mb-4">Request a Tour</h2>
-              <form className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    placeholder="Your Phone"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    placeholder="Message (optional)"
-                    rows="3"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
-                  ></textarea>
-                </div>
-                <button className="w-full border border-[#4B3DFE] text-[#4B3DFE] hover:bg-[#4B3DFE] hover:text-white py-3 rounded-lg font-semibold transition-colors">
-                  Enquire Now
-                </button>
-                <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 font-semibold">
-                  <FaWhatsapp />
-                  WhatsApp
-                </button>
-              </form>
-            </div>
-
-            {/* Similar Properties */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-xl font-semibold mb-4">Similar Properties</h2>
-              <div className="space-y-4">
-                {listings
-                  .slice(0, 3)
-                  .filter((l) => l.id !== listing.id)
-                  .map((similar) => (
-                    <Link
-                      key={similar.id}
-                      to={`/listing/${similar.id}`}
-                      className="flex gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
-                    >
-                      <img
-                        src={similar.images[0]}
-                        alt={similar.title}
-                        className="w-16 h-16 object-cover rounded"
-                      />
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold line-clamp-2">
-                          {similar.title}
-                        </h4>
-                        <p className="text-xs text-gray-600">
-                          {similar.location}
-                        </p>
-                        <p className="text-sm font-bold text-[#4B3DFE]">
-                          {similar.price}
-                          {similar.priceType}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-            </div>
-            {/* Advertisement */}
-            <div className="bg-[#EDECFF] rounded-lg shadow-sm p-10">
-                <h2 className="text-xl font-semibold mb-4 text-center">Advertise/market your property on Strent</h2>
-                <button className="w-full border border-[#4B3DFE]  bg-[#4B3DFE] text-white py-3 rounded-lg font-semibold transition-colors">
-                  Enquire Now
-                </button>
-            </div>
-          </div>
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Image Gallery */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <div className="relative">
-                <img
-                  src={listing.images[currentImageIndex]}
-                  alt={listing.title}
-                  className="w-full h-[400px] object-cover"
-                />
-                {listing.sponsored && (
-                  <span className="absolute top-4 left-0 bg-[#FF6B57] text-white text-sm px-3 py-1 rounded-r-md">
-                    Sponsored
-                  </span>
-                )}
-                <div className="absolute bottom-4 right-4 bg-black bg-opacity-60 text-white text-sm px-3 py-1 rounded flex items-center gap-1">
-                  <FaCamera /> {currentImageIndex + 1} / {listing.images.length}
-                </div>
-
-                {/* Navigation arrows */}
-                {listing.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full"
-                    >
-                      <FaArrowLeft />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full"
-                    >
-                      <FaArrowLeft className="transform rotate-180" />
-                    </button>
-                  </>
-                )}
-              </div>
-
-              {/* Thumbnail strip */}
-              <div className="p-4">
-                <div className="flex gap-2 overflow-x-auto">
-                  {listing.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`${listing.title} ${index + 1}`}
-                      className={`w-16 h-16 object-cover rounded cursor-pointer flex-shrink-0 ${
-                        index === currentImageIndex
-                          ? "ring-2 ring-[#4B3DFE]"
-                          : ""
-                      }`}
-                      onClick={() => setCurrentImageIndex(index)}
-                    />
-                  ))}
->>>>>>> dev
                 </div>
               </div>
             </div>
 
-<<<<<<< HEAD
             {/* Sidebar - Second on Mobile, First Column on Desktop */}
             <div className="order-2 lg:order-1 space-y-4 lg:space-y-6 mt-6 lg:mt-0">
               {/* Agent Info */}
@@ -1046,122 +797,6 @@ const ListingDetails = () => {
                 <button className="w-full border border-[#4B3DFE] bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-3 rounded-lg font-semibold transition-colors text-sm lg:text-base">
                   Enquire Now
                 </button>
-=======
-            {/* Property Details */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h1 className="text-2xl font-bold text-[#1E1E1E] mb-2">
-                    {listing.title}
-                  </h1>
-                  <div className="flex items-center gap-2 text-gray-600 mb-2">
-                    <FaMapMarkerAlt />
-                    <span>{listing.location}</span>
-                  </div>
-                <div className="text-left">
-                  <p className="text-2xl font-bold text-[#1E1E1E]">
-                    {listing.price}
-                    <span className="text-sm font-normal">
-                      {listing.priceType}
-                    </span>
-                  </p>
-                  <p><span>{listing.title} To let at {listing.location}</span></p>
-                  {/* <p className="text-sm text-green-600 font-semibold">
-                    {listing.availability}
-                  </p> */}
-                </div>
-                </div>
-        
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y">
-                <div className="flex items-center gap-2">
-                  <FaBed className="text-[#4B3DFE]" />
-                  <span className="text-sm">{listing.bedrooms} Bedrooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaBath className="text-[#4B3DFE]" />
-                  <span className="text-sm">{listing.bathrooms} Bathrooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaRuler className="text-[#4B3DFE]" />
-                  <span className="text-sm">{listing.totalArea}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCalendarAlt className="text-[#4B3DFE]" />
-                  <span className="text-sm">Built {listing.yearBuilt}</span>
-                </div>
-              </div>
-
-              {/* Description */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">Description</h2>
-                <p className="text-gray-700 leading-relaxed">
-                  {listing.fullDescription}
-                </p>
-              </div>
-
-              {/* Property Details */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">Property Details</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-600">Property Type</p>
-                    <p className="font-semibold">{listing.propertyType}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Furnishing Status</p>
-                    <p className="font-semibold">{listing.furnishingStatus}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Total Area</p>
-                    <p className="font-semibold">{listing.totalArea}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Year Built</p>
-                    <p className="font-semibold">{listing.yearBuilt}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Amenities */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">Amenities</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {listing.amenities.map((amenity, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-[#4B3DFE] rounded-full"></div>
-                      <span className="text-sm">{amenity}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Pricing Breakdown */}
-              <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-3">
-                  Pricing Breakdown
-                </h2>
-                <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                  <div className="flex justify-between">
-                    <span>Annual Rent</span>
-                    <span className="font-semibold">{listing.price}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Service Charge</span>
-                    <span>{listing.serviceCharge}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Legal Fee</span>
-                    <span>{listing.legalFee}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Agency Fee</span>
-                    <span>{listing.agencyFee}</span>
-                  </div>
-                </div>
->>>>>>> dev
               </div>
             </div>
           </div>
@@ -1171,8 +806,4 @@ const ListingDetails = () => {
   );
 };
 
-<<<<<<< HEAD
 export default ListingDetails;
-=======
-export default ListingDetails;
->>>>>>> dev
