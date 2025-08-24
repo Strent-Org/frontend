@@ -1,6 +1,6 @@
 import { useState } from "react";
-import StarFilled from "/Users/user/Desktop/frontend/src/assets/icons/star-filled.svg";
-import StarBlank from "/Users/user/Desktop/frontend/src/assets/icons/star-blank.svg";
+import StarFilled from "../../assets/icons/star-filled.svg";
+import StarBlank from "../../assets/icons/star-blank.svg";
 
 export default function StarRating () {
     const [rating, setRating] = useState(0)
