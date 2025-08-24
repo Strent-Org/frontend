@@ -1,7 +1,7 @@
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="h-fit w-full px-[6rem] py-[4rem] sm:px-[9.6rem] sm:py-[4.5rem] bg-[#201A6B]">
+    <footer className="h-fit w-full px-[4rem] py-[4rem] sm:px-[9.6rem] sm:py-[4.5rem] bg-[#201A6B]">
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 sm:gap-16 lg:flex lg:items-start lg:gap-14">
         <div className="max-w-[18rem]">
           {/* <h3 className="text-2xl font-bold text-white mb-4 font-sora">LOGO</h3> */}
@@ -58,7 +58,7 @@ const Footer = () => {
           <h3 className="sm:text-xl text-lg font-bold text-white mb-4 font-sora leading-7 tracking-[1.12%] whitespace-nowrap">
             Follow Us
           </h3>
-          <div className="sm:flex flex-cols sm:gap-4">
+          <div className="flex gap-2 sm:gap-4">
             <a className="font-inter cursor-pointer" href="#">
               <img className="sm:h-9 h-7 mb-4 transition-transform duration-300 ease-in-out hover:scale-110" src="/facebook.png" alt="Facebook Logo" />
             </a>
