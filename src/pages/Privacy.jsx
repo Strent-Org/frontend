@@ -1,7 +1,12 @@
 
 const Privacy = () => {
   return (
-    <section className="w-full">
+    <section className="w-full relative">
+      <img
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
       <div className="px-6 sm:px-8 md:px-16 lg:px-32 py-12">
         {/* Breadcrumb */}
         <ul className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-inter text-[#6E6F70]">

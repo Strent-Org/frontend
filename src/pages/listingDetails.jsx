@@ -304,7 +304,12 @@ const ListingDetails = () => {
       {/* Header */}
       <InnerShortletHero />
       
-      <div className="mx-4 lg:mx-[30px]">
+      <div className="mx-4 lg:mx-20 relative">
+        <img
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
         <div className="max-w-7xl mx-auto px-0 lg:px-4 mt-2">
           <div className="">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">

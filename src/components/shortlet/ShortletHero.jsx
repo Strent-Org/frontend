@@ -7,12 +7,12 @@ const ShortletHero = () => {
       }}
     >
       <div className="flex flex-col items-start my-auto justify-center">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 font-inter">
           <p className="text-sm sm:text-base text-[#E9E9E9]">Home</p>
           <p className="text-sm sm:text-base text-[#E9E9E9]">&gt;</p>
           <p className="text-sm sm:text-base text-[#FF6B57]">Shortlets</p>
         </div>
-        <p className="font-bold text-white text-3xl sm:text-4xl md:text-5xl">Shortlets</p>
+        <p className="font-bold text-white text-3xl sm:text-4xl md:text-5xl font-sora">Shortlets</p>
       </div>
     </section>
   );

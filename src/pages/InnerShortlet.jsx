@@ -66,7 +66,7 @@ const InnerShortlet = () => {
         </div>
 
         {/* Two-Column Layout */}
-        <div className="flex flex-col p-4 lg:flex-row mt-8 gap-6">
+        <div className="flex flex-col p-1 lg:flex-row mt-8 gap-6">
           {/* Left Sidebar */}
           <InnerShortletLeft />
 

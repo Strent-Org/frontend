@@ -100,7 +100,12 @@ const Listings = () => {
       {/* Hero */}
       <ListingHero />
 
-      <div className="max-w-7xl mx-auto px-12 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10 mt-6">
+      <div className="relative max-w-7xl mx-auto px-20 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10 mt-6">
+        <img
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
         {/* Left Sidebar - Advanced Search, Latest Properties, Advertisement */}
         <aside className="space-y-6 order-1 lg:order-1">
           {/* Advanced Search */}

@@ -4,7 +4,7 @@ import ShortletCards from "./ShortletCards";
 const InnerShortletRight = () => {
   const [activeTab, setActiveTab] = useState("Overview");
   return (
-    <div className="flex-[2.6] flex flex-col gap-4 order-1 lg:order-2">
+    <div className="flex-[2.7] flex flex-col gap-4 order-1 lg:order-2">
       {/* Property Title - 2 Bedroom Apartment With Notch Amenities */}
       <div className="flex flex-col gap-4">
         <h1 className="text-xl sm:text-2xl font-bold text-[#1E1E1E]">
