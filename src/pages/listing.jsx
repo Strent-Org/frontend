@@ -4,6 +4,7 @@ import AgentImage from "../assets/images/Frame 803.png";
 import VerifiedBadge from "../assets/images/verified.png";
 import AdvertImage from "../assets/images/advert2.png";
 import { FaMapMarkerAlt, FaPhone, FaWhatsapp, FaCamera } from "react-icons/fa";
+import ListingHero from '../components/Listing/ListingHero.jsx';
 import ListingHero from "../components/Listing/ListingHero.jsx";
 
 const Listings = () => {
@@ -99,22 +100,27 @@ const Listings = () => {
       {/* Hero */}
       <ListingHero />
 
-      <div className="max-w-7xl mx-auto px-12 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Left Sidebar */}
+      <div className="relative max-w-7xl mx-auto px-20 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10 mt-6">
+        <img
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
+        {/* Left Sidebar - Advanced Search, Latest Properties, Advertisement */}
         <aside className="space-y-6 order-1 lg:order-1">
           {/* Advanced Search */}
-          <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] font-inter">
+          <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] border font-inter">
             <h2 className="font-semibold mb-4">Advanced Search</h2>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] text-sm">
-              <option>Location</option>
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
+              <option className="text-[#000]  font-[400] text-[14px]">Location</option>
             </select>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] text-sm">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option>Category</option>
             </select>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] text-sm">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option>Property Type</option>
             </select>
-            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] text-sm">
+            <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
               <option>Number of Beds</option>
             </select>
 
@@ -125,7 +131,7 @@ const Listings = () => {
               </p>
               <input
                 type="range"
-                className="w-full h-2 bg-gray-300 rounded-lg cursor-pointer accent-[#4B3DFE] hover:accent-[#352BB4]"
+                className="w-full h-2 bg-gray-300 rounded-lg cursor-pointer accent-[#4B3DFE] hover:accent-[#352BB4] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
               />
             </div>
             <button className="w-full bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-2 rounded mt-4 text-sm transition-colors">
@@ -134,21 +140,19 @@ const Listings = () => {
           </div>
 
           {/* Latest Properties */}
-          <div className="bg-white rounded-lg p-6 border border-[#DDDDE1] font-inter">
+          <div className="bg-white rounded-lg p-6 border border-[#DDDDE1] border font-inter">
             <h2 className="font-semibold mb-6">Latest Properties</h2>
             {listings.slice(0, 3).map((listing, i) => (
-              <Link
-                key={i}
-                to={`/listing/${listing.id}`}
-                className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors"
-              >
-                <img
-                  src={ListImage}
-                  alt="Listing"
-                  className="w-[78px] h-[78px] object-cover rounded-lg"
-                />
+              <Link key={i} to={`/listing/${listing.id}`} className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors">
+                <div className=''>
+                  <img
+                    src={ListImage}
+                    alt="Listing"
+                    className="w-[78px] h-[78px] object-cover rounded-[8px]"
+                  />
+                </div>
                 <div>
-                  <h3 className="text-sm mb-1 hover:text-[#4B3DFE]">
+                  <h3 className="font-[400] text-[14px] mb-1 hover:text-[#4B3DFE]">
                     {listing.title}
                   </h3>
                   <span className="text-xs text-[#FF6B57] font-semibold">
@@ -184,10 +188,7 @@ const Listings = () => {
           {/* Listings */}
           <div className="space-y-6">
             {listings.map((listing) => (
-              <div
-                key={listing.id}
-                className="bg-white rounded-lg border border-[#DDDDE1] p-6 flex flex-col lg:flex-row gap-6"
-              >
+              <div key={listing.id} className="bg-white rounded-lg border border-[#DDDDE1] p-6 flex flex-col lg:flex-row gap-6 border">
                 {/* Image */}
                 <Link
                   to={`/listing/${listing.id}`}
@@ -261,8 +262,8 @@ const Listings = () => {
                 </div>
 
                 {/* Price & Actions */}
-                <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0 lg:border-l border-[#DDDDE1] pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
-                  <div className="text-left lg:text-right">
+                <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0  pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
+                  <div className="text-left lg:text-right lg:border-l border-[#DDDDE1] lg:pl-6">
                     <p className="text-[18px] font-bold text-[#1E1E1E]">
                       {listing.price}
                     </p>
@@ -285,15 +286,9 @@ const Listings = () => {
 
           {/* Pagination */}
           <div className="flex justify-center mt-12 space-x-2">
-            <button className="px-4 py-2 border rounded hover:bg-gray-100">
-              1
-            </button>
-            <button className="px-4 py-2 border rounded hover:bg-gray-100">
-              2
-            </button>
-            <button className="px-4 py-2 border rounded hover:bg-gray-100">
-              3
-            </button>
+            <button className="px-4 py-2 border rounded hover:bg-gray-100">1</button>
+            <button className="px-4 py-2 border rounded hover:bg-gray-100  ">2</button>
+            <button className="px-4 py-2 border rounded hover:bg-gray-100">3</button>
             <span className="px-4 py-2">...</span>
             <button className="px-4 py-2 border rounded hover:bg-gray-100">
               Next

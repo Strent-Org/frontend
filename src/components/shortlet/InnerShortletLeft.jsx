@@ -12,13 +12,16 @@ const InnerShortletLeft = () => {
                   src="/personImage.png"
                   alt="Owner"
                 />
-                <div className="flex item-center gap-1">
-                  <p className="font-semibold text-[#1E1E1E]">Prince Ademola</p>
-                  <img
-                    className="w-5 h-5"
-                    src="/bitcoin-icons_verify-filled.png"
-                    alt="Verified"
-                  />
+                <div>
+                  <div className="flex item-center gap-1">
+                    <p className="text-[#1E1E1E] font-inter">Prince Ademola</p>
+                    <img
+                      className="w-5 h-5"
+                      src="/bitcoin-icons_verify-filled.png"
+                      alt="Verified"
+                    />
+                  </div>
+                  <p className="font-inter text-[#FF6B57] text-sm">Verified Agent</p>
                 </div>
               </div>
               <span className="text-xs text-[#1E1E1E]">
