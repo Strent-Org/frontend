@@ -197,7 +197,7 @@ const SignupForm = () => {
               } cursor-pointer text-[#B9B9B9] bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
             >
               <option value="">Select Account Type</option>
-              <option value="Landload">Landload</option>
+              <option value="Landload">Landlord</option>
               <option value="Tenant">Tenant</option>
               <option value="Agent">Agent</option>
             </select>

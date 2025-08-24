@@ -5,7 +5,6 @@ import VerifiedBadge from "../assets/images/verified.png";
 import AdvertImage from "../assets/images/advert2.png";
 import { FaMapMarkerAlt, FaPhone, FaWhatsapp, FaCamera } from "react-icons/fa";
 import ListingHero from '../components/Listing/ListingHero.jsx';
-import ListingHero from "../components/Listing/ListingHero.jsx";
 
 const Listings = () => {
   const listings = [
