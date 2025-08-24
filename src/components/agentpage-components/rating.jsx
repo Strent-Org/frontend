@@ -2,12 +2,12 @@ import { useState } from "react";
 import StarFilled from "../../assets/icons/star-filled.svg";
 import StarBlank from "../../assets/icons/star-blank.svg";
 
-export default function StarRating () {
-    const [rating, setRating] = useState(0)
-    const [hover, setHover] = useState(0)
+export default function StarRating() {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
   return (
     <div className="flex text-base gap-4">
-        <p>Rating:</p>
+      <p>Rating:</p>
       <div className="flex space-x-2">
         {/* Create an array of 5 items to map over, from 1 to 5 */}
         {[...Array(5)].map((_, index) => {
@@ -38,4 +38,4 @@ export default function StarRating () {
       </div>
     </div>
   );
-};  
+}

@@ -30,7 +30,7 @@ const LoginForm = () => {
           } else if (response.data.accountType === 'Landlord') {
             navigate('/posting');
           } else if (response.data.accountType === 'Agent') {
-            navigate('/agent');
+            navigate('/agents');
           } else {
             // Handle any other account types or unexpected values
             console.error('Unexpected account type:', response.data.accountType);
@@ -78,7 +78,7 @@ const LoginForm = () => {
           {/* Forgot Password Link */}
           <div className="text-right mb-4 font-inter text-[14px] font-semibold">
             <Link
-              to={"/forgot-password"}
+              to="/forgot-password"
               className="text-sm text-primary hover:text-primary/80 transition-colors" 
             >
               Forgot Password ?
