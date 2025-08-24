@@ -12,7 +12,7 @@ const ContactHero = () => {
           <p className="text-[16px] sm:text-base text-[#E9E9E9] font-inter">&gt;</p>
           <p className="text-[16px] sm:text-base text-[#FF6B57] font-inter">Contact Us</p>
         </div>
-        <p className="font-bold text-white text-[32px] sm:text-4xl md:text-5xl font-sora">Contact Us</p>
+        <p className="font-bold text-white text-3xl sm:text-4xl md:text-5xl font-sora">Contact Us</p>
       </div>
     </section>
   );

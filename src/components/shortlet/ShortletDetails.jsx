@@ -207,7 +207,7 @@ const ShortletDetails = () => {
       </div>
 
       {/* Right side */}
-      <div className="flex-[2.6] w-full mt-6 sm:mt-0">
+      <div className="flex-[2.7] w-full mt-6 sm:mt-0">
         <div className="flex flex-col gap-5 w-full lg:ml-6">
           <div className="border-2 border-gray-300 rounded-lg px-4 w-full flex items-center justify-between text-sm text-gray-700">
             <p>Showing 1 – 10 of 150 results</p>

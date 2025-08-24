@@ -1,6 +1,6 @@
 const ShortletCards = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row gap-4 p-4 border-2 border-[#DDDDE1] rounded-lg">
+    <div className="w-full flex flex-col md:flex-row gap-4 p-2 border-2 border-[#DDDDE1] rounded-lg">
               {/* Image + Sponsored */}
               <div className="relative md:flex-[4] w-full md:w-auto">
                 <img
