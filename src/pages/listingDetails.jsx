@@ -6,7 +6,6 @@ import {
   FaCamera,
   FaBed,
   FaBath,
-  FaArrowLeft,
   FaPhone, 
 } from "react-icons/fa";
 import ListImage from "../assets/images/unsplash_t33SZJ_ZboQ.png";

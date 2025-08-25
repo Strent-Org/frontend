@@ -17,6 +17,9 @@ import ListingDetails from './pages/listingDetails';
 import ForgotPassword from './pages/ForgotPassword';
 
 import AboutUs from './pages/AboutUs';
+import Contact from './pages/ContactUs';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 function App() {
   return (
