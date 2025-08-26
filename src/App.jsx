@@ -20,6 +20,7 @@ import AboutUs from './pages/AboutUs';
 import Contact from './pages/ContactUs';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import Faqs from "./pages/Faq";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         </Route>
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/faqs" element={<Faqs />} />
       </Routes>
       {/* footer should be here */}
       <Footer />

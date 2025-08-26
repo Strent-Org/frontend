@@ -38,7 +38,7 @@ function FaqList({ faq }) {
             ) : (
               <img
                 src={ArrowDown}
-                className="text-neutral-darker p-1 min-w-[48px] bg-neutral-normal"
+                className="text-neutral-darker p-1 rounded-lg mb-2 min-w-[48px] bg-neutral-normal"
               />
             )}{" "}
           </span>
