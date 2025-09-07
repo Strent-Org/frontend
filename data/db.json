@@ -31,6 +31,41 @@
       "password": "00000000Hh1&",
       "phoneNumber": "1234567000",
       "agreeToTerms": true
+    },
+    {
+      "id": "oluchi@gmail.com",
+      "accountType": "Agent",
+      "fullName": "oluchi something",
+      "password": "00000000Hh1&",
+      "phoneNumber": "0918888811",
+      "agreeToTerms": true
+    }
+  ],
+  "messages": [
+    {
+      "id": "edf7",
+      "fullName": "Abdullahi Abdulkadir",
+      "email": "graphgeo02@gmail.com",
+      "subject": "Scheduling a call",
+      "message": "Hi,\nI would like to book a meeting with you to know more about your selling properties.\nThank you.",
+      "timestamp": "2025-09-07T09:11:50.559Z"
+    }
+  ],
+  "newsletter-subscribers": [
+    {
+      "id": "aaf9",
+      "email": "abdullahi@gmail.com",
+      "subscribedAt": "2025-09-07T21:21:58.674Z"
+    },
+    {
+      "id": "bdb7",
+      "email": "abdullahiabdulkadir621@gmail.com",
+      "subscribedAt": "2025-09-07T21:22:25.210Z"
+    },
+    {
+      "id": "232e",
+      "email": "123@gmail.com",
+      "subscribedAt": "2025-09-07T21:22:53.772Z"
     }
   ]
 }
