@@ -1,4 +1,44 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+
+
+
+
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    try {
+      // First, check if the email already exists in the database
+      const checkResponse = await axios.get(`http://localhost:8080/newsletter-subscribers?email=${email}`);
+      
+      if (checkResponse.data.length > 0) {
+        // If the email exists, set the status to 'exists' and stop
+        setStatus('exists');
+        return;
+      }
+
+      // If the email does not exist, proceed with the new subscription
+      const postResponse = await axios.post('http://localhost:8080/newsletter-subscribers', {
+        email: email,
+        subscribedAt: new Date().toISOString()
+      });
+
+      console.log('Successfully subscribed:', postResponse.data);
+      setStatus('success');
+      setEmail(''); // Clear the input field
+
+    } catch (error) {
+      console.error('Subscription error:', error);
+      setStatus('error');
+    }
+  };
+
+
+
   const year = new Date().getFullYear();
   return (
     <footer className="h-fit w-full px-[4rem] py-[4rem] sm:px-[9.6rem] sm:py-[4.5rem] bg-[#201A6B]">
@@ -47,14 +87,39 @@ const Footer = () => {
           <h3 className="sm:text-xl text-lg font-bold text-white mb-4 font-sora leading-7 tracking-[1.12%]">
             Newsletter
           </h3>
-          <div className="flex mb-4">
+          
+
+
+          <form onSubmit={handleSubmit} className="flex mb-4">
             <input
               className="sm:h-8 h-2 rounded-l-xl sm:w-[13rem] w-[8rem] p-4 flex item-center flex-start font-inter"
               placeholder="Enter Email"
-              type="text"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === 'submitting'}
+              required
             />
-            <img className="h-8" src="/arrow-right.png" alt="Right Arrow" />
-          </div>
+            <button
+              type="submit"
+              className="bg-blue-600 text-white rounded-r-xl px-4 py-2 flex items-center justify-center transition hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={status === 'submitting'}
+            >
+              {/* Using a simple SVG for the arrow */}
+              <svg className="w-5 h-4 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </form>
+          {status === 'success' && (
+            <p className="text-green-600 mt-2">Thank you for joining our mailing list!</p>
+          )}
+          {status === 'error' && (
+            <p className="text-red-600 mt-2">There was an error. Please try again.</p>
+          )}
+           {status === 'exists' && (
+            <p className="text-yellow-400 mt-2">This email is already on our mailing list.</p>
+          )}
           <h3 className="sm:text-xl text-lg font-bold text-white mb-4 font-sora leading-7 tracking-[1.12%] whitespace-nowrap">
             Follow Us
           </h3>
