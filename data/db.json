@@ -66,6 +66,147 @@
       "id": "232e",
       "email": "123@gmail.com",
       "subscribedAt": "2025-09-07T21:22:53.772Z"
+    },
+    {
+      "id": "fe8c",
+      "email": "graphgeo02@gmail.com",
+      "subscribedAt": "2025-09-08T08:30:09.450Z"
+    }
+  ],
+  "agents": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phoneNumber": "555-1234",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B1",
+      "numberOfProperties": 8,
+      "listings": "View Listings"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phoneNumber": "555-5678",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B2",
+      "numberOfProperties": 12,
+      "listings": "View Listings"
+    },
+    {
+      "id": "3",
+      "name": "Peter Jones",
+      "email": "peter.jones@example.com",
+      "phoneNumber": "555-8765",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B3",
+      "numberOfProperties": 5,
+      "listings": "View Listings"
+    },
+    {
+      "id": "4",
+      "name": "Mary Brown",
+      "email": "mary.brown@example.com",
+      "phoneNumber": "555-4321",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B4",
+      "numberOfProperties": 15,
+      "listings": "View Listings"
+    },
+    {
+      "id": "5",
+      "name": "Michael Green",
+      "email": "michael.green@example.com",
+      "phoneNumber": "555-9876",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B5",
+      "numberOfProperties": 9,
+      "listings": "View Listings"
+    },
+    {
+      "id": "6",
+      "name": "Sarah Davis",
+      "email": "sarah.davis@example.com",
+      "phoneNumber": "555-1122",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B6",
+      "numberOfProperties": 7,
+      "listings": "View Listings"
+    },
+    {
+      "id": "7",
+      "name": "Chris Taylor",
+      "email": "chris.taylor@example.com",
+      "phoneNumber": "555-3344",
+      "imageUrl": "https://www.google.com/search?q=https://placehold.co/304x200/50B4FF/FFFFFF%3Ftext%3DAgent%2B7",
+      "numberOfProperties": 10,
+      "listings": "View Listings"
+    },
+    {
+      "id": "b02b",
+      "name": "Abdullahi Abdulkadir",
+      "email": "graphgeo02@gmail.com",
+      "phoneNumber": "08166161213",
+      "imageUrl": "blob:http://localhost:5173/985a78e1-8fa6-4bee-a1c6-ee5b341b8895",
+      "numberOfProperties": "2",
+      "listings": "View Listings"
+    }
+  ],
+  "properties": [
+    {
+      "id": 1,
+      "agentId": 1,
+      "name": "Studio Pentfloor, Ikate, Lekki",
+      "content": "Studio Pentfloor,Ikate, Lekki Ikate Lekki Lagos",
+      "location": "Ikate, Lekki, Lagos",
+      "imageUrl": "https://placehold.co/200x150/A0A0A0/FFFFFF?text=Property+1",
+      "profPic": "https://placehold.co/20x20/A0A0A0/FFFFFF?text=A",
+      "agent": "Kemi Adeyinka",
+      "price": "₦ 65,000/day",
+      "content2": "Updated 17 Jul 2025, Added 07 Jul 2025"
+    },
+    {
+      "id": 2,
+      "agentId": 1,
+      "name": "Luxury Villa, Lekki Phase 1",
+      "content": "Spacious luxury villa with modern amenities.",
+      "location": "Lekki Phase 1, Lagos",
+      "imageUrl": "https://placehold.co/200x150/A0A0A0/FFFFFF?text=Property+2",
+      "profPic": "https://placehold.co/20x20/A0A0A0/FFFFFF?text=A",
+      "agent": "Kemi Adeyinka",
+      "price": "₦ 1,200,000/month",
+      "content2": "Updated 17 Jul 2025, Added 07 Jul 2025"
+    },
+    {
+      "id": 3,
+      " agentId": 2,
+      "name": "3-Bedroom Apartment, Oniru",
+      "content": "Modern 3-bedroom apartment with great views.",
+      "location": "Oniru, Lagos",
+      "imageUrl": "https://placehold.co/200x150/A0A0A0/FFFFFF?text=Property+3",
+      "profPic": "https://placehold.co/20x20/A0A0A0/FFFFFF?text=B",
+      "agent": "John Doe",
+      "price": "₦ 800,000/month",
+      "content2": "Updated 16 Jul 2025, Added 05 Jul 2025"
+    },
+    {
+      " id": 4,
+      " agentId": 1,
+      "  name": "Penthouse, Victoria Island",
+      "content": "Luxury penthouse with a view of the Atlantic ocean.",
+      "location": "Victoria Island, Lagos",
+      "imageUrl": "https://placehold.co/200x150/A0A0A0/FFFFFF?text=Property+4",
+      "profPic": "https://placehold.co/20x20/A0A0A0/FFFFFF?text=A",
+      "agent": "Kemi Adeyinka",
+      "price": "₦ 200,000/day",
+      "content2": "Updated 15 Jul 2025, Added 01 Jul 2025"
+    },
+    {
+      "id": 5,
+      "agentId": 1,
+      " name": "Apartment, Ikoyi",
+      "content": "Modern serviced apartment in a serene part of Ikoyi.",
+      "location": "Ikoyi, Lagos",
+      "imageUrl": "https://placehold.co/200x150/A0A0A0/FFFFFF?text=Property+5",
+      "profPic": "https://placehold.co/20x20/A0A0A0/FFFFFF?text=A",
+      "agent": "Kemi Adeyinka",
+      "price": "₦ 150,000/day",
+      "content2": "Updated 14 Jul 2025, Added 28 Jun 2025"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import Forward from "../assets/icons/forward.svg";
-import { useState } from "react";
+// import { useState } from "react";
 import { newAgentsList as agents, properties } from "../data/agentpagedata";
 import { useParams } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
@@ -11,14 +11,32 @@ import Call from "../assets/icons/call.svg";
 import Rating from "../components/agentpage-components/rating";
 import Pagination from "../components/agentpage-components/pagination";
 import ChatIcon from "../assets/icons/chat.svg";
+import axios from 'axios';
+import { useState, useEffect } from "react";
+
+
 
 
 export default function InnerAgents() {
   const { id } = useParams();
-  const agent = agents.find((agent) => agent.id === parseInt(id));
-  if (!agent) {
-    return <p>Agent not found</p>;
-  }
+  const [agent, setAgent ] = useState({});
+  const [property, setProperties] = useState([]);
+  // const agent = agents.find((agent) => agent.id === parseInt(id));
+  // if (!agent) {
+  //   return <p>Agent not found</p>;
+  // }
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/agents/${id}`)
+      .then(response => setAgent(response.data))
+      .catch(error => console.error("Error fetching agent:", error));
+
+   axios.get(`http://localhost:8080/properties?agentId=${Number(id)}`)
+      .then(response => setProperties(response.data))
+      .catch(error => console.error("Error fetching properties:", error));
+  }, [id]);
+
+  if (!agent || !agent.name) return <p>Loading agent...</p>; // ✅ prevents crash
 
   return (
     <main className="font-inter px-[15%] py-8 flex flex-col gap-8 bg-neutral relative">
@@ -65,7 +83,7 @@ export default function InnerAgents() {
           >
             <div id="agent-image" className="p-2">
               <img
-                src={agent.imageUrl2}
+                src={agent.imageUrl}
                 alt={agent.name}
                 className="rounded-md"
               />
