@@ -154,7 +154,7 @@ const SignupForm = () => {
                    redir('/');
                   
                   }else if(newUser.accountType === 'Landlord'){
-                    redir('/posting')
+                    redir('/post-property')
                   }else{
                     redir('/agents')
                   }

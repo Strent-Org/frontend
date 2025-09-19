@@ -15,6 +15,10 @@ import { Properties, Reviews, Overview } from './pages/innerAgents';
 import Listings from './pages/listing';
 import ListingDetails from './pages/listingDetails';
 import ForgotPassword from './pages/ForgotPassword';
+import PostProperties from './pages/PostProperties';
+// import EditProperty from './pages/EditProperty';
+// import { Reviews } from './pages/innerAgents';
+
 
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/ContactUs';
@@ -27,10 +31,6 @@ function App() {
     <div className="main relative">
       {/* nav should be here */}
       <Nav />
-      {/* main content should be here */}
-      {/* section should he here rout */}
-
-      {/* section should be here route */}
 
       <Routes>
         <Route path="*" element={<NotFound />} />
@@ -39,6 +39,8 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/shortlet" element={<Shortlets />} />
+         <Route path="/post-property" element={<PostProperties />} />
+           {/* <Route path="/edit/:id" element={<EditProperty />} /> */}
         <Route path="/about" element={<AboutUs />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
@@ -46,11 +48,13 @@ function App() {
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
+        
 
           <Route index element={<Overview />} />
-          <Route path="properties" element={<Properties />} />
+          <Route path="properties" element={<Properties  />} />
           <Route path="reviews" element={<Reviews />} />
-
+          <Route path="/agents/:id/reviews" element={<Reviews />} />
+          
         </Route>
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
