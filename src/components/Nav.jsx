@@ -31,7 +31,7 @@ const Navbar = () => {
 
         {/* Menu Links (desktop) */}
         <ul className="hidden md:flex space-x-6 text-base font-normal text-[#1E1E1E]">
-          {["about", "listings", "shortlet", "agents", "contact"].map(
+          {["about Us", "listings", "shortlet", "agents", "contact"].map(
             (page, index) => (
               <li key={index}>
                 <Link

@@ -93,25 +93,21 @@ const shortletData = [
 const ShortletDetails = () => {
   const [price, setPrice] = useState(0);
   return (
-    <section className="relative w-full h-fit flex flex-col lg:flex-row gap-2 px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-10 mt-10 my-20">
-      <img
-          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-          src="/chat.png"
-          alt="chat icon"
-        />
+    <section className="bg-[#FCFCFD] w-full h-fit flex flex-col lg:flex-row gap-3 px-[4rem] sm:px-[9.6rem] my-16">
+      {/* left */}
       <div className="flex flex-col flex-[1] gap-5">
         {/* Advanced Search */}
-        <div className="w-full border-2 border-gray-300 rounded-lg px-4 py-5">
-          <h1 className="text-xl font-bold">Advanced Search</h1>
-          <form className="flex flex-col gap-3 mt-6">
+        <div className="w-72 border border-[#DDDDE1] rounded-md px-4 py-6">
+          <h1 className="lg:text-xl text-lg font-semibold font-sora leading-snug">Advanced Search</h1>
+          <form className="flex flex-col gap-2 mt-4">
             {/* Dropdowns */}
             {selectFields.map((field, index) => (
               <div
                 key={index}
-                className="border-2 w-full border-gray-400 p-2 rounded-lg cursor-pointer"
+                className="w-full border border-[#B8B9BC] p-2 rounded-lg cursor-pointer"
               >
                 <select
-                  className="w-full cursor-pointer border-none outline-none bg-transparent text-gray-400"
+                  className="w-full cursor-pointer border-none outline-none bg-transparent font-inter text-[#B9B9B9] text-sm"
                   name={field.name}
                   id={field.id}
                   defaultValue=""
@@ -133,38 +129,39 @@ const ShortletDetails = () => {
             ))}
 
             {/* Price Range */}
-            <div className="w-full px-2">
-              <p className="text-center text-sm mb-2">
+            <div className="w-full p-2">
+              <p className="text-center text-sm mb-2 font-inter text-xs">
                 From <span className="font-bold">NGN</span> 0 to 5,000,000,000
               </p>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-[#565658] rounded-sm shrink-0"></div>
+                <div className="w-3 h-3 bg-[#565658] shrink-0"></div>
                 <input
                   type="range"
-                  className="w-full accent-[#4B3DFE] cursor-pointer"
+                  className="w-full h-2 accent-[#4B3DFE] cursor-pointer"
                   min="0"
                   max="5000000000"
                   step="1000000"
                   value={price}
                   onChange={(e) => setPrice(parseInt(e.target.value))}
                 />
-                <div className="w-4 h-4 bg-[#565658] rounded-sm shrink-0"></div>
+                <div className="w-3 h-3 bg-[#565658] shrink-0"></div>
               </div>
-              <span>{price.toLocaleString()}</span>
+              <span className="font-inter text-xs">{price.toLocaleString()}</span>
             </div>
 
             {/* Dots + Button */}
             <div className="flex items-center gap-4">
-              <span className="font-semibold">Advanced</span>
-              <div className="flex flex-col items-center space-y-0.5 cursor-pointer">
+              <span className="font-semibold font-inter text-xs">Advanced</span>
+              {/* <div className="flex flex-col items-center space-y-0.5 cursor-pointer">
                 {[...Array(3)].map((_, i) => (
                   <div key={i} className="w-1 h-1 bg-black rounded-full" />
                 ))}
-              </div>
+              </div> */}
+              <img src="/3dots.png" className="w-4 h-4" alt="3 vertical dots" />
             </div>
 
             <button
-              className="bg-[#4B3DFE] hover:bg-[#3A2EDB] transition-colors w-full px-6 py-3 rounded-lg text-white font-semibold"
+              className="bg-[#4B3DFE] hover:bg-[#3A2EDB] transition-colors w-full px-6 py-3 rounded-lg text-white text-base font-inter font-semibold"
               type="submit"
             >
               Find Property
@@ -173,21 +170,21 @@ const ShortletDetails = () => {
         </div>
 
         {/* Latest Properties */}
-        <div className="w-full border-2 border-gray-300 rounded-lg px-4 py-5">
-          <h1 className="text-xl font-bold">Latest Properties</h1>
-          <div className="flex flex-col gap-4 mt-6">
+        <div className="w-72 border border-[#DDDDE1] rounded-md px-4 py-6">
+          <h1 className="lg:text-xl text-lg font-semibold font-sora">Latest Properties</h1>
+          <div className="flex flex-col gap-4 mt-4">
             {latestProperties.map((property) => (
               <div key={property.id} className="flex items-start gap-4">
                 <img
-                  className="w-20 h-20 object-cover rounded"
+                  className="w-20 h-20 object-cover rounded-lg"
                   src={property.img}
                   alt="Latest property"
                 />
                 <div className="flex flex-col gap-1">
-                  <p className="text-sm md:text-xs font-semibold">
+                  <p className="text-sm font-inter">
                     {property.title}
                   </p>
-                  <p className="text-sm md:text-xs text-[#FF6B57]">
+                  <p className="text-xs font-inter text-[#FF6B57]">
                     {property.price}
                   </p>
                 </div>
@@ -199,7 +196,8 @@ const ShortletDetails = () => {
         {/* Ad Banner */}
         <div className="w-full">
           <img
-            className="w-full max-w-xs mx-auto sm:max-w-sm md:max-w-md"
+            // className="w-full max-w-xs mx-auto sm:max-w-sm md:max-w-md"
+            className="w-76 h-64 object-contain"
             src="/shortletAdBanner.png"
             alt="Shortlet Ad Banner"
           />
@@ -208,10 +206,10 @@ const ShortletDetails = () => {
 
       {/* Right side */}
       <div className="flex-[2.7] w-full mt-6 sm:mt-0">
-        <div className="flex flex-col gap-5 w-full lg:ml-6">
-          <div className="border-2 border-gray-300 rounded-lg px-4 w-full flex items-center justify-between text-sm text-gray-700">
-            <p>Showing 1 – 10 of 150 results</p>
-            <select className="border border-gray-300 rounded px-3 py-2 text-gray-700 border-none outline-none bg-white cursor-pointer">
+        <div className="flex flex-col gap-4 w-full lg:ml-6">
+          <div className="border border-[#DDDDE1] bg-white rounded-lg px-5 py-3 w-full flex items-center justify-between">
+            <p className="lg:text-sm text-xs text-[#1E1E1E] font-inter tracking-[0.4%] leading-normal">Showing 1 – 10 of 150 results</p>
+            <select className="lg:text-sm text-xs text-[#1E1E1E] font-inter tracking-[0.4%] leading-normal border-none outline-none cursor-pointer">
               <option>Sort by: Default</option>
               <option>Price: Low to High</option>
               <option>Price: High to Low</option>
@@ -224,7 +222,7 @@ const ShortletDetails = () => {
               <Link
                 key={shortlet.id}
                 to={shortlet.href}
-                className="block hover:scale-[1.01] transition-transform duration-200"
+                className="block"
               >
                 <ShortletCards />
               </Link>

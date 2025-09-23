@@ -7,15 +7,10 @@ const InnerShortlet = () => {
     <>
       <InnerShortletHero />
 
-      <main className="relative px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-6 md:py-10 mt-6">
-        <img
-          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-          src="/chat.png"
-          alt="chat icon"
-        />
+      <main className="h-fit w-full px-[4rem] sm:px-[9.6rem] my-16">
         {/* Breadcrumb + Actions */}
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
-          <ul className="flex flex-wrap items-center gap-1 text-sm sm:text-base text-[#6E6F70]">
+          <ul className="flex flex-wrap items-center gap-2 leading-normal font-inter sm:text-sm text-xs text-[#6E6F70]">
             <li>
               <a href="/">Home</a>
             </li>
@@ -34,7 +29,7 @@ const InnerShortlet = () => {
               </a>
             </li>
           </ul>
-          <div className="flex items-center gap-4 md:ml-auto text-[#1E1E1E] text-sm sm:text-base">
+          <div className="flex items-center gap-4 md:ml-auto text-[#1E1E1E] leading-normal font-inter text-sm sm:text-base">
             <div className="flex items-center gap-2">
               <img
                 className="w-5 h-5 object-cover"
@@ -55,10 +50,10 @@ const InnerShortlet = () => {
         </div>
 
         {/* Back Link */}
-        <div className="flex gap-2 items-center mt-4">
+        <div className="flex gap-2 items-center mt-2">
           <img src="/arrow-left.png" alt="Back-arrow" className="w-4 h-4" />
           <a
-            className="text-[#1E1E1E] font-medium text-sm sm:text-base"
+            className="text-[#1E1E1E] font-bold font-inter text-sm sm:text-base leading-normal"
             href="/shortlet"
           >
             Back to search results
@@ -66,7 +61,7 @@ const InnerShortlet = () => {
         </div>
 
         {/* Two-Column Layout */}
-        <div className="flex flex-col p-1 lg:flex-row mt-8 gap-6">
+        <div className="flex flex-col p-1 lg:flex-row mt-8 gap-5">
           {/* Left Sidebar */}
           <InnerShortletLeft />
 
