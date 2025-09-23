@@ -29,6 +29,13 @@ import Faqs from "./pages/Faq";
 function App() {
   return (
     <div className="main relative">
+
+      {/* chat bot */}
+      <img
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
       {/* nav should be here */}
       <Nav />
 
@@ -39,9 +46,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/shortlet" element={<Shortlets />} />
-         <Route path="/post-property" element={<PostProperties />} />
-           {/* <Route path="/edit/:id" element={<EditProperty />} /> */}
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/about Us" element={<AboutUs />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/Contact" element={<Contact />} />
