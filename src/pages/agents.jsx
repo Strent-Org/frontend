@@ -1,138 +1,11 @@
-// import { useState } from "react";
-// import Forward from "../assets/icons/forward.svg";
-// import Forward2 from "../assets/icons/colored-forward.svg";
-// import Down from "../assets/icons/down.svg";
-// import { newAgentsList as agents } from "../data/agentpagedata";
-// import { Link } from "react-router-dom";
-// import Pagination from "../components/agentpage-components/pagination";
-// import ChatIcon from "../assets/icons/chat.svg";
-
-// export default function Agents() {
-//   const [currentPage, SetCurrentPage] = useState(1);
-//   const [postPerPage] = useState(6);
-
-//   const indexOfLastPost = currentPage * postPerPage;
-//   const indexOfFirstPost = indexOfLastPost - postPerPage;
-//   const currentAgents = agents.slice(indexOfFirstPost, indexOfLastPost);
-
-//   const paginate = (pageNumber) => {
-//     SetCurrentPage(pageNumber);
-//   };
-//   return (
-//     <main className="font-inter px-[15%] flex flex-col gap-8 py-8 relative">
-//       {/* <div id="chat-icon">
-//         <img src={`${ChatIcon}`} alt="chat-icon" className="absolute right-0 sm:right-5 md:right-10 top-[66%] cursor-pointer " />
-//       </div> */}
-//       <img
-//         className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-//         src="/chat.png"
-//         alt="chat icon"
-//       />
-//       <section id="header">
-//         <div className="flex gap-2 items-center">
-//           <Link to={"/"}>
-//             <p>Home</p>
-//           </Link>
-//           <img src={Forward} alt="Forward-arrow" className="h-4 w-4" />
-//           <p className="text-secondary-500">Agents</p>
-//         </div>
-//         <h1 className="font-sora font-bold text-[32px]">Agents</h1>
-//       </section>
-//       <section id="agents">
-//         <div className="flex justify-between items-center text-sm border border-neutral2 rounded-lg py-4 px-8 mb-8">
-//           <p>Showing 1-6 of 20 results</p>
-//           <div className="flex relative items-center">
-//             <p>Sort by: </p>
-//             <select
-//               name="filters"
-//               id="agent-filters"
-//               className="appearance-none flex-grow w-[80px] cursor-pointer px-1"
-//             >
-//               <option value="Newest">Newest</option>
-//             </select>
-//             <img
-//               src={Down}
-//               alt="Down-icon"
-//               className="absolute right-0 pointer-events-none"
-//             />
-//           </div>
-//         </div>
-//         <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,304px))] gap-4 justify-center mb-8">
-//           {currentAgents.map((agent) => {
-//             return (
-//               <article
-//                 key={agent.id}
-//                 className="w-[304px] rounded-lg border border-neutral2 pt-2"
-//               >
-//                 <section className="flex justify-center">
-//                   <div className="relative">
-//                     <p className="p-2 text-white bg-secondary text-xs rounded-md w-[98px] absolute top-2 left-2">
-//                       {agent.numberOfProperties} Properties
-//                     </p>
-//                     <img
-//                       src={agent.imageUrl}
-//                       alt={agent.name}
-//                       className="rounded-t"
-//                     />
-//                   </div>
-//                 </section>
-//                 <section className="text-sm">
-//                   <div className="pl-4 py-4 border-b border-neutral2">
-//                     <h3 className="font-sora font-semibold text-xl">
-//                       {agent.name}
-//                     </h3>
-//                     <p>Email: {agent.email}</p>
-//                     <p>Phone: {agent.phoneNumber}</p>
-//                   </div>
-//                   <div className="flex justify-end items-center gap-2 text-secondary p-4 cursor-pointer">
-//                     <Link
-//                       to={`/agents/${agent.id}`}
-//                       className="flex items-center gap-2"
-//                     >
-//                       <p>{agent.listings}</p>
-//                       <img
-//                         src={Forward2}
-//                         alt="Forward-icon"
-//                         className=" filter"
-//                       />
-//                     </Link>
-//                   </div>
-//                 </section>
-//               </article>
-//             );
-//           })}
-//         </div>
-//       </section>
-//       <Pagination
-//         postPerPage={postPerPage}
-//         totalPosts={agents.length}
-//         paginate={paginate}
-//         currentPage={currentPage}
-//         visiblePages={3}
-//       />
-//     </main>
-//   );
-// }
-
+import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { userInfo } from "../components/atom/user";
 
-
-const Home = () => {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to the Agent Management App</h1>
-      <p className="text-xl text-gray-600 mb-8">Navigate to the Agents page to see the list of agents.</p>
-      <Link to="/agents" className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition duration-300">
-        Go to Agents
-      </Link>
-    </div>
-  );
-};
-
+// This component is the main agents page
 const Agents = () => {
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -142,26 +15,49 @@ const Agents = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [currentAgent, setCurrentAgent] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    imageUrl: '',
+    name: "",
+    email: "",
+    phoneNumber: "",
+    imageUrl: "",
     numberOfProperties: 0,
-    listings: 'View Listings',
+    listings: "View Listings",
   });
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [agentToDelete, setAgentToDelete] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [user] = useRecoilState(userInfo);
 
+  // ✅ use Recoil instead of local state
+  const [user, setUser] = useRecoilState(userInfo);
+
+  const toggleUserType = () => {
+    setUser((prevUser) => ({
+      data: {
+        accountType:
+          prevUser.data.accountType === "Tenant" ? "Agent" : "Tenant",
+        id:
+          prevUser.data.accountType === "Tenant"
+            ? "agent@example.com"
+            : "default_tenant_id",
+      },
+    }));
+  };
 
   const fetchAgents = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/agents');
+      let response;
+      if (
+        user.data.accountType === "Agent" ||
+        user.data.accountType === "Landlord"
+      ) {
+        response = await axios.get(
+          `http://localhost:8080/agents?email=${user.data.id}`
+        );
+      } else {
+        response = await axios.get("http://localhost:8080/agents");
+      }
       setAgents(response.data);
       setLoading(false);
     } catch (err) {
-      setError('Failed to fetch agents.');
+      setError("Failed to fetch agents.");
       setLoading(false);
       console.error(err);
     }
@@ -169,7 +65,7 @@ const Agents = () => {
 
   useEffect(() => {
     fetchAgents();
-  }, []);
+  }, [user.data.id, user.data.accountType]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -179,10 +75,9 @@ const Agents = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setSelectedFile(file);
       setFormData({
         ...formData,
-        imageUrl: URL.createObjectURL(file)
+        imageUrl: URL.createObjectURL(file),
       });
     }
   };
@@ -190,18 +85,18 @@ const Agents = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      // In a real application, you would upload the file to a cloud storage service here
-      // and get the permanent URL back before making the API call.
-      // For this demonstration, we are using a temporary local URL.
       if (currentAgent) {
-        await axios.patch(`http://localhost:8080/agents/${currentAgent.id}`, formData);
+        await axios.patch(
+          `http://localhost:8080/agents/${currentAgent.id}`,
+          formData
+        );
       } else {
-        await axios.post('http://localhost:8080/agents', formData);
+        await axios.post("http://localhost:8080/agents", formData);
       }
       fetchAgents();
       closeForm();
     } catch (err) {
-      setError('Failed to save agent details.');
+      setError("Failed to save agent details.");
       console.error(err);
     }
   };
@@ -231,7 +126,7 @@ const Agents = () => {
       setShowDeleteModal(false);
       setAgentToDelete(null);
     } catch (err) {
-      setError('Failed to delete agent.');
+      setError("Failed to delete agent.");
       console.error(err);
     }
   };
@@ -244,14 +139,13 @@ const Agents = () => {
   const closeForm = () => {
     setIsFormOpen(false);
     setCurrentAgent(null);
-    setSelectedFile(null);
     setFormData({
-      name: '',
-      email: '',
-      phoneNumber: '',
-      imageUrl: '',
+      name: "",
+      email: "",
+      phoneNumber: "",
+      imageUrl: "",
       numberOfProperties: 0,
-      listings: 'View Listings',
+      listings: "View Listings",
     });
   };
 
@@ -265,11 +159,16 @@ const Agents = () => {
   const visiblePages = 3;
   const startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
   const endPage = Math.min(totalPages, startPage + visiblePages - 1);
-  const pageNumbers = [...Array(endPage - startPage + 1).keys()].map(i => startPage + i);
-  const displayPages = pageNumbers.filter(page => page >= startPage && page <= endPage);
+  const pageNumbers = [...Array(endPage - startPage + 1).keys()].map(
+    (i) => startPage + i
+  );
+  const displayPages = pageNumbers.filter(
+    (page) => page >= startPage && page <= endPage
+  );
 
   if (loading) return <div className="text-center py-10">Loading agents...</div>;
-  if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
+  if (error)
+    return <div className="text-center py-10 text-red-500">{error}</div>;
 
   return (
     <main className="font-inter px-[15%] flex flex-col gap-8 py-8 relative">
@@ -283,31 +182,45 @@ const Agents = () => {
           <Link to={"/"}>
             <p>Home</p>
           </Link>
-          <img src="https://placehold.co/16x16/E5E7EB/201A6B?text=>" alt="Forward-arrow" className="h-4 w-4" />
+          <img
+            src="https://placehold.co/16x16/E5E7EB/201A6B?text=>"
+            alt="Forward-arrow"
+            className="h-4 w-4"
+          />
           <p className="text-secondary-500">Agents</p>
         </div>
         <h1 className="font-sora font-bold text-[32px]">Agents</h1>
-        {/* <button
-          onClick={() => setIsFormOpen(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4"
-        >
-          Post New Agent
-        </button> */}
-        {user && (user.data.accountType === "Agent" || user.data.accountType === "Landlord") && (
-          <button
-            onClick={() => setIsFormOpen(true)}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4"
-          >
-            Post New Agent
-          </button>
+
+        {/* Conditional rendering for Agent/Landlord specific controls */}
+        {(user.data.accountType === "Agent" ||
+          user.data.accountType === "Landlord") && (
+          <>
+            <button
+              onClick={toggleUserType}
+              className="bg-purple-600 text-white px-4 py-2 rounded-lg mt-4"
+            >
+              Switch to{" "}
+              {user.data.accountType === "Tenant" ? "Agent" : "Tenant"} View
+            </button>
+            <p className="mt-2 text-sm text-gray-600">
+              Current View: {user.data.accountType}
+            </p>
+            <button
+              onClick={() => setIsFormOpen(true)}
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4"
+            >
+              Post New Agent
+            </button>
+          </>
         )}
-
-
-
       </section>
       <section id="agents">
         <div className="flex justify-between items-center text-sm border border-neutral2 rounded-lg py-4 px-8 mb-8">
-          <p>Showing {indexOfFirstPost + 1}-{(indexOfLastPost > agents.length) ? agents.length : indexOfLastPost} of {agents.length} results</p>
+          <p>
+            Showing {indexOfFirstPost + 1}-
+            {indexOfLastPost > agents.length ? agents.length : indexOfLastPost}{" "}
+            of {agents.length} results
+          </p>
           <div className="flex relative items-center">
             <p>Sort by: </p>
             <select
@@ -338,7 +251,7 @@ const Agents = () => {
                   <img
                     src={agent.imageUrl}
                     alt={agent.name}
-                    className="rounded-t"
+                    className="rounded-t h-[200px] w-[304px] object-cover"
                   />
                 </div>
               </section>
@@ -350,39 +263,25 @@ const Agents = () => {
                   <p>Email: {agent.email}</p>
                   <p>Phone: {agent.phoneNumber}</p>
                 </div>
-                {/* <div className="flex justify-end items-center gap-2 text-secondary p-4 cursor-pointer">
-                  <button onClick={() => handleEdit(agent)} className="text-blue-500 hover:underline">Edit</button>
-                  <button onClick={() => handleDelete(agent.id)} className="text-red-500 hover:underline">Delete</button>
-                  <Link
-                    to={`/agents/${agent.id}`}
-                    className="flex items-center gap-2"
-                  >
-                    <p>{agent.listings}</p>
-                    <img
-                      src="https://placehold.co/16x16/201A6B/FFFFFF?text=>"
-                      alt="Forward-icon"
-                      className="filter"
-                    />
-                  </Link>
-                </div> */}
-
                 <div className="flex justify-end items-center gap-2 text-secondary p-4 cursor-pointer">
-                  {user && (user.data.accountType === "Agent" || user.data.accountType === "Landlord") && (
-                    <>
-                      <button
-                        onClick={() => handleEdit(agent)}
-                        className="text-blue-500 hover:underline"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(agent.id)}
-                        className="text-red-500 hover:underline"
-                      >
-                        Delete
-                      </button>
-                    </>
-                  )}
+                  {user &&
+                    (user.data.accountType === "Agent" ||
+                      user.data.accountType === "Landlord") && (
+                      <>
+                        <button
+                          onClick={() => handleEdit(agent)}
+                          className="text-blue-500 hover:underline"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDelete(agent.id)}
+                          className="text-red-500 hover:underline"
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
                   <Link
                     to={`/agents/${agent.id}`}
                     className="flex items-center gap-2"
@@ -395,9 +294,6 @@ const Agents = () => {
                     />
                   </Link>
                 </div>
-
-
-
               </section>
             </article>
           ))}
@@ -406,21 +302,31 @@ const Agents = () => {
       <div className="flex justify-center my-8">
         <nav className="flex items-center gap-2">
           {currentPage > 1 && (
-            <button onClick={() => paginate(currentPage - 1)} className="px-3 py-1 border rounded-lg hover:bg-gray-200">
+            <button
+              onClick={() => paginate(currentPage - 1)}
+              className="px-3 py-1 border rounded-lg hover:bg-gray-200"
+            >
               Previous
             </button>
           )}
-          {displayPages.map(number => (
+          {displayPages.map((number) => (
             <button
               key={number}
               onClick={() => paginate(number)}
-              className={`px-3 py-1 border rounded-lg ${currentPage === number ? 'bg-blue-600 text-white' : 'hover:bg-gray-200'}`}
+              className={`px-3 py-1 border rounded-lg ${
+                currentPage === number
+                  ? "bg-blue-600 text-white"
+                  : "hover:bg-gray-200"
+              }`}
             >
               {number}
             </button>
           ))}
           {currentPage < totalPages && (
-            <button onClick={() => paginate(currentPage + 1)} className="px-3 py-1 border rounded-lg hover:bg-gray-200">
+            <button
+              onClick={() => paginate(currentPage + 1)}
+              className="px-3 py-1 border rounded-lg hover:bg-gray-200"
+            >
               Next
             </button>
           )}
@@ -430,7 +336,9 @@ const Agents = () => {
       {isFormOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-4">{currentAgent ? 'Edit Agent' : 'Create New Agent'}</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              {currentAgent ? "Edit Agent" : "Create New Agent"}
+            </h2>
             <form onSubmit={handleFormSubmit} className="flex flex-col gap-4">
               <input
                 type="text"
@@ -466,16 +374,20 @@ const Agents = () => {
                   name="image"
                   onChange={handleFileChange}
                   className="mt-1 block w-full text-sm text-gray-500
-                    file:mr-4 file:py-2 file:px-4
-                    file:rounded-full file:border-0
-                    file:text-sm file:font-semibold
-                    file:bg-blue-50 file:text-blue-700
-                    hover:file:bg-blue-100"
+                      file:mr-4 file:py-2 file:px-4
+                      file:rounded-full file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-blue-50 file:text-blue-700
+                      hover:file:bg-blue-100"
                 />
               </label>
               {formData.imageUrl && (
                 <div className="mt-2">
-                  <img src={formData.imageUrl} alt="Agent Preview" className="h-32 w-32 rounded-lg object-cover" />
+                  <img
+                    src={formData.imageUrl}
+                    alt="Agent Preview"
+                    className="h-32 w-32 rounded-lg object-cover"
+                  />
                 </div>
               )}
               <input
@@ -497,9 +409,9 @@ const Agents = () => {
                 <button
                   type="button"
                   onClick={closeForm}
-                  className="bg-red-600 text-white px-4 py-2 rounded-lg"
+                  className="bg-red-600 text-white px-4 py-2 rounded-lg flex-grow"
                 >
-                  Cancel
+                  Back
                 </button>
               </div>
             </form>
@@ -511,7 +423,9 @@ const Agents = () => {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm text-center">
             <h2 className="text-xl font-bold mb-4">Confirm Deletion</h2>
-            <p className="mb-6">Are you sure you want to delete this agent?</p>
+            <p className="mb-6">
+              Are you sure you want to delete this agent?
+            </p>
             <div className="flex justify-center gap-4">
               <button
                 onClick={confirmDelete}
@@ -533,7 +447,21 @@ const Agents = () => {
   );
 };
 
+export const Home = () => (
+  <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8">
+    <h1 className="text-4xl font-bold text-gray-800 mb-4">
+      Welcome to the Agent Management App
+    </h1>
+    <p className="text-xl text-gray-600 mb-8">
+      Navigate to the Agents page to see the list of agents.
+    </p>
+    <Link
+      to="/agents"
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition duration-300"
+    >
+      Go to Agents
+    </Link>
+  </div>
+);
 
 export default Agents;
-export { Home };
-
