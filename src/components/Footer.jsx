@@ -122,7 +122,24 @@ const Footer = () => {
           </p>
           <p className="text-white font-inter flex items-center text-[14px] sm:text-[16px] tracking-[0.4%] gap-1 mt-2 sm:mt-0">
             Back to Top
-            <a href="#">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+
+                const scrollDuration = 1000;
+                const scrollStep = -window.scrollY / (scrollDuration / 16);
+
+                const scrollInterval = setInterval(() => {
+                  if (window.scrollY !== 0) {
+                    window.scrollBy(0, scrollStep);
+                  } else {
+                    clearInterval(scrollInterval);
+                  }
+                }, 16);
+              }}
+              className="transition-transform duration-500 hover:scale-110"
+            >
               <img
                 src="/oui_arrow-up.png"
                 className="cursor-pointer h-4 sm:h-6"
