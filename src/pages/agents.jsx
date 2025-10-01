@@ -5,8 +5,7 @@ import Down from "../assets/icons/down.svg";
 import { newAgentsList as agents } from "../data/agentpagedata";
 import { Link } from "react-router-dom";
 import Pagination from "../components/agentpage-components/pagination";
-import ChatIcon from "../assets/icons/chat.svg";
-
+import Chatbox from "../components/Chatbox";
 export default function Agents() {
   const [currentPage, SetCurrentPage] = useState(1);
   const [postPerPage] = useState(6);
@@ -20,14 +19,8 @@ export default function Agents() {
   };
   return (
     <main className="font-inter px-[15%] flex flex-col gap-8 py-8 relative">
-      {/* <div id="chat-icon">
-        <img src={`${ChatIcon}`} alt="chat-icon" className="absolute right-0 sm:right-5 md:right-10 top-[66%] cursor-pointer " />
-      </div> */}
-      <img
-        className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-        src="/chat.png"
-        alt="chat icon"
-      />
+      
+      <Chatbox />
       <section id="header">
         <div className="flex gap-2 items-center">
           <Link to={"/"}>
@@ -57,7 +50,7 @@ export default function Agents() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,304px))] gap-4 justify-center mb-8">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,304px))] gap-4 justify-between mb-8">
           {currentAgents.map((agent) => {
             return (
               <article
