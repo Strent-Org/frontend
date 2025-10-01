@@ -5,7 +5,7 @@ import MessageIcon from "../assets/icons/message-text.svg";
 import ColoredMessageIcon from "../assets/icons/message-colored.svg";
 import MessageAdd from "../assets/icons/message-add.svg";
 import ChatIcon from "../assets/icons/chat.svg";
-import Cross from "../assets/icons/frame747.svg";
+import Cross from "../assets/icons/cross.svg";
 
 const Chatbox = () => {
     const [Ai, setAi] =React.useState(false)
