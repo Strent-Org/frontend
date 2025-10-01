@@ -25,10 +25,12 @@ import Contact from './pages/ContactUs';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Faqs from "./pages/Faq";
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="main relative">
+      <ScrollToTop />
 
       {/* chat bot */}
       <img
@@ -39,6 +41,7 @@ function App() {
       {/* nav should be here */}
       <Nav />
 
+      {/* main content should be here */}
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
@@ -53,18 +56,15 @@ function App() {
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
-        
-
           <Route index element={<Overview />} />
           <Route path="properties" element={<Properties  />} />
           <Route path="reviews" element={<Reviews />} />
-          <Route path="/agents/:id/reviews" element={<Reviews />} />
-          
         </Route>
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/faqs" element={<Faqs />} />
       </Routes>
+
       {/* footer should be here */}
       <Footer />
     </div>
