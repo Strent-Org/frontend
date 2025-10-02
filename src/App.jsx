@@ -29,19 +29,19 @@ import Contact from './pages/ContactUs';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Faqs from "./pages/Faq";
-import Listing from './pages/listingTestPages/Listing';
-import InnerListing from './pages/listingTestPages/InnerListing';
+import Listing from './pages/listing-updated/Listing';
+import InnerListing from './pages/listing-updated/InnerListing';
 
 function App() {
   return (
     <div className="main relative">
 
       {/* chat bot */}
-      <img
+      {/* <img
           className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
           src="/chat.png"
           alt="chat icon"
-        />
+        /> */}
       {/* nav should be here */}
       <Nav />
 

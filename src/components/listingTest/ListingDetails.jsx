@@ -161,7 +161,7 @@ const ListingDetails = () => {
             </div>
 
             <button
-              className="bg-[#4B3DFE] hover:bg-[#3A2EDB] transition-colors w-full px-6 py-3 rounded-lg text-white text-base font-inter font-semibold"
+              className="bg-[#4B3DFE] hover:bg-[#3a2ddd] transition-colors w-full px-6 py-3 rounded-lg text-white text-base font-inter font-semibold"
               type="submit"
             >
               Find Property
