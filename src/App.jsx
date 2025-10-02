@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import LoginForm from './pages/LoginForm';
 import SignupForm from './pages/SignupForm';
 import InnerShortlet from './pages/InnerShortlet';
-import Agents from './pages/agents';
+// import Agents from './pages/agents';
 import InnerAgents from './pages/innerAgents';
 import { Properties, Reviews, Overview } from './pages/innerAgents';
 
@@ -63,7 +63,7 @@ function App() {
         <Route path="/innerlisting/:id" element={<InnerListing />} />
 
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/agents" element={<Agents />} />
+        {/* <Route path="/agents" element={<Agents />} /> */}
         <Route path="/agents/:id" element={<InnerAgents />}>
         
           <Route index element={<Overview />} />
