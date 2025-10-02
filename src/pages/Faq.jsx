@@ -16,7 +16,7 @@ const Faqs = () => {
         <div id="chat-icon">
                     <img src={`${ChatIcon}`} alt="chat-icon" className="fixed bottom-8 right-8 cursor-pointer " />
                   </div>
-        <section className="px-[10%] w-full mt-[5%] mb-[5%]">
+        <section className="px-[10%] w-full mt-[5%] mb-[5%] px-[4rem] sm:px-[9.6rem] my-16">
             <div className="flex flex-col gap-2 text-center mb-4">
           <h2 className="text-2xl font-semibold tracking-[0.02em] font-sora">Frequently Asked Questions</h2>
           <p className="text-base font-inter">Get answers about renting with Strent</p>
