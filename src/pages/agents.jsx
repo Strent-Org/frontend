@@ -1,16 +1,13 @@
-import ReactDOM from "react-dom";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { userInfo } from "../components/atom/user";
-
-// This component is the main agents page
-const Agents = () => {
-  const [agents, setAgents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
+import { useState } from "react";
+import Forward from "../assets/icons/forward.svg";
+import Forward2 from "../assets/icons/colored-forward.svg";
+import Down from "../assets/icons/down.svg";
+import { newAgentsList as agents } from "../data/agentpagedata";
+import { Link } from "react-router-dom";
+import Pagination from "../components/agentpage-components/pagination";
+import Chatbox from "../components/Chatbox";
+export default function Agents() {
+  const [currentPage, SetCurrentPage] = useState(1);
   const [postPerPage] = useState(6);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [currentAgent, setCurrentAgent] = useState(null);
@@ -172,11 +169,8 @@ const Agents = () => {
 
   return (
     <main className="font-inter px-[15%] flex flex-col gap-8 py-8 relative">
-      <img
-        className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-        src="https://placehold.co/48x48/50B4FF/FFFFFF?text=Chat"
-        alt="chat icon"
-      />
+      
+      <Chatbox />
       <section id="header">
         <div className="flex gap-2 items-center">
           <Link to={"/"}>
@@ -237,66 +231,50 @@ const Agents = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,304px))] gap-4 justify-center mb-8">
-          {currentAgents.map((agent) => (
-            <article
-              key={agent.id}
-              className="w-[304px] rounded-lg border border-neutral2 pt-2"
-            >
-              <section className="flex justify-center">
-                <div className="relative">
-                  <p className="p-2 text-white bg-secondary text-xs rounded-md w-[98px] absolute top-2 left-2">
-                    {agent.numberOfProperties} Properties
-                  </p>
-                  <img
-                    src={agent.imageUrl}
-                    alt={agent.name}
-                    className="rounded-t h-[200px] w-[304px] object-cover"
-                  />
-                </div>
-              </section>
-              <section className="text-sm">
-                <div className="pl-4 py-4 border-b border-neutral2">
-                  <h3 className="font-sora font-semibold text-xl">
-                    {agent.name}
-                  </h3>
-                  <p>Email: {agent.email}</p>
-                  <p>Phone: {agent.phoneNumber}</p>
-                </div>
-                <div className="flex justify-end items-center gap-2 text-secondary p-4 cursor-pointer">
-                  {user &&
-                    (user.data.accountType === "Agent" ||
-                      user.data.accountType === "Landlord") && (
-                      <>
-                        <button
-                          onClick={() => handleEdit(agent)}
-                          className="text-blue-500 hover:underline"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDelete(agent.id)}
-                          className="text-red-500 hover:underline"
-                        >
-                          Delete
-                        </button>
-                      </>
-                    )}
-                  <Link
-                    to={`/agents/${agent.id}`}
-                    className="flex items-center gap-2"
-                  >
-                    <p>{agent.listings}</p>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,304px))] gap-4 justify-between mb-8">
+          {currentAgents.map((agent) => {
+            return (
+              <article
+                key={agent.id}
+                className="w-[304px] rounded-lg border border-neutral2 pt-2"
+              >
+                <section className="flex justify-center">
+                  <div className="relative">
+                    <p className="p-2 text-white bg-secondary text-xs rounded-md w-[98px] absolute top-2 left-2">
+                      {agent.numberOfProperties} Properties
+                    </p>
                     <img
-                      src="https://placehold.co/16x16/201A6B/FFFFFF?text=>"
-                      alt="Forward-icon"
-                      className="filter"
+                      src={agent.imageUrl}
+                      alt={agent.name}
+                      className="rounded-t"
                     />
-                  </Link>
-                </div>
-              </section>
-            </article>
-          ))}
+                  </div>
+                </section>
+                <section className="text-sm">
+                  <div className="pl-4 py-4 border-b border-neutral2">
+                    <h3 className="font-sora font-semibold text-xl">
+                      {agent.name}
+                    </h3>
+                    <p>Email: {agent.email}</p>
+                    <p>Phone: {agent.phoneNumber}</p>
+                  </div>
+                  <div className="flex justify-end items-center gap-2 text-secondary p-4 cursor-pointer">
+                    <Link
+                      to={`/agents/${agent.id}`}
+                      className="flex items-center gap-2"
+                    >
+                      <p>{agent.listings}</p>
+                      <img
+                        src={Forward2}
+                        alt="Forward-icon"
+                        className=" filter"
+                      />
+                    </Link>
+                  </div>
+                </section>
+              </article>
+            );
+          })}
         </div>
       </section>
       <div className="flex justify-center my-8">
