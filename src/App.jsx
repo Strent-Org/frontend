@@ -29,6 +29,7 @@ import InnerListing from './pages/listing-updated/InnerListing';
 
 import NotFound from './pages/NotFound';
 import PostProperties from './pages/PostProperties';
+import Dashboard from './components/dashboard/Dashboard';
 
 // import ForgotPassword from './pages/ForgotPassword';
 // import PostProperties from './pages/PostProperties';
@@ -71,6 +72,9 @@ function App() {
 
         {/* Property posting */}
         <Route path="/post-property" element={<PostProperties />} />
+
+        {/* Dashboard */}
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
 
       <Footer />
