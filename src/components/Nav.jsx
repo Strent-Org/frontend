@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/strent-logo.svg";
 import { useRecoilState } from "recoil";
 import { userInfo } from "./atom/user";
@@ -8,9 +8,23 @@ import { FiMenu, FiX } from "react-icons/fi";
 const Navbar = () => {
   let [user, setUser] = useRecoilState(userInfo);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   function handleSignout() {
     setUser({ isLoggedIn: false, data: {} });
+  }
+
+  // handle post property navigation
+  function handlePostProperty() {
+    if (
+      user.isLoggedIn &&
+      (user.data.accountType === "Landlord" ||
+        user.data.accountType === "Agent")
+    ) {
+      navigate("/post-property");
+    } else {
+      navigate("/login");
+    }
   }
 
   return (
@@ -67,21 +81,18 @@ const Navbar = () => {
           )}
 
           {user.isLoggedIn && (
-            <>
-              <Link onClick={handleSignout} to="/">
-                Signout
-              </Link>
-              {(user.data.accountType === "Landlord" ||
-                user.data.accountType === "Agent") && (
-                <Link
-                  to="/post-property"
-                  className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base font-normal transition-colors duration-200"
-                >
-                  Post Property
-                </Link>
-              )}
-            </>
+            <Link onClick={handleSignout} to="/">
+              Signout
+            </Link>
           )}
+
+          {/* Always show Post Property button */}
+          <button
+            onClick={handlePostProperty}
+            className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base font-normal transition-colors duration-200"
+          >
+            Post Property
+          </button>
         </div>
       </nav>
 
@@ -89,7 +100,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md px-6 pb-4">
           <ul className="flex flex-col space-y-4 text-base font-normal text-[#1E1E1E]">
-            {["about", "listings", "shortlet", "agents", "contact", "post-property"].map(
+            {["about", "listings", "shortlet", "agents", "contact"].map(
               (page, index) => (
                 <li key={index}>
                   <Link
@@ -125,29 +136,28 @@ const Navbar = () => {
                 </Link>
               </>
             ) : (
-              <>
-                <Link
-                  onClick={() => {
-                    handleSignout();
-                    setMenuOpen(false);
-                  }}
-                  to="#"
-                  className="text-base text-[#1E1E1E] hover:text-[#4B3DFE]"
-                >
-                  Signout
-                </Link>
-                {(user.data.accountType === "Landlord" ||
-                  user.data.accountType === "Agent") && (
-                  <Link
-                    to="/post-property"
-                    className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base font-normal transition-colors duration-200"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Post Property
-                  </Link>
-                )}
-              </>
+              <Link
+                onClick={() => {
+                  handleSignout();
+                  setMenuOpen(false);
+                }}
+                to="#"
+                className="text-base text-[#1E1E1E] hover:text-[#4B3DFE]"
+              >
+                Signout
+              </Link>
             )}
+
+            {/* Always show Post Property */}
+            <button
+              onClick={() => {
+                handlePostProperty();
+                setMenuOpen(false);
+              }}
+              className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base font-normal transition-colors duration-200"
+            >
+              Post Property
+            </button>
           </div>
         </div>
       )}
