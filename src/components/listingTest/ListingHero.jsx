@@ -1,4 +1,4 @@
-const ContactHero = () => {
+const ListingHero = () => {
   return (
     <section
       // className="w-full min-h-[50vh] px-10 sm:px-8 md:px-16 lg:px-[10.5rem] py-10 bg-center bg-cover bg-no-repeat flex flex-col"
@@ -11,13 +11,13 @@ const ContactHero = () => {
         <div className="flex items-center gap-4 font-inter">
           <p className="text-sm sm:text-base text-[#E9E9E9]">Home</p>
           <p className="text-sm sm:text-base text-[#E9E9E9]">&gt;</p>
-          <p className="text-sm sm:text-base text-[#FF6B57]">Contact Us</p>
+          <p className="text-sm sm:text-base text-[#FF6B57]">Latest Listings</p>
         </div>
-        <p className="font-bold text-white text-3xl font-sora">Contact Us</p>
+        <p className="font-bold text-white text-3xl font-sora">Latest Listings</p>
       </div>
     </section>
   );
 };
 
-export default ContactHero;
+export default ListingHero;
 

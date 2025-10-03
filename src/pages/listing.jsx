@@ -96,18 +96,11 @@ const Listings = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero */}
       <ListingHero />
 
-      <div className="relative max-w-7xl mx-auto px-20 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10 mt-6">
-        <img
-          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-          src="/chat.png"
-          alt="chat icon"
-        />
-        {/* Left Sidebar - Advanced Search, Latest Properties, Advertisement */}
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20 py-8 grid grid-cols-1 lg:grid-cols-4 gap-10 mt-6">
+        {/* Sidebar */}
         <aside className="space-y-6 order-1 lg:order-1">
-          {/* Advanced Search */}
           <div className="bg-white w-full rounded-lg p-6 border border-[#DDDDE1] font-inter">
             <h2 className="font-semibold mb-4">Advanced Search</h2>
             <select className="w-full mb-3 border rounded p-2 text-[#B9B9B9] font-[400] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]">
@@ -133,23 +126,14 @@ const Listings = () => {
                 className="w-full h-2 bg-gray-300 rounded-lg cursor-pointer accent-[#4B3DFE] hover:accent-[#352BB4] focus:outline-none focus:ring-2 focus:ring-[#4B3DFE]"
               />
             </div>
-            <button className="w-full bg-[#4B3DFE] hover:bg-[#352BB4] text-white py-2 rounded mt-4 text-sm transition-colors">
-              Find Property
-            </button>
+            <button className="w-full bg-[#4B3DFE] text-white py-2 rounded mt-4 text-sm hover:bg-[#352BB4]">Find Property</button>
           </div>
 
-          {/* Latest Properties */}
           <div className="bg-white rounded-lg p-6 border border-[#DDDDE1] font-inter">
             <h2 className="font-semibold mb-6">Latest Properties</h2>
-            {listings.slice(0, 3).map((listing, i) => (
-              <Link key={i} to={`/listing/${listing.id}`} className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors">
-                <div className=''>
-                  <img
-                    src={ListImage}
-                    alt="Listing"
-                    className="w-[78px] h-[78px] object-cover rounded-[8px]"
-                  />
-                </div>
+            {latestListings.map((listing) => (
+              <Link key={listing.id} to={`/listing/${listing.id}`} className="flex gap-3 mb-6 hover:bg-gray-50 p-2 rounded transition-colors">
+                <img src={listing.imageUrl || "https://placehold.co/78x78"} alt={listing.name} className="w-[78px] h-[78px] object-cover rounded-[8px]" />
                 <div>
                   <h3 className="font-[400] text-[14px] mb-1 hover:text-[#4B3DFE]">
                     {listing.title}
@@ -161,20 +145,10 @@ const Listings = () => {
               </Link>
             ))}
           </div>
-
-          {/* Advertisement */}
-          <div className="rounded-lg">
-            <img
-              src={AdvertImage}
-              alt="Advertisement"
-              className="rounded-lg w-full h-auto object-cover"
-            />
-          </div>
         </aside>
 
         {/* Main Content */}
         <main className="lg:col-span-3 order-2 lg:order-2">
-          {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 border rounded p-3 font-inter gap-2">
             <p className="text-xs sm:text-sm">
               Showing 1 - {listings.length} of 150 results
@@ -184,9 +158,8 @@ const Listings = () => {
             </select>
           </div>
 
-          {/* Listings */}
           <div className="space-y-6">
-            {listings.map((listing) => (
+            {currentListings.map((listing) => (
               <div key={listing.id} className="bg-white rounded-lg border-[#DDDDE1] p-6 flex flex-col lg:flex-row gap-6 border">
                 {/* Image */}
                 <Link
@@ -204,7 +177,7 @@ const Listings = () => {
                     className="w-full lg:w-[212px] h-[196px] object-cover rounded hover:opacity-90 transition-opacity"
                   />
                   <div className="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-[10px] px-2 py-1 rounded flex items-center gap-1">
-                    <FaCamera size={12} /> {listing.photos}
+                    <FaCamera size={12} /> {listing.photos || 0}
                   </div>
                 </Link>
 
@@ -212,13 +185,9 @@ const Listings = () => {
                 <div className="flex flex-col flex-1 justify-between font-inter">
                   <div>
                     <Link to={`/listing/${listing.id}`}>
-                      <h3 className="font-semibold text-[16px] lg:text-[18px] hover:text-[#4B3DFE] transition-colors cursor-pointer">
-                        {listing.title}
-                      </h3>
+                      <h3 className="font-semibold text-[16px] lg:text-[18px] hover:text-[#4B3DFE]">{listing.name}</h3>
                     </Link>
-                    <p className="text-[12px] text-[#1E1E1E] mt-1">
-                      {listing.description}
-                    </p>
+                    <p className="text-[12px] text-[#1E1E1E] mt-1">{listing.description || listing.content}</p>
                     <div className="flex items-center gap-1 text-[#6E6F70] mt-2">
                       <FaMapMarkerAlt size={14} />
                       <span className="text-[12px]">{listing.location}</span>
@@ -238,38 +207,51 @@ const Listings = () => {
                   </div>
 
                   {/* Agent Info */}
-                  <div className="flex flex-col gap-1 mt-4 font-inter">
-                    <div className="flex gap-2 items-center">
+                  <div className="flex flex-col gap-1 mt-4">
+                      <div className="flex gap-2 items-center">
                       <img
-                        src={AgentImage}
+                        src={listing.profPic}
                         alt="Agent"
                         className="w-[32px] h-[32px] rounded-full object-cover"
                       />
                       <p className="text-sm font-[400] flex items-center gap-1">
                         {listing.agent}
+                        {/* verified badge should be programatic later */}
                         <img
-                          src={VerifiedBadge}
+                          src={listing.VerifiedBadge}
                           alt="Verified"
                           className="w-[12px] h-[12px]"
                         />
                       </p>
                     </div>
-                    <p className="text-[11px] text-gray-400">
-                      {listing.updated}
-                    </p>
+                    <p className="text-[11px] text-gray-400">{listing.date}</p>
                   </div>
-                </div>
 
-                {/* Price & Actions */}
-                <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0  pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
+                </div>
+                 {/* Price & Actions */}
+                <div className="flex flex-col items-start lg:items-end justify-between font-inter border-t lg:border-t-0 pt-4 lg:pt-0 lg:pl-6 w-full lg:w-auto">
                   <div className="text-left lg:text-right lg:border-l border-[#DDDDE1] lg:pl-6">
-                    <p className="text-[18px] font-bold text-[#1E1E1E]">
-                      {listing.price}
-                    </p>
-                    <p className="text-[12px] text-gray-500">
-                      {listing.bedrooms} Bed {listing.bathrooms} Bath
-                    </p>
+                    <p className="text-[18px] font-bold text-[#1E1E1E]">{listing.price}</p>
                   </div>
+                  
+                  {/* Edit/Delete buttons for Landlord/Agent */}
+                  {canEditDelete && (
+                    <div className="flex gap-2 mt-2">
+                      <button 
+                        onClick={() => handleEdit(listing.id)}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md flex items-center gap-1 text-xs"
+                      >
+                        <FaEdit size={12} /> Edit
+                      </button>
+                      <button 
+                        onClick={() => handleDelete(listing.id)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md flex items-center gap-1 text-xs"
+                      >
+                        <FaTrash size={12} /> Delete
+                      </button>
+                    </div>
+                  )}
+                  
                   <div className="flex gap-3 mt-4">
                     <button className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm">
                       <FaPhone className="transform scale-x-[-1]" /> Call

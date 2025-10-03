@@ -4,6 +4,6 @@ export const userInfo = atom({
     key: "userInfo",
     default: {
         isLoggedIn:false,
-        data:{}
+        data:{},
     }
 })

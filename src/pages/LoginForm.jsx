@@ -28,7 +28,7 @@ const LoginForm = () => {
             console.log('Tenant signed up successfully');
             navigate('/');
           } else if (response.data.accountType === 'Landlord') {
-            navigate('/posting');
+            navigate('/post-property');
           } else if (response.data.accountType === 'Agent') {
             navigate('/agents');
           } else {

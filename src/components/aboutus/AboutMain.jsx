@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 const whatWeOffer = [
   {
@@ -18,16 +19,11 @@ const whatWeOffer = [
 ];
 
 const AboutMain = () => {
+  const [activeTab, setActiveTab] = useState("vision");
   return (
-    <main className="relative px-4 sm:px-8 md:px-16 lg:px-[10.5rem] py-6 md:py-8">
-      <img
-        className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
-        src="/chat.png"
-        alt="chat icon"
-      />
+    <main className="h-fit w-full px-[4rem] sm:px-[9.6rem] my-16">
       {/* Top section */}
       <section className="flex flex-col md:flex-row md:mt-6 h-full relative items-center">
-
         {/* Left Image */}
         <div className="flex-[1.3] relative md:mr-10">
           <img
@@ -35,9 +31,9 @@ const AboutMain = () => {
             src="/aboutLeft1.png"
             alt="Ikoyi Link bridge Image"
           />
-          
+
           <img
-            className="hidden lg:block absolute bottom-[-24px] left-[80px] object-cover w-80"
+            className="hidden lg:block absolute bottom-[-26px] left-[88px] object-cover w-80 h-80"
             src="/aboutPattern.png"
             alt="Image Pattern"
           />
@@ -45,13 +41,13 @@ const AboutMain = () => {
 
         {/* Right */}
         <div className="flex-[1.7] flex flex-col gap-4">
-          <h2 className="text-[#4B3DFE] font-bold text-base md:text-lg mt-6 md:mt-0 font-sora">
+          <h2 className="text-[#4B3DFE] font-semibold text-lg md:text-xl mt-6 md:mt-0 font-sora">
             // Discover our Story
           </h2>
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold font-sora text-[#1E1E1E]">
+          <h1 className="text-xl md:text-2xl lg:text-[32px] leading-normal tracking-[1.12%] font-bold font-sora text-[#1E1E1E]">
             Simplifying Renting, <br /> Securing Homes.
           </h1>
-          <p className="font-inter text-sm md:text-sm leading-relaxed tracking-[0.04em]">
+          <p className="font-inter text-sm md:text-base leading-normal tracking-[0.04em]">
             Strent was born from a simple frustration, the endless stress of
             trying to rent a home in Nigeria. From fake listings to upfront
             agent fees and lack of trust, the rental journey has often been a
@@ -65,38 +61,63 @@ const AboutMain = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 md:gap-6 mt-2">
-            <button className="flex-1 md:flex-none bg-[#4B3DFE] hover:bg-[#6257f8] px-6 py-2 text-white font-bold rounded-lg cursor-pointer text-sm md:text-base">
+            {/* Vision Button */}
+            <button
+              className={`w-[150px] h-[48px] flex items-center justify-center p-4 rounded-md text-center font-semibold font-inter cursor-pointer text-sm md:text-base 
+          ${
+            activeTab === "vision"
+              ? "bg-[#4B3DFE] hover:bg-[#6257f8] text-white"
+              : "bg-white border border-[#C4C5C8] text-[#1E1E1E]"
+          }`}
+              onClick={() => setActiveTab("vision")}
+            >
               Our Vision
             </button>
-            <button className="flex-1 md:flex-none px-6 py-2 hover:bg-[#333] hover:text-white hover:border-none border-2 border-gray rounded-lg font-bold cursor-pointer text-sm md:text-base">
+
+            {/* Mission Button */}
+            <button
+              className={`w-[150px] h-[48px] flex items-center justify-center p-4 rounded-md text-center font-semibold font-inter cursor-pointer text-sm md:text-base 
+          ${
+            activeTab === "mission"
+              ? "bg-[#4B3DFE] hover:bg-[#6257f8] text-white"
+              : "bg-white border border-[#C4C5C8] text-[#1E1E1E]"
+          }`}
+              onClick={() => setActiveTab("mission")}
+            >
               Our Mission
             </button>
           </div>
 
-          <p className="font-inter text-sm md:text-sm leading-relaxed tracking-[0.04em]">
-            To become Nigeria’s most trusted home rental platform, empowering
-            millions to find real homes, without the hassle, doubt, or fear.
-          </p>
+          {activeTab === "vision" ? (
+            <p className="font-inter text-sm md:text-base leading-normal tracking-[0.04em]">
+              To become Nigeria’s most trusted home rental platform, empowering
+              millions to find real homes, without the hassle, doubt, or fear.
+            </p>
+          ) : (
+            <p className="font-inter text-sm md:text-base leading-normal tracking-[0.04em]">
+              To simplify and safeguard the rental experience in Nigeria by
+              providing a secure, transparent, and technology-driven platform
+              for both renters and property owners.
+            </p>
+          )}
         </div>
       </section>
 
       {/* What We Offer Section */}
       <section className="flex flex-col gap-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-center md:mt-10 lg:mt-20 mt-8 text-[#1E1E1E]">
+        <h1 className="text-xl md:text-2xl font-semibold text-center tracking-[1.12%] leading-snug md:mt-10 lg:mt-28 mt-8 text-[#1E1E1E]">
           What We Offer
         </h1>
 
         {/* Grid for cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {whatWeOffer.map((weo, i) => (
-            <div key={i} className="flex flex-col gap-4 border rounded-lg p-6">
+            <div key={i} className="flex flex-col gap-4 border rounded-lg p-6 hover:shadow-md-penumbra-6 transition-shadow duration-300">
               <img className="h-12 w-12" src={weo.icon} alt="Icon" />
-              <h2 className="font-semibold text-xl md:text-2xl text-[#1E1E1E] font-sora">
+              <h2 className="font-semibold text-lg md:text-xl leading-snug text-[#1E1E1E] font-sora">
                 {weo.title}
               </h2>
-              <p className="font-sora text-sm md:text-sm flex-1">
-                {weo.desc}
-              </p>
+              <p className="font-inter text-sm md:text-base flex-1">{weo.desc}</p>
             </div>
           ))}
         </div>

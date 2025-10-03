@@ -1,10 +1,8 @@
-import React from "react";
 
-const InnerShortletLeft = () => {
+const InnerListingLeft = () => {
   return (
       <div className="flex-[1] flex flex-col gap-5 order-2 lg:order-1">
             {/* Agent Info */}
-            {/* <div className="w-full flex flex-col gap-4 border border-gray-300 rounded-lg px-4 py-5"> */}
             <div className="w-72 border border-[#DDDDE1] rounded-md px-4 py-6">
               <h1 className="text-lg sm:text-xl font-semibold font-sora leading-snug">Marketed by</h1>
               <div className="flex items-center gap-2 mt-4">
@@ -95,4 +93,4 @@ const InnerShortletLeft = () => {
   );
 };
 
-export default InnerShortletLeft;
+export default InnerListingLeft;

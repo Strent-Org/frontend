@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import ShortletCards from "./ShortletCards";
+import { useState } from "react";
+import ListingCards from "./ListingCards";
 
-const InnerShortletRight = () => {
+const InnerListingRight = () => {
   const [activeTab, setActiveTab] = useState("Overview");
   return (
     <div className="flex-[2.7] flex flex-col gap-4 order-1 lg:order-2 mt-6 sm:mt-0">
-      {/* Property Title - 2 Bedroom Apartment With Notch Amenities */}
+      {/* Property Title */}
       <div className="flex flex-col gap-4">
         <h1 className="text-xl sm:text-2xl font-semibold text-[#1E1E1E] font-sora leading-snug">
-          2 Bedroom Apartment With Notch Amenities
+          2 Bedroom Terrace Duplex
         </h1>
         <div className="flex flex-wrap gap-2 items-center">
           <img
@@ -20,7 +20,7 @@ const InnerShortletRight = () => {
         </div>
 
         <h1 className="text-xl sm:text-2xl font-semibold font-sora text-[#1E1E1E] leading-snug">
-          ₦140,000/day
+          ₦ 15,000,000/year
         </h1>
         <p className="text-xs sm:text-sm text-[#1E1E1E] font-inter leading-snug">
           2 bedroom Flat & Apartment Short let Ikate Elegushi Lekki Lagos
@@ -187,7 +187,6 @@ const InnerShortletRight = () => {
       </div>
 
       {/* Report Property */}
-      {/* <div className="w-full border-2 rounded-xl py-4 px-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"> */}
       <div className="w-full border border-[#DDDDE1] rounded-md px-4 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <img
@@ -214,12 +213,12 @@ const InnerShortletRight = () => {
         <h1 className="text-lg sm:text-xl font-bold text-[#1E1E1E]">
           Similar Listings
         </h1>
-        <ShortletCards />
-        <ShortletCards />
-        <ShortletCards />
+        <ListingCards />
+        <ListingCards />
+        <ListingCards />
       </div>
     </div>
   );
 };
 
-export default InnerShortletRight;
+export default InnerListingRight;

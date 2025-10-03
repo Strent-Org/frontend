@@ -1,11 +1,12 @@
-import InnerShortletHero from "../components/shortlet/InnerShortletHero";
-import InnerShortletRight from "../components/shortlet/InnerShortletRight";
-import InnerShortletLeft from "../components/shortlet/InnerShortletLeft";
 
-const InnerShortlet = () => {
+import InnerListingHero from "../../components/listingTest/InnerListingHero";
+import InnerListingRight from "../../components/listingTest/InnerListingRight";
+import InnerListingLeft from "../../components/listingTest/InnerListingLeft";
+
+const InnerListing = () => {
   return (
     <>
-      <InnerShortletHero />
+      <InnerListingHero />
 
       <main className="h-fit w-full px-[4rem] sm:px-[9.6rem] my-16">
         {/* Breadcrumb + Actions */}
@@ -16,16 +17,16 @@ const InnerShortlet = () => {
             </li>
             &gt;{" "}
             <li>
-              <a href="/shortlet">Shortlets</a>
+              <a href="/listing">Listings</a>
             </li>{" "}
             &gt;{" "}
             <li>
-              <a href="/innershortlet/1">Property for shortlet in Lekki</a>
+              <a href="/innerlisting/1">Property for rent in Lekki</a>
             </li>{" "}
             &gt;{" "}
             <li>
-              <a href="/innershortlet/1">
-                Flat Apartment for shortlet in Lekki
+              <a href="/innerlisting/1">
+                House for rent in Lekki
               </a>
             </li>
           </ul>
@@ -54,7 +55,7 @@ const InnerShortlet = () => {
           <img src="/arrow-left.png" alt="Back-arrow" className="w-4 h-4" />
           <a
             className="text-[#1E1E1E] font-bold font-inter text-sm sm:text-base leading-normal"
-            href="/shortlet"
+            href="/listings"
           >
             Back to search results
           </a>
@@ -63,14 +64,14 @@ const InnerShortlet = () => {
         {/* Two-Column Layout */}
         <div className="flex flex-col p-1 lg:flex-row mt-8 gap-5">
           {/* Left Sidebar */}
-          <InnerShortletLeft />
+          <InnerListingLeft />
 
           {/* Right Content */}
-          <InnerShortletRight />
+          <InnerListingRight />
         </div>
       </main>
     </>
   );
 };
 
-export default InnerShortlet;
+export default InnerListing;
