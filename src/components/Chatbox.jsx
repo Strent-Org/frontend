@@ -1,6 +1,5 @@
 import React from "react";
 import { HomeIcon } from "@heroicons/react/16/solid";
-// import { HomeIcon as HomeOutline } from "@heroicons/react/16/outline";
 import MessageIcon from "../assets/icons/message-text.svg";
 import ColoredMessageIcon from "../assets/icons/message-colored.svg";
 import MessageAdd from "../assets/icons/message-add.svg";
