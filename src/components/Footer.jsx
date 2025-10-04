@@ -5,22 +5,20 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // 'idle', 'submitting', 'success', 'error'
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("submitting");
     try {
-      // First, check if the email already exists in the database
       const checkResponse = await axios.get(
         `http://localhost:8080/newsletter-subscribers?email=${email}`
       );
 
       if (checkResponse.data.length > 0) {
-        // If the email exists, set the status to 'exists' and stop
         setStatus("exists");
         return;
       }
 
-      // If the email does not exist, proceed with the new subscription
       const postResponse = await axios.post(
         "http://localhost:8080/newsletter-subscribers",
         {
@@ -31,7 +29,7 @@ const Footer = () => {
 
       console.log("Successfully subscribed:", postResponse.data);
       setStatus("success");
-      setEmail(""); // Clear the input field
+      setEmail("");
     } catch (error) {
       console.error("Subscription error:", error);
       setStatus("error");
@@ -39,12 +37,12 @@ const Footer = () => {
   };
 
   const year = new Date().getFullYear();
+
   return (
     <footer className="h-fit w-full px-[4rem] py-[4rem] sm:px-[9.6rem] sm:py-[4.5rem] bg-[#201A6B]">
       <div className="grid gap-11 grid-cols-1 sm:grid-cols-2 lg:flex lg:items-start">
+        {/* Logo + About */}
         <div className="max-w-[20rem]">
-          {/* <h3 className="text-2xl font-bold text-white mb-4 font-sora">LOGO</h3> */}
-          {/* <img src="/strent-logo.svg" alt="Strent logo" className="h-16 sm:h-20 md:h-24 lg:h-26 w-auto m-0 p-0 block align-middle" /> */}
           <img
             src="/footerLogo.png"
             alt="Strent logo"
@@ -65,21 +63,30 @@ const Footer = () => {
           </h3>
           <ul className="w-full h-fit text-white font-inter text-xs sm:text-sm leading-normal tracking-[0.4%]">
             <li className="mb-4">
-              <a href="/about Us">About Us</a>
+              <Link to="/about" className="hover:text-[#4B3DFE]">
+                About Us
+              </Link>
             </li>
             <li className="mb-4 whitespace-nowrap">
-              <a href="/agents">Find an Agent</a>
+              <Link to="/agents" className="hover:text-[#4B3DFE]">
+                Find an Agent
+              </Link>
             </li>
             <li className="mb-4 whitespace-nowrap">
-              <a href="/privacy">Privacy Policy</a>
+              <Link to="/privacy" className="hover:text-[#4B3DFE]">
+                Privacy Policy
+              </Link>
             </li>
             <li className="whitespace-nowrap mb-4">
-              <a href="/terms">Terms and Agreement</a>
+              <Link to="/terms" className="hover:text-[#4B3DFE]">
+                Terms and Agreement
+              </Link>
             </li>
             <li>
-              <a href="/faqs">FAQs</a>
+              <Link to="/faqs" className="hover:text-[#4B3DFE]">
+                FAQs
+              </Link>
             </li>
-            <li></li>
           </ul>
         </div>
 
@@ -123,7 +130,6 @@ const Footer = () => {
               className="bg-[#4B3DFE] text-white rounded-r-xl px-3 py-2 flex items-center justify-center transition hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={status === "submitting"}
             >
-              {/* Using a simple SVG for the arrow */}
               <svg
                 className="w-5 h-4 text-white"
                 fill="currentColor"
@@ -153,6 +159,7 @@ const Footer = () => {
               This email is already on our mailing list.
             </p>
           )}
+
           <h3 className="sm:text-xl text-lg font-semibold text-white mb-4 font-sora leading-snug tracking-[1.12%] whitespace-nowrap">
             Follow Us
           </h3>
@@ -202,10 +209,8 @@ const Footer = () => {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-
                 const scrollDuration = 1000;
                 const scrollStep = -window.scrollY / (scrollDuration / 16);
-
                 const scrollInterval = setInterval(() => {
                   if (window.scrollY !== 0) {
                     window.scrollBy(0, scrollStep);
