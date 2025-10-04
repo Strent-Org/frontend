@@ -81,12 +81,12 @@ const MyListingsTab = () => {
             <input
               type="text"
               placeholder="Min Price"
-              className="border border-[#DDDDE1] h-10 w-[12%] text-xs rounded-md px-3 py-2 font-inter text-[#565658] focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-[#DDDDE1] h-10 w-[12%] text-xs rounded-md px-3 py-2 font-inter text-[#B8B9BC] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="text"
               placeholder="Max Price"
-              className="border border-[#DDDDE1] h-10 w-[12%] text-xs rounded-md px-3 py-2 font-inter text-[#565658] focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-[#DDDDE1] h-10 w-[12%] text-xs rounded-md px-3 py-2 font-inter text-[#B8B9BC] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <select className="border border-[#DDDDE1] h-10 w-[12%] text-xs rounded-md px-3 py-2 font-inter text-[#565658] focus:outline-none">
               <option>Category</option>
