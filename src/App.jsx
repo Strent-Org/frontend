@@ -63,7 +63,7 @@ function App() {
         </Route>
 
         {/* Static pages */}
-        <Route path="/about us" element={<AboutUs />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
