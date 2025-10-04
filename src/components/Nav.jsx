@@ -148,7 +148,7 @@ const Navbar = () => {
               </Link>
             )}
 
-            {/* Always show Post Property */}
+            {/* show Post Property */}
             <button
               onClick={() => {
                 handlePostProperty();
