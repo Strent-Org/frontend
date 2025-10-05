@@ -79,7 +79,7 @@ const LoginForm = () => {
           <div className="text-right mb-4 font-inter text-[14px] font-semibold">
             <Link
               to="/forgot-password"
-              className="text-sm text-primary hover:text-primary/80 transition-colors" 
+              className="text-sm text-primary hover:text-primary/80 transition-colors"
             >
               Forgot Password ?
             </Link>
@@ -110,7 +110,7 @@ const LoginForm = () => {
             </label>
           </div>
 
-          {/* Login Button */} 
+          {/* Login Button */}
           <button type="submit" className=" text-white w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-lg transition-colors mb-6">
             Log In
           </button>
@@ -118,13 +118,12 @@ const LoginForm = () => {
         </form>
 
         {/* Divider */}
-        <div className="relative mb-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-border"></div>
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="bg-card px-4 text-muted-foreground font-inter font-normal decoration-none ">Or Continue With</span>
-          </div>
+        <div className="flex items-center mb-6">
+          <div className="flex-grow border-t border-border"></div>
+          <span className="mx-4 text-sm text-muted-foreground font-inter font-normal">
+            Or Continue With
+          </span>
+          <div className="flex-grow border-t border-border"></div>
         </div>
 
         {/* Social Login Buttons */}
@@ -136,7 +135,9 @@ const LoginForm = () => {
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
               <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
             </svg>
-            Sign in with Google
+            {/* Sign in with Google */}
+            <span className="hidden sm:inline-block">Sign in with Google</span>
+            <span className="sm:hidden">Google</span>
           </button>
 
           <button className="h-12 flex items-center justify-center border border-input bg-background hover:bg-accent text-foreground font-medium rounded-lg transition-colors">
@@ -151,7 +152,7 @@ const LoginForm = () => {
         <div className=" text-left text-xs text-muted-foreground font-inter text-[#565658] text-[12px] mb-4">
           By registering, you accept our terms of use and privacy and agree what we and our selected partners may contact you with relevant offers and services.
         </div>
-        
+
         {/* Register Link */}
         <div className="text-center">
           <span className="text-sm text-muted-foreground text-[14px] font-inter">Don't have an account? </span>
@@ -160,7 +161,7 @@ const LoginForm = () => {
           </Link>
         </div>
       </div>
-    </div>
+   </div>
   );
 };
 
