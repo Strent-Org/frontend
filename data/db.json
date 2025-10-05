@@ -1,0 +1,267 @@
+{
+  "User": [
+    {
+      "accountType": "Landlord",
+      "fullName": "Abdullahi Abdulkadir",
+      "id": "abdullahi@gmail.com",
+      "password": "00000000Hh1&",
+      "phoneNumber": "08166161213",
+      "agreeToTerms": true
+    },
+    {
+      "accountType": "Tenant",
+      "fullName": "wendi dev",
+      "id": "wendi@gmail.com",
+      "password": "00000000Hh1&",
+      "phoneNumber": "1234567890",
+      "agreeToTerms": true
+    },
+    {
+      "id": "omo@gmail.com",
+      "accountType": "Tenant",
+      "fullName": "omo omoshe",
+      "password": "00000000Hh1&",
+      "phoneNumber": "8166161213",
+      "agreeToTerms": true
+    },
+    {
+      "id": "agent@gmail.com",
+      "accountType": "Agent",
+      "fullName": "omo Agent",
+      "password": "00000000Hh1&",
+      "phoneNumber": "1234567000",
+      "agreeToTerms": true
+    },
+    {
+      "id": "oluchi@gmail.com",
+      "accountType": "Agent",
+      "fullName": "oluchi something",
+      "password": "00000000Hh1&",
+      "phoneNumber": "0918888811",
+      "agreeToTerms": true
+    },
+    {
+      "id": "bala@gmail.com",
+      "accountType": "Landload",
+      "fullName": "muhammed bala",
+      "password": "00000000Hh1&",
+      "phoneNumber": "0901111111",
+      "agreeToTerms": true
+    }
+  ],
+  "messages": [
+    {
+      "id": "edf7",
+      "fullName": "Abdullahi Abdulkadir",
+      "email": "graphgeo02@gmail.com",
+      "subject": "Scheduling a call",
+      "message": "Hi,\nI would like to book a meeting with you to know more about your selling properties.\nThank you.",
+      "timestamp": "2025-09-07T09:11:50.559Z"
+    },
+    {
+      "id": "b974",
+      "fullName": "OLUWA",
+      "email": "akande@gmail.com",
+      "subject": "Inquiry",
+      "message": "hello i would like to know",
+      "timestamp": "2025-09-13T19:42:06.530Z"
+    }
+  ],
+  "newsletter-subscribers": [
+    {
+      "id": "aaf9",
+      "email": "abdullahi@gmail.com",
+      "subscribedAt": "2025-09-07T21:21:58.674Z"
+    },
+    {
+      "id": "bdb7",
+      "email": "abdullahiabdulkadir621@gmail.com",
+      "subscribedAt": "2025-09-07T21:22:25.210Z"
+    },
+    {
+      "id": "232e",
+      "email": "123@gmail.com",
+      "subscribedAt": "2025-09-07T21:22:53.772Z"
+    },
+    {
+      "id": "fe8c",
+      "email": "graphgeo02@gmail.com",
+      "subscribedAt": "2025-09-08T08:30:09.450Z"
+    },
+    {
+      "id": "6876",
+      "email": "123456@gmail.com",
+      "subscribedAt": "2025-09-13T19:39:44.875Z"
+    }
+  ],
+  "agents": [
+    {
+      "id": "6200",
+      "name": "Abdullahi Abdulkadir",
+      "email": "abdullahi@gmail.com",
+      "phoneNumber": "08166161213",
+      "imageUrl": "blob:http://localhost:5173/701d3939-540f-4435-be2b-bdd847aa42c4",
+      "numberOfProperties": 0,
+      "listings": "View Listings"
+    },
+    {
+      "id": "43",
+      "name": "Agent olazonmi adekunle",
+      "email": "ola@gmail.com",
+      "phoneNumber": "1234567890",
+      "imageUrl": "blob:http://localhost:5173/f2f8d87f-ee6e-4cd7-a642-e223c9a59f6b",
+      "numberOfProperties": "5",
+      "listings": "View Listings"
+    },
+    {
+      "id": "d7b7",
+      "name": "muhammed bala",
+      "email": "bala@gmail.com",
+      "phoneNumber": "0901111111111111",
+      "imageUrl": "blob:http://localhost:5173/1e62a886-ebb2-44b1-b307-8a359718aca0",
+      "numberOfProperties": "4",
+      "listings": "View Listings"
+    },
+    {
+      "id": "27ca",
+      "name": "muhammed bala",
+      "email": "bala@gmail.com",
+      "phoneNumber": "0901111111111111",
+      "imageUrl": "blob:http://localhost:5173/5f67fab9-eb92-4e3c-8539-e49463d06e4d",
+      "numberOfProperties": "2",
+      "listings": "View Listings"
+    }
+  ],
+  "properties": [
+    {
+      "name": "3 Bed room",
+      "location": "Lagos",
+      "agent": "Abdullahi Abdullahi  Mohammed",
+      "price": "N600,000/year",
+      "description": "Mordern",
+      "imageUrl": "blob:http://localhost:5173/2a110478-bbad-4338-b46e-903d1e9b6d48",
+      "profPic": "blob:http://localhost:5173/9e84b26f-45eb-4fea-b827-8ab213e51ade",
+      "date": " 12 sep 2025",
+      "parkingSpace": "No Parking space",
+      "gym": "No Gym",
+      "swimmingPool": "No swimming pool",
+      "id": "fe994734-6213-4169-816c-9543bac7b7fb"
+    },
+    {
+      "id": "84c45396-f2e1-45db-953b-23787668f069",
+      "name": "5 Bed room",
+      "location": "Apapa",
+      "agent": "Victo John",
+      "price": "1,000,000/year",
+      "description": "Modern",
+      "imageUrl": "blob:http://localhost:5173/0e7e2962-db75-46bf-b814-20f8d7460f6a",
+      "profPic": "blob:http://localhost:5173/cc89e087-455f-468e-8c0a-9d7ee00921a3",
+      "date": " 13, sep 2025",
+      "parkingSpace": "Parking space",
+      "gym": "gym",
+      "swimmingPool": "Swimming pool"
+    },
+    {
+      "id": "1c9842e9-4d7a-484f-a958-472962cce959",
+      "name": "2 Bed room ",
+      "location": "Apapa new site",
+      "agent": "john doe",
+      "price": "2, 000,0000",
+      "description": "modern 2 kitchen 2 toilet",
+      "imageUrl": "blob:http://localhost:5173/7c1bfef6-8b3a-4fd7-b2b7-485e856cbdd1",
+      "profPic": "blob:http://localhost:5173/270c5960-2b1b-4bd9-973c-f041c84e7477",
+      "date": "19 sep 2025",
+      "parkingSpace": "Parking space 2",
+      "gym": "gym large",
+      "swimmingPool": "Swiming pool large"
+    },
+    {
+      "id": "8d717edd-da80-40e0-9d56-25260cf5cda9",
+      "name": "5 Bed room",
+      "location": "Obajana new site estate ",
+      "agent": "Dr. john",
+      "price": "2,000,000/year",
+      "description": "modern, 3 kitchen, 3 toilet.",
+      "imageUrl": "blob:http://localhost:5173/ad616c73-0985-4c72-90f7-54eb75d8f61c",
+      "profPic": "blob:http://localhost:5173/928ed0eb-a240-4f9c-83cc-c897663e172e",
+      "date": "20 sep 2025",
+      "parkingSpace": "parking space",
+      "gym": "gym",
+      "swimmingPool": "swimming pool"
+    },
+    {
+      "id": "a683cc00-e621-4584-b694-c8db329cfd58",
+      "name": "9 bed room ",
+      "location": "Apapa East",
+      "agent": "Akanmi okeke",
+      "price": "3,000,000/year",
+      "description": "modern 2 kitchen, 3 toilet",
+      "imageUrl": "blob:http://localhost:5173/419af835-e895-4a9f-8d41-a256bace5a95",
+      "profPic": "blob:http://localhost:5173/8dc0b83c-769d-4523-8a51-ed8e3f5dfa5b",
+      "date": "20 sep 2025",
+      "parkingSpace": "yes",
+      "gym": "yes",
+      "swimmingPool": "yes"
+    },
+    {
+      "id": "de1cbae1-f4e5-438e-a1ce-5476b82d5fb2",
+      "name": "6 bed room",
+      "location": "Ede yoroba ",
+      "agent": "Agent olazonmi adekunle",
+      "email": "ola@gmail.com",
+      "phoneNumber": "01234567890",
+      "price": "4,000,000/year",
+      "description": "4 kitchen, 4 toilet, ",
+      "imageUrl": "blob:http://localhost:5173/20a4bea7-d1ae-4f74-b176-cd3bcdc3480f",
+      "profPic": "blob:http://localhost:5173/a1b55b67-4bc8-4095-b6b1-8cdd598c332c",
+      "date": "19",
+      "parkingSpace": "yes",
+      "gym": "yes",
+      "swimmingPool": "yes"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "3f30",
+      "agentId": "43",
+      "agentName": "Agent olazonmi adekunle",
+      "reviewerFullName": "Abdullahi Abdulkadir",
+      "reviewerEmail": "graphgeo02@gmail.com",
+      "reviewerText": "he have amazing work, he deliver on time",
+      "starRating": 4,
+      "timestamp": "2025-09-12T22:07:03.754Z"
+    },
+    {
+      "id": "3e45",
+      "agentId": "43",
+      "agentName": "Agent olazonmi adekunle",
+      "reviewerFullName": "michel",
+      "reviewerEmail": "michel@gmail.com",
+      "reviewerText": "nice work,",
+      "starRating": 1,
+      "timestamp": "2025-09-13T20:00:50.453Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "ab0e8ccc-715c-40a8-a771-6ef99b2e826e",
+      "name": "Abdullahi Abdulkadir",
+      "phone": "08166161213",
+      "email": "abdullahi@gmail.com",
+      "message": "h",
+      "agentId": "43",
+      "agentName": "Agent olazonmi adekunle",
+      "createdAt": "2025-09-12T22:45:24.899Z"
+    },
+    {
+      "id": "65364c51-8cb5-45be-abe7-de4e6bf6d464",
+      "name": "umar ishak",
+      "phone": "0700000000",
+      "email": "umar@gmail.com",
+      "message": "helo adekundle, iwould like to schedule a call with you",
+      "agentId": "43",
+      "agentName": "Agent olazonmi adekunle",
+      "createdAt": "2025-09-13T20:03:45.263Z"
+    }
+  ]
+}

@@ -1,8 +1,5 @@
 # frontend
-<<<<<<< HEAD
-=======
 
->>>>>>> 7a21f542de83fc549171ca0b5f79ff21267d4258
 # 🌟 Strent App
 
 A collaborative, responsive web project built with **React**, **Vite**, **Tailwind CSS**, and managed with **pnpm**. This app is designed for maintainability, reusability, and team collaboration as part of the AltSchool project initiative.
