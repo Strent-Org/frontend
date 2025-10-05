@@ -14,7 +14,7 @@ const data = [
   { x: 2, y: 0 },
   { x: 3, y: 0 },
   { x: 4, y: 0 },
-]; // empty/flat line just to render grid
+];
 
 const DashboardTab = () => {
   return (
@@ -128,7 +128,7 @@ const DashboardTab = () => {
               <div style={{ width: "100%", height: 280 }}>
                 <ResponsiveContainer>
                   <LineChart data={data}>
-                    <CartesianGrid stroke="#ccc" strokeDasharray="0" />
+                    <CartesianGrid stroke="#ccc" strokeDasharray="0"/>
                     <XAxis dataKey="x" hide />{" "}
                     {/* hide x labels if you only want y */}
                     <YAxis
@@ -141,7 +141,7 @@ const DashboardTab = () => {
                       className="text-sm font-inter"
                     />
                     <Tooltip />
-                    <Line type="linear" dataKey="y" stroke="transparent" />{" "}
+                    <Line type="linear" dataKey="y" stroke="transparent"/>{" "}
                     {/* invisible line */}
                   </LineChart>
                 </ResponsiveContainer>
@@ -174,11 +174,11 @@ const DashboardTab = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="p-2 text-gray-400"></td>
-                    <td className="p-2 text-gray-400"></td>
-                    <td className="p-2 text-gray-400"></td>
-                    <td className="p-2 text-gray-400"></td>
-                    <td className="p-2 text-gray-400"></td>
+                    <td className="p-2"></td>
+                    <td className="p-2"></td>
+                    <td className="p-2"></td>
+                    <td className="p-2"></td>
+                    <td className="p-2"></td>
                   </tr>
                 </tbody>
               </table>

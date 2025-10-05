@@ -1,4 +1,3 @@
-
 // import { useState } from "react";
 
 // const panels = [
@@ -47,7 +46,6 @@
 
 // export default InnerListingHero;
 
-
 import { useState } from "react";
 
 const panels = [
@@ -71,15 +69,13 @@ const InnerListingHero = () => {
 
   return (
     <section className="w-full min-h-[60vh] flex items-center justify-center relative overflow-hidden">
-
       {/* Active Slide */}
       <div className="w-full min-h-[60vh] flex flex-col md:flex-row">
         {/* Left Panel */}
         <div
           className="relative flex-1 bg-cover bg-center min-h-[200px]"
           style={{ backgroundImage: `url(${panels[activeIndex].img[0]})` }}
-        >
-        </div>
+        ></div>
 
         {/* Middle Panel */}
         <div
@@ -91,8 +87,7 @@ const InnerListingHero = () => {
         <div
           className="relative flex-1 bg-cover bg-center min-h-[200px]"
           style={{ backgroundImage: `url(${panels[activeIndex].img[2]})` }}
-        >
-        </div>
+        ></div>
       </div>
 
       {/* Left Arrow */}
