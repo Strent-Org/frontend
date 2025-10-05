@@ -23,19 +23,13 @@ const AboutMain = () => {
   return (
     <main className="h-fit w-full px-[4rem] sm:px-[9.6rem] my-16">
       {/* Top section */}
-      <section className="flex flex-col md:flex-row md:mt-6 h-full relative items-center">
+      <section className="flex flex-col md:flex-row md:mt-6 h-full items-center">
         {/* Left Image */}
-        <div className="flex-[1.3] relative md:mr-10">
+        <div className="flex-[1.3] md:mr-10">
           <img
-            className="relative object-cover md:object-contain md:h-[600px] w-full z-10 rounded-lg"
+            className="object-cover md:object-contain md:h-[600px] w-full z-10 rounded-lg"
             src="/aboutLeft1.png"
             alt="Ikoyi Link bridge Image"
-          />
-
-          <img
-            className="hidden lg:block absolute bottom-[-26px] left-[88px] object-cover w-80 h-80"
-            src="/aboutPattern.png"
-            alt="Image Pattern"
           />
         </div>
 
@@ -112,7 +106,7 @@ const AboutMain = () => {
         {/* Grid for cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {whatWeOffer.map((weo, i) => (
-            <div key={i} className="flex flex-col gap-4 border rounded-lg p-6 hover:shadow-md-penumbra-6 transition-shadow duration-300">
+            <div key={i} className="flex flex-col gap-4 border rounded-lg p-6 shadow-md transition-shadow duration-300">
               <img className="h-12 w-12" src={weo.icon} alt="Icon" />
               <h2 className="font-semibold text-lg md:text-xl leading-snug text-[#1E1E1E] font-sora">
                 {weo.title}

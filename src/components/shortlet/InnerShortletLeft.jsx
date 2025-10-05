@@ -80,7 +80,7 @@ const InnerShortletLeft = () => {
             </div>
 
             {/* Advertise */}
-            <div className="w-full flex flex-col gap-4 bg-[#EDECFF] px-4 py-5">
+            <div className="w-72 rounded-md flex flex-col gap-4 bg-[#EDECFF] px-4 py-5">
               <p className="text-center text-base sm:text-lg font-semibold text-[#1E1E1E]">
                 Advertise/market your property on Strent
               </p>

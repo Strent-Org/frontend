@@ -2,45 +2,46 @@
 
 // const InnerShortletHero = () => {
 //   return (
-//     <section className="w-full min-h-[60vh] flex flex-col md:flex-row">
-//       {/* Left Panel */}
-//       <div
-//         className="relative flex-1 bg-cover bg-center min-h-[200px]"
-//         style={{ backgroundImage: "url('/innerShortletLeft.jpg')" }}
-//       >
-//         <button className="absolute top-1/2 left-4 -translate-y-1/2 text-white text-4xl flex items-center justify-center rounded-full border border-white p-2">
-//           <img src="/innerShortletArrowLeft.png" alt="arrow Left" />
-//         </button>
-//       </div>
+// <section className="w-full min-h-[60vh] flex flex-col md:flex-row">
+//   {/* Left Panel */}
+//   <div
+//     className="relative flex-1 bg-cover bg-center min-h-[200px]"
+//     style={{ backgroundImage: "url('/innerShortletLeft.jpg')" }}
+//   >
+//     <button className="absolute top-1/2 left-4 -translate-y-1/2 text-white text-4xl flex items-center justify-center rounded-full border border-white p-2">
+//       <img src="/innerShortletArrowLeft.png" alt="arrow Left" />
+//     </button>
+//   </div>
 
-//       {/* Middle Panel */}
-//       <div
-//         className="flex-1 bg-cover bg-center min-h-[200px]"
-//         style={{ backgroundImage: "url('/InnerShortletHero2.png')" }}
-//       ></div>
+//   {/* Middle Panel */}
+//   <div
+//     className="flex-1 bg-cover bg-center min-h-[200px]"
+//     style={{ backgroundImage: "url('/InnerShortletHero2.png')" }}
+//   ></div>
 
-//       {/* Right Panel */}
-//       <div
-//         className="relative flex-1 bg-cover bg-center min-h-[200px]"
-//         style={{ backgroundImage: "url('/innerShortletRight.jpg')" }}
-//       >
-//         <button className="absolute top-1/2 right-4 -translate-y-1/2 text-white text-4xl flex items-center justify-center rounded-full border border-white p-2">
-//           <img src="/innerShortletArrowRight.png" alt="arrow Right" />
-//         </button>
-//       </div>
-//     </section>
+//   {/* Right Panel */}
+//   <div
+//     className="relative flex-1 bg-cover bg-center min-h-[200px]"
+//     style={{ backgroundImage: "url('/innerShortletRight.jpg')" }}
+//   >
+//     <button className="absolute top-1/2 right-4 -translate-y-1/2 text-white text-4xl flex items-center justify-center rounded-full border border-white p-2">
+//       <img src="/innerShortletArrowRight.png" alt="arrow Right" />
+//     </button>
+//   </div>
+// </section>
 //   );
 // };
 
 // export default InnerShortletHero;
 
-
-import React, { useState } from "react";
+import { useState } from "react";
 
 const panels = [
-  { img: "/innerShortletLeft.jpg" },
-  { img: "/InnerShortletHero2.png" },
-  { img: "/innerShortletRight.jpg" },
+  {
+    img: ["/innerShortletLeft.jpg", "/test/D.png", "/test/desktop-design.jpg"],
+  },
+  { img: ["/InnerShortletHero2.png", "/test/space.png", "/test/N.jpg"] },
+  { img: ["/innerShortletRight.jpg", "/test/watch.png", "/test/whatever.png"] },
 ];
 
 const InnerShortletHero = () => {
@@ -56,11 +57,29 @@ const InnerShortletHero = () => {
 
   return (
     <section className="w-full min-h-[60vh] flex items-center justify-center relative overflow-hidden">
+
       {/* Active Slide */}
-      <div
-        className="w-full min-h-[60vh] bg-cover bg-center transition-all duration-500"
-        style={{ backgroundImage: `url(${panels[activeIndex].img})` }}
-      ></div>
+      <div className="w-full min-h-[60vh] flex flex-col md:flex-row">
+        {/* Left Panel */}
+        <div
+          className="relative flex-1 bg-cover bg-center min-h-[200px]"
+          style={{ backgroundImage: `url(${panels[activeIndex].img[0]})` }}
+        >
+        </div>
+
+        {/* Middle Panel */}
+        <div
+          className="flex-1 bg-cover bg-center min-h-[200px]"
+          style={{ backgroundImage: `url(${panels[activeIndex].img[1]})` }}
+        ></div>
+
+        {/* Right Panel */}
+        <div
+          className="relative flex-1 bg-cover bg-center min-h-[200px]"
+          style={{ backgroundImage: `url(${panels[activeIndex].img[2]})` }}
+        >
+        </div>
+      </div>
 
       {/* Left Arrow */}
       <button

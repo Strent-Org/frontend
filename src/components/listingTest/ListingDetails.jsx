@@ -194,10 +194,10 @@ const ListingDetails = () => {
         </div>
 
         {/* Ad Banner */}
-        <div className="w-full">
+        <div className="w-72 rounded-md">
           <img
             // className="w-full max-w-xs mx-auto sm:max-w-sm md:max-w-md"
-            className="w-76 h-64 object-contain"
+            className="w-full object-contain"
             src="/shortletAdBanner.png"
             alt="Shortlet Ad Banner"
           />

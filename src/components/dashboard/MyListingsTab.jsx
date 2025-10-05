@@ -110,7 +110,7 @@ const MyListingsTab = () => {
 
         {/* Closed Tab */}
         {activeTab === "closed" && (
-          <div className="w-full bg-white shadow-lg rounded-lg px-4 py-6 flex flex-wrap items-center gap-2">
+          <div className="w-full bg-white shadow-md rounded-lg px-4 py-6 flex flex-wrap items-center gap-2">
             <input
               type="text"
               placeholder="Search by Title"

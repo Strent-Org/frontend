@@ -41,7 +41,7 @@ const DashboardTab = () => {
             </button>
           </div>
           {/* leads */}
-          <div className="shadow-md-penumbra-6 max-w-[443px] p-4 mb-8 rounded-lg bg-white">
+          <div className="shadow-md max-w-[443px] p-4 mb-8 rounded-lg bg-white">
             <div className="flex justify-between items-center mb-2">
               <h1 className="md:text-[32px] text-[26px] font-bold font-sora text-[#1E1E1E]">
                 0
@@ -81,7 +81,7 @@ const DashboardTab = () => {
           {/* Listing */}
           <div className="grid lg:grid-cols-2 gap-4 grid-cols-1">
             <div>
-              <div className="shadow-md-penumbra-6 max-w-[443px] p-4 mb-8 rounded-lg bg-white">
+              <div className="shadow-md max-w-[443px] p-4 mb-8 rounded-lg bg-white">
                 <div className="flex justify-between items-center mb-4">
                   <h1 className="text-xl font-semibold font-sora">Listing</h1>
                   <img
@@ -99,7 +99,7 @@ const DashboardTab = () => {
                   <p>Expired Listings: 0</p>
                 </div>
               </div>
-              <div className="shadow-md-penumbra-6 max-w-[443px] p-4 mb-8 rounded-lg bg-white space-y-2">
+              <div className="shadow-md max-w-[443px] p-4 mb-8 rounded-lg bg-white space-y-2">
                 <button className="bg-[#4B3DFE] py-2 px-16 rounded-md text-white w-[70%]">
                   Performance
                 </button>
@@ -111,7 +111,7 @@ const DashboardTab = () => {
                 </button>
               </div>
             </div>
-            <div className="shadow-md-penumbra-6 max-w-[443px] p-4 mb-8 rounded-lg bg-white">
+            <div className="shadow-md max-w-[443px] p-4 mb-8 rounded-lg bg-white">
               <h1>
                 <h1 className="text-xl font-semibold font-sora">Listing</h1>
               </h1>
@@ -149,7 +149,7 @@ const DashboardTab = () => {
             </div>
           </div>
           {/* Enquiry Messages */}
-          <div className="bg-white p-4 rounded-lg shadow-md-penumbra-6">
+          <div className="bg-white p-4 rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-2">
               <h3 className="font-semibold font-sora text-xl text-[#1E1E1E] leading-[28px] tracking-[1.12%]">
                 Enquiry messages

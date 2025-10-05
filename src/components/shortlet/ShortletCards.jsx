@@ -82,7 +82,7 @@
 //new
 const ShortletCards = () => {
   return (
-    <section className="w-full max-w-full lg:max-w-[640px] mx-auto flex lg:flex-row flex-col lg:items-start items-center py-6 sm:px-4 px-2 border border-[#DDDDE1] bg-white rounded-lg">
+    <section className="w-full mx-auto flex lg:flex-row flex-col lg:items-start items-center py-6 sm:px-4 px-2 border border-[#DDDDE1] bg-white rounded-lg">
 
     {/* <section className="w-full lg:max-w-[640px] mx-auto flex lg:flex-row flex-col lg:items-start items-center py-6 px-4 border border-[#DDDDE1] bg-white rounded-lg"> */}
       {/* Left (image)  */}
