@@ -4,28 +4,62 @@ import { useRecoilState } from "recoil";
 import { userInfo } from "./atom/user";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   let [user, setUser] = useRecoilState(userInfo);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  // Debug: check user data
+  console.log("User data in Navbar:", user?.data);
+
   function handleSignout() {
     setUser({ isLoggedIn: false, data: {} });
+    navigate("/login");
   }
 
-  // handle post property navigation
   function handlePostProperty() {
-    if (
-      user.isLoggedIn &&
-      (user.data.accountType === "Landlord" ||
-        user.data.accountType === "Agent")
-    ) {
-      navigate("/post-property");
+    if (user.isLoggedIn) {
+      navigate("/post-property"); // will show 404 if route not built
     } else {
       navigate("/login");
     }
   }
+
+  function handleProfileClick() {
+    if (!user.isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    const accountType = user.data.user?.account_type;
+
+    if (accountType === "landlord") {
+      navigate("/landlord-dashboard");
+    } else if (accountType === "agent") {
+      navigate("/agent-dashboard");
+    } else if (accountType === "tenant") {
+      navigate("/tenant-dashboard");
+    } else {
+      navigate("/profile");
+    }
+  }
+
+  // Get display name safely
+  const displayName =
+    user?.data?.user?.tenant?.name?.trim() ||
+    user?.data?.user?.agent?.name?.trim() ||
+    user?.data?.user?.landlord?.name?.trim() ||
+    user?.data?.user?.email?.split("@")[0] ||
+    "Profile";
+
+  // Check if current user can post property (Landlord or Agent only)
+  const canPostProperty =
+    user?.isLoggedIn &&
+    ["landlord", "agent"].includes(
+      user?.data?.user?.account_type?.toLowerCase()
+    );
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -35,7 +69,7 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="h-14 w-auto object-contain" />
         </Link>
 
-        {/* Hamburger button (mobile only) */}
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -44,8 +78,8 @@ const Navbar = () => {
         </button>
 
         {/* Menu Links (desktop) */}
-        <ul className="hidden md:flex space-x-6 text-base font-normal text-[#1E1E1E]">
-          {["about Us", "listings", "shortlet", "agents", "contact"].map(
+        <ul className="hidden md:flex space-x-6 text-base text-[#1E1E1E]">
+          {["about", "listings", "shortlet", "agents", "contact"].map(
             (page, index) => (
               <li key={index}>
                 <Link
@@ -61,38 +95,56 @@ const Navbar = () => {
           )}
         </ul>
 
-        {/* Auth & CTA (desktop only) */}
-        <div className="hidden md:flex items-center space-x-4">
-          {!user.isLoggedIn && (
+        {/* Auth & CTA Section */}
+        <div className="hidden md:flex items-center space-x-5">
+          {/* If not logged in, show Log In / Sign Up */}
+          {!user.isLoggedIn ? (
             <>
               <Link
                 to="/login"
-                className="text-base text-[#1E1E1E] font-normal hover:text-[#4B3DFE]"
+                className="text-base text-[#1E1E1E] hover:text-[#4B3DFE]"
               >
                 Log In
               </Link>
               <Link
                 to="/signup"
-                className="text-base text-[#1E1E1E] font-normal hover:text-[#4B3DFE]"
+                className="text-base text-[#1E1E1E] hover:text-[#4B3DFE]"
               >
                 Sign Up
               </Link>
             </>
+          ) : (
+            <>
+              {/* Profile Icon + Name */}
+              <button
+                onClick={handleProfileClick}
+                className="flex items-center space-x-2 text-[#1E1E1E] hover:text-[#4B3DFE]"
+              >
+                <FaUserCircle className="text-2xl text-[#4B3DFE]" />
+                <span className="text-base truncate max-w-[120px]">
+                  {displayName}
+                </span>
+              </button>
+
+              {/* Sign Out */}
+              <button
+                onClick={handleSignout}
+                className="text-base font-medium text-[#1E1E1E] hover:text-red-500 transition-colors duration-200"
+              >
+                Sign Out
+              </button>
+            </>
           )}
 
-          {user.isLoggedIn && (
-            <Link onClick={handleSignout} to="/">
-              Signout
-            </Link>
+          {/* Show Post Property only for Landlord or Agent */}
+          {canPostProperty && (
+            <button
+              onClick={handlePostProperty}
+              className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base transition-colors duration-200"
+            >
+              Post Property
+            </button>
           )}
-
-          {/* Always show Post Property button */}
-          <button
-            onClick={handlePostProperty}
-            className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base font-normal transition-colors duration-200"
-          >
-            Post Property
-          </button>
         </div>
       </nav>
 
@@ -136,28 +188,41 @@ const Navbar = () => {
                 </Link>
               </>
             ) : (
-              <Link
-                onClick={() => {
-                  handleSignout();
-                  setMenuOpen(false);
-                }}
-                to="#"
-                className="text-base text-[#1E1E1E] hover:text-[#4B3DFE]"
-              >
-                Signout
-              </Link>
+              <>
+                <button
+                  onClick={() => {
+                    handleProfileClick();
+                    setMenuOpen(false);
+                  }}
+                  className="flex items-center space-x-2 text-[#1E1E1E] hover:text-[#4B3DFE]"
+                >
+                  <FaUserCircle className="text-xl text-[#4B3DFE]" />
+                  <span className="text-base">{displayName}</span>
+                </button>
+                <button
+                  onClick={() => {
+                    handleSignout();
+                    setMenuOpen(false);
+                  }}
+                  className="text-base font-medium text-[#1E1E1E] hover:text-red-500 transition-colors duration-200"
+                >
+                  Sign Out
+                </button>
+              </>
             )}
 
-            {/* show Post Property */}
-            <button
-              onClick={() => {
-                handlePostProperty();
-                setMenuOpen(false);
-              }}
-              className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base font-normal transition-colors duration-200"
-            >
-              Post Property
-            </button>
+            {/* Show Post Property only for Landlord or Agent */}
+            {canPostProperty && (
+              <button
+                onClick={() => {
+                  handlePostProperty();
+                  setMenuOpen(false);
+                }}
+                className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base transition-colors duration-200"
+              >
+                Post Property
+              </button>
+            )}
           </div>
         </div>
       )}
