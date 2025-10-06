@@ -204,7 +204,7 @@ const Navbar = () => {
                     handleSignout();
                     setMenuOpen(false);
                   }}
-                  className="text-base font-medium text-[#1E1E1E] hover:text-red-500 transition-colors duration-200"
+                  className="text-base text-[#1E1E1E] hover:text-red-500 transition-colors duration-200"
                 >
                   Sign Out
                 </button>
