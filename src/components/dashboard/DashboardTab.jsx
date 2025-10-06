@@ -100,13 +100,13 @@ const DashboardTab = () => {
                 </div>
               </div>
               <div className="shadow-md max-w-[443px] p-4 mb-8 rounded-lg bg-white space-y-2">
-                <button className="bg-[#4B3DFE] py-2 px-16 rounded-md text-white w-[70%]">
+                <button className="bg-[#4B3DFE] hover:bg-[#3a2ddd] py-2 px-16 rounded-md text-white w-[70%]">
                   Performance
                 </button>
-                <button className="bg-[#4B3DFE] py-2 px-16 rounded-md text-white w-[70%]">
+                <button className="bg-[#4B3DFE] hover:bg-[#3a2ddd] py-2 px-16 rounded-md text-white w-[70%]">
                   My Profile
                 </button>
-                <button className="bg-[#4B3DFE] py-2 px-16 rounded-md text-white w-[70%]">
+                <button className="bg-[#4B3DFE] hover:bg-[#3a2ddd] py-2 px-16 rounded-md text-white w-[70%]">
                   Performance
                 </button>
               </div>
