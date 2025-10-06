@@ -11,7 +11,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Debug: check user data
   console.log("User data in Navbar:", user?.data);
 
   function handleSignout() {
@@ -21,7 +20,10 @@ const Navbar = () => {
 
   function handlePostProperty() {
     if (user.isLoggedIn) {
-      navigate("/post-property"); // will show 404 if route not built
+      const accountType = user.data.user?.account_type?.toLowerCase();
+      if (accountType === "landlord" || accountType === "agent") {
+        navigate("/post-property");
+      }
     } else {
       navigate("/login");
     }
@@ -46,7 +48,6 @@ const Navbar = () => {
     }
   }
 
-  // Get display name safely
   const displayName =
     user?.data?.user?.tenant?.name?.trim() ||
     user?.data?.user?.agent?.name?.trim() ||
@@ -54,12 +55,15 @@ const Navbar = () => {
     user?.data?.user?.email?.split("@")[0] ||
     "Profile";
 
-  // Check if current user can post property (Landlord or Agent only)
-  const canPostProperty =
-    user?.isLoggedIn &&
-    ["landlord", "agent"].includes(
-      user?.data?.user?.account_type?.toLowerCase()
-    );
+  // Show Post Property:
+  // - Always show if NOT logged in (redirects to login)
+  // - Show if landlord or agent
+  // - Hide if tenant
+  const accountType = user?.data?.user?.account_type?.toLowerCase();
+  const showPostProperty =
+    !user.isLoggedIn ||
+    (user.isLoggedIn &&
+      (accountType === "landlord" || accountType === "agent"));
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -97,7 +101,6 @@ const Navbar = () => {
 
         {/* Auth & CTA Section */}
         <div className="hidden md:flex items-center space-x-5">
-          {/* If not logged in, show Log In / Sign Up */}
           {!user.isLoggedIn ? (
             <>
               <Link
@@ -136,11 +139,11 @@ const Navbar = () => {
             </>
           )}
 
-          {/* Show Post Property only for Landlord or Agent */}
-          {canPostProperty && (
+          {/* Show Post Property if allowed */}
+          {showPostProperty && (
             <button
               onClick={handlePostProperty}
-              className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 rounded-md text-base transition-colors duration-200"
+              className="bg-[#4B3DFE] hover:bg-[#352BB4] text-white px-4 py-2 text-base font-medium transition-colors duration-200"
             >
               Post Property
             </button>
@@ -211,8 +214,8 @@ const Navbar = () => {
               </>
             )}
 
-            {/* Show Post Property only for Landlord or Agent */}
-            {canPostProperty && (
+            {/* Show Post Property if allowed */}
+            {showPostProperty && (
               <button
                 onClick={() => {
                   handlePostProperty();
