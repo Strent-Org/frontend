@@ -38,10 +38,10 @@ import { useState } from "react";
 
 const panels = [
   {
-    img: ["/innerShortletLeft.jpg", "/test/D.png", "/test/desktop-design.jpg"],
+    img: ["/innerShortletLeft.jpg", "/innerShortletLeft1B.jpg", "/innerShortletLeft1C.jpg"],
   },
-  { img: ["/InnerShortletHero2.png", "/test/space.png", "/test/N.jpg"] },
-  { img: ["/innerShortletRight.jpg", "/test/watch.png", "/test/whatever.png"] },
+  { img: ["/InnerShortletHero2.png", "/innerShortletLeft2B.jpg", "/innerShortletLeft2C.jpg"] },
+  { img: ["/innerShortletRight.jpg", "/innerShortletLeft3B.jpg", "/innerShortletLeft3C.jpg"] },
 ];
 
 const InnerShortletHero = () => {

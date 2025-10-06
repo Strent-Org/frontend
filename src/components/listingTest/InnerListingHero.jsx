@@ -50,10 +50,10 @@ import { useState } from "react";
 
 const panels = [
   {
-    img: ["/innerListingHero1.jpg", "/test/D.png", "/test/desktop-design.jpg"],
+    img: ["/innerListingHero1.jpg", "/innerListingHero1B.jpg", "/innerListingHero1C.jpg"],
   },
-  { img: ["/innerListingHero2.jpg", "/test/space.png", "/test/N.jpg"] },
-  { img: ["/innerListingHero3.jpg", "/test/watch.png", "/test/whatever.png"] },
+  { img: ["/innerListingHero2.jpg", "/innerListingHero2B.jpg", "/innerListingHero2C.jpg"] },
+  { img: ["/innerListingHero3.jpg", "/innerListingHero3B.jpg", "/innerListingHero3C.jpg"] },
 ];
 
 const InnerListingHero = () => {
