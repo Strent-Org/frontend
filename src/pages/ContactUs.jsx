@@ -59,58 +59,61 @@ const [formData, setFormData] = useState({
   };
 
   return (
-    <div className="">
+    <div>
       <ContactHero />
-      <div className="w-full px-4 py-10 md:px-16 lg:px-24 font-['Inter']">
-        <div className=" lg:flex md:grid-cols-2 bg-white shadow-lg rounded-xl ">
+      <div className="bg-[#fff] w-full h-fit flex flex-col lg:flex-row gap-3 px-[4rem] sm:px-[9.6rem] my-16">
+        <div className="lg:flex  md:grid-cols-2 bg-white">
           {/* Left - Contact Info */}
-          <div className="bg-[linear-gradient(89.73deg,#352BB4_0.22%,#4438E7_31.8%,#4B3DFE_54.29%,#6F64FE_75.35%,#867DFE_94.97%)] text-white p-8 flex flex-col w-full lg:w-[385px] lg:rounded-l-xl ">
-            <h3 className="text-[20px] font-[600] mb-7 font-['Sora']">
+          <div className="bg-[linear-gradient(89.73deg,#352BB4_0.22%,#4438E7_31.8%,#4B3DFE_54.29%,#6F64FE_75.35%,#867DFE_94.97%)] text-white p-8 flex flex-col w-full lg:w-[385px]">
+            <h3 className="md:text-xl text-lg font-semibold mb-7 font-sora">
               Our Contact Information
             </h3>
-            <p className="mb-[50px] text-sm leading-relaxed">
+            <p className="mb-7 text-sm leading-relaxed font-inter">
               Need to talk to someone? Kindly reach out to us via any of our
               communication channels with the details below
             </p>
 
-            <ul className="space-y-4 text-sm mb-6">
+            <ul className="flex flex-col items-start justify-center space-y-7 text-sm font-inter mb-7">
               <li className="flex items-center gap-3">
                 <img src={location} alt="Address" />
-                3rd Floor, Civic Hub Building, Victoria Island, Lagos, Nigeria
+                <a href="#">
+                  Location: 3rd Floor, Civic Hub Building, Victoria Island,
+                  Lagos, Nigeria
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <img src={mail} alt="Email" />
-                support@strent.ng
+                <a href="mailto:support@strent.ng">Email: support@strent.ng</a>
               </li>
               <li className="flex items-center gap-3">
                 <img src={phone} alt="Phone Number" />
-                +234 913 456 7890
+                <a href="tel:+2349134567890">Call: +234 913 456 7890</a>
               </li>
             </ul>
 
             {/* Social Icons */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 my-7">
               <a
                 href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
+                className="lg:w-10 lg:h-10 w-8 h-8 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
               >
                 <img src={facebook} alt="facebook" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
+                className="lg:w-10 lg:h-10 w-8 h-8 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
               >
                 <img src={x} alt="x" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
+                className="lg:w-10 lg:h-10 w-8 h-8 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
               >
                 <img src={instagram} alt="instagram" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
+                className="lg:w-10 lg:h-10 w-8 h-8 flex items-center justify-center rounded-full bg-white text-[#4B3DFE]"
               >
                 <img src={tiktok} alt="tiktok" />
               </a>
@@ -118,8 +121,8 @@ const [formData, setFormData] = useState({
           </div>
 
           {/* Right - Contact Form */}
-          <div className="p-8 w-full lg:w-[574px]">
-            <h2 className="text-2xl font-bold mb-6 font-['Sora']">
+          <div className="p-8 w-full lg:w-[574px] border border-[#DDDDE1]">
+            <h2 className="text-xl font-semibold mb-6 font-sora">
               We want to hear from you!
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -189,7 +192,6 @@ const [formData, setFormData] = useState({
                 {submissionStatus.error}
               </p>
             )}
-
           </div>
         </div>
       </div>

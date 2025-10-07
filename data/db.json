@@ -65,14 +65,6 @@
       "subject": "Inquiry",
       "message": "hello i would like to know",
       "timestamp": "2025-09-13T19:42:06.530Z"
-    },
-    {
-      "id": "cff8",
-      "fullName": "Abdullahi Abdulkadir",
-      "email": "abdullahi@gmail.com",
-      "subject": "testing",
-      "message": "hello",
-      "timestamp": "2025-10-05T06:08:18.866Z"
     }
   ],
   "newsletter-subscribers": [
@@ -226,22 +218,6 @@
       "parkingSpace": "yes",
       "gym": "yes",
       "swimmingPool": "yes"
-    },
-    {
-      "id": "ab2da3ca-6684-453f-b5c2-c68e6aa5823b",
-      "name": "3 bed room",
-      "location": "victoria",
-      "agent": "Abdullah A",
-      "email": "abdullahi@gmail.com",
-      "phoneNumber": "08166161213",
-      "price": "N 700,000",
-      "description": "3 bedroom",
-      "imageUrl": "blob:http://localhost:5173/77aacecc-bd60-49de-aa3d-15278ef6641a",
-      "profPic": "blob:http://localhost:5173/ab2111a3-0ada-4faf-bdff-bb3abc715983",
-      "date": "oct 5 2025",
-      "parkingSpace": "no parking",
-      "gym": "no gym",
-      "swimmingPool": "no swim"
     }
   ],
   "reviews": [
@@ -264,6 +240,16 @@
       "reviewerText": "nice work,",
       "starRating": 1,
       "timestamp": "2025-09-13T20:00:50.453Z"
+    },
+    {
+      "id": "53a4",
+      "agentId": "d7b7",
+      "agentName": "muhammed bala",
+      "reviewerFullName": "Amadi blue",
+      "reviewerEmail": "agent@gmail.com",
+      "reviewerText": "nice he deliver in a tight dead line",
+      "starRating": 3,
+      "timestamp": "2025-10-07T18:17:00.981Z"
     }
   ],
   "inquiries": [

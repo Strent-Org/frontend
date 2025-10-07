@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ShortletCards from "./ShortletCards";
+import ListingCards from "./ListingCards";
 import { Link } from "react-router-dom";
 
 const latestProperties = [
@@ -77,20 +77,20 @@ const selectFields = [
   },
 ];
 
-const shortletData = [
-  { id: 1, href: "/innershortlet/1" },
-  { id: 2, href: "/innershortlet/2" },
-  { id: 3, href: "/innershortlet/3" },
-  { id: 4, href: "/innershortlet/4" },
-  { id: 5, href: "/innershortlet/5" },
-  { id: 6, href: "/innershortlet/6" },
-  { id: 7, href: "/innershortlet/7" },
-  { id: 8, href: "/innershortlet/8" },
-  { id: 9, href: "/innershortlet/9" },
-  { id: 10, href: "/innershortlet/10" },
+const listingData = [
+  { id: 1, href: "/innerlisting/1" },
+  { id: 2, href: "/innerlisting/2" },
+  { id: 3, href: "/innerlisting/3" },
+  { id: 4, href: "/innerlisting/4" },
+  { id: 5, href: "/innerlisting/5" },
+  { id: 6, href: "/innerlisting/6" },
+  { id: 7, href: "/innerlisting/7" },
+  { id: 8, href: "/innerlisting/8" },
+  { id: 9, href: "/innerlisting/9" },
+  { id: 10, href: "/innerlisting/10" },
 ];
 
-const ShortletDetails = () => {
+const ListingDetails = () => {
   const [price, setPrice] = useState(0);
   return (
     <section className="bg-[#FCFCFD] w-full h-fit flex flex-col lg:flex-row gap-3 px-[4rem] sm:px-[9.6rem] my-16">
@@ -218,13 +218,13 @@ const ShortletDetails = () => {
           </div>
 
           <div className="w-full flex flex-col gap-4">
-            {shortletData.map((shortlet) => (
+            {listingData.map((listing) => (
               <Link
-                key={shortlet.id}
-                to={shortlet.href}
+                key={listing.id}
+                to={listing.href}
                 className="block"
               >
-                <ShortletCards />
+                <ListingCards />
               </Link>
             ))}
           </div>
@@ -251,4 +251,4 @@ const ShortletDetails = () => {
   );
 };
 
-export default ShortletDetails;
+export default ListingDetails;
