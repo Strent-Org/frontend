@@ -5,7 +5,6 @@ import Down from "../assets/icons/down.svg";
 import { newAgentsList as agents } from "../data/agentpagedata";
 import { Link } from "react-router-dom";
 import Pagination from "../components/agentpage-components/pagination";
-import Chatbox from "../components/Chatbox";
 export default function Agents() {
   const [currentPage, SetCurrentPage] = useState(1);
   const [postPerPage] = useState(6);
@@ -18,9 +17,7 @@ export default function Agents() {
     SetCurrentPage(pageNumber);
   };
   return (
-    <main className="font-inter px-[15%] flex flex-col gap-8 py-8 relative">
-      
-      <Chatbox />
+    <main className="font-inter px-8 lg:px-[15%] flex flex-col gap-8 py-8 relative">
       <section id="header">
         <div className="flex gap-2 items-center">
           <Link to={"/"}>
@@ -46,7 +43,7 @@ export default function Agents() {
             <img
               src={Down}
               alt="Down-icon"
-              className="absolute right-0 pointer-events-none"
+              className="absolute -right-2 lg:right-0 pointer-events-none"
             />
           </div>
         </div>
