@@ -1,175 +1,123 @@
-import { useState } from 'react';
-import { userInfo } from '../components/atom/user';
-import { useRecoilState } from 'recoil';
-import axios from 'axios';
-import { useTransition } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { userInfo } from "../components/atom/user";
+import { useRecoilState } from "recoil";
+import axios from "axios";
+import { useTransition } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
+const API_BASE_URL = "https://backend-k0k7.onrender.com/api";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    accountType: '',
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    phoneNumber: '',
+    accountType: "",
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phoneNumber: "",
     agreeToTerms: false,
   });
 
   const [errors, setErrors] = useState({});
   const [, setUser] = useRecoilState(userInfo);
   const redir = useNavigate();
-
   const [isPending, startTransition] = useTransition();
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
-
-    // Clear error when user starts typing
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const handleSelectChange = (value) => {
     setFormData((prev) => ({ ...prev, accountType: value }));
     if (errors.accountType) {
-      setErrors((prev) => ({ ...prev, accountType: '' }));
+      setErrors((prev) => ({ ...prev, accountType: "" }));
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
-
-    // Account type validation
-    if (!formData.accountType) {
-      newErrors.accountType = 'Account type must be selected';
-    }
-
-    // Full name validation
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
-    } else if (formData.fullName.trim().length < 5) {
-      newErrors.fullName = 'Full name must be at least 5 characters long';
-    } else if (formData.fullName.trim().split(/\s+/).length < 2) {
-      newErrors.fullName = 'Full name must contain at least 2 words';
-    }
-
-    // Email validation
+    if (!formData.accountType)
+      newErrors.accountType = "Account type must be selected";
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+    else if (formData.fullName.trim().length < 5)
+      newErrors.fullName = "Full name must be at least 5 characters long";
+    else if (formData.fullName.trim().split(/\s+/).length < 2)
+      newErrors.fullName = "Full name must contain at least 2 words";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    // Password validation
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 8) {
-      newErrors.password = 'Password must be at least 8 characters long';
-    } else if (!/[a-z]/.test(formData.password)) {
-      newErrors.password =
-        'Password must contain at least one lowercase letter';
-    } else if (!/[A-Z]/.test(formData.password)) {
-      newErrors.password =
-        'Password must contain at least one uppercase letter';
-    } else if (!/\d/.test(formData.password)) {
-      newErrors.password = 'Password must contain at least one number';
-    }
-
-    // Confirm password validation
-    if (!formData.confirmPassword) {
-      newErrors.confirmPassword = 'Confirm password is required';
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
-
-    // Phone number validation
+    if (!formData.email) newErrors.email = "Email is required";
+    else if (!emailRegex.test(formData.email))
+      newErrors.email = "Please enter a valid email address";
+    if (!formData.password) newErrors.password = "Password is required";
+    else if (formData.password.length < 8)
+      newErrors.password = "Password must be at least 8 characters long";
+    else if (!/[a-z]/.test(formData.password))
+      newErrors.password = "Password must contain a lowercase letter";
+    else if (!/[A-Z]/.test(formData.password))
+      newErrors.password = "Password must contain an uppercase letter";
+    else if (!/\d/.test(formData.password))
+      newErrors.password = "Password must contain a number";
+    if (!formData.confirmPassword)
+      newErrors.confirmPassword = "Confirm password is required";
+    else if (formData.password !== formData.confirmPassword)
+      newErrors.confirmPassword = "Passwords do not match";
     const phoneRegex = /^\d{10}$/;
-    if (!formData.phoneNumber) {
-      newErrors.phoneNumber = 'Phone number is required';
-    } else if (!phoneRegex.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone number must be exactly 10 digits';
-    }
-
-    // Terms validation
-    if (!formData.agreeToTerms) {
-      newErrors.agreeToTerms = 'You must agree to the terms';
-    }
-
+    if (!formData.phoneNumber)
+      newErrors.phoneNumber = "Phone number is required";
+    else if (!phoneRegex.test(formData.phoneNumber))
+      newErrors.phoneNumber = "Phone number must be exactly 10 digits";
+    if (!formData.agreeToTerms)
+      newErrors.agreeToTerms = "You must agree to the terms";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    if (validateForm()) {
-      /*  method 
-             steps to preventmultiple sign up with same email
-             > get all users
-             >check if type email exist 
-             > if it exist dont sign up else sign up
-             */
-      axios
-        .get(`http://localhost:8080/User`)
-        .then((response) => {
-          const userExists = response.data.some(
-            (user) => user.id === formData.email
-          );
-          if (userExists) {
-            alert('Email already exists. Cannot sign up');
-            console.log('Email already exists. Cannot sign up.');
+    const newUser = {
+      name: formData.fullName.trim(),
+      email: formData.email.trim(),
+      password: formData.password,
+      password_confirmation: formData.confirmPassword,
+      account_type: formData.accountType?.toLowerCase(),
+      phone: formData.phoneNumber.trim(),
+      dial_code: "+234",
+    };
 
-            // Don't sign up
-          } else {
-            console.log('Email is unique. Signing up...');
-            // Sign up logic here
-            const newUser = {
-              accountType: formData.accountType,
-              fullName: formData.fullName,
-              id: formData.email,
-              password: formData.password,
-              phoneNumber: formData.phoneNumber,
-              agreeToTerms: formData.agreeToTerms,
-            };
+    console.log("Signup Payload:", newUser);
 
-            axios
-              .post(`http://localhost:8080/User`, newUser)
-              .then((response) => {
-                startTransition(() => {
-                  setTimeout(() => {
-                    setUser({ isLoggedIn: true, data: response.data });
-                  }, 1000 );``
-                  // redir
-                  if(newUser.accountType === 'Tenant'){
-                     console.log('Tenant signed up successfully');
-                   redir('/');
-                  
-                  }else if(newUser.accountType === 'Landlord'){
-                    redir('/post-property')
-                  }else{
-                    redir('/agents')
-                  }
-                });
+    Object.keys(newUser).forEach((key) => {
+      if (!newUser[key]) console.warn(`${key} is empty`);
+    });
 
-                console.log('User created:', response.data);
-                alert('Account created successfully!');
-              });
-          }
-        })
-        .catch((error) => {
-          console.error(error);
+    try {
+      const response = await axios.post(`${API_BASE_URL}/register`, newUser, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.data?.success) {
+        alert("Account created successfully!");
+        startTransition(() => {
+          setUser({ isLoggedIn: true, data: response.data });
+          if (formData.accountType === "Tenant") redir("/");
+          else if (formData.accountType === "Landlord") redir("/post-property");
+          else if (formData.accountType === "Agent") redir("/agents");
         });
-
-      console.log('Form submitted:', formData);
+      }
+    } catch (error) {
+      console.error("Signup Error:", error.response?.data || error.message);
+      alert(
+        error.response?.data?.detail?.[0]?.msg ||
+          "Signup failed. Check all fields."
+      );
     }
   };
 
@@ -186,18 +134,17 @@ const SignupForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Account Type */}
           <div>
             <select
               name="accountType"
               value={formData.accountType}
               onChange={(e) => handleSelectChange(e.target.value)}
               className={`w-full h-12 px-4 rounded-lg border ${
-                errors.accountType ? 'border-error' : 'border-input'
+                errors.accountType ? "border-error" : "border-input"
               } cursor-pointer text-[#B9B9B9] bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
             >
               <option value="">Select Account Type</option>
-              <option value="Landload">Landlord</option>
+              <option value="Landlord">Landlord</option>
               <option value="Tenant">Tenant</option>
               <option value="Agent">Agent</option>
             </select>
@@ -206,7 +153,6 @@ const SignupForm = () => {
             )}
           </div>
 
-          {/* Full Name */}
           <div>
             <input
               type="text"
@@ -215,7 +161,7 @@ const SignupForm = () => {
               onChange={handleInputChange}
               placeholder="Enter full name"
               className={`w-full h-12 px-4 rounded-lg border ${
-                errors.fullName ? 'border-error' : 'border-input'
+                errors.fullName ? "border-error" : "border-input"
               } bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
             />
             {errors.fullName && (
@@ -223,7 +169,6 @@ const SignupForm = () => {
             )}
           </div>
 
-          {/* Email */}
           <div>
             <input
               type="email"
@@ -232,7 +177,7 @@ const SignupForm = () => {
               onChange={handleInputChange}
               placeholder="Enter Email"
               className={`w-full h-12 px-4 rounded-lg border ${
-                errors.email ? 'border-error' : 'border-input'
+                errors.email ? "border-error" : "border-input"
               } bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
             />
             {errors.email && (
@@ -240,7 +185,6 @@ const SignupForm = () => {
             )}
           </div>
 
-          {/* Password */}
           <div>
             <input
               type="password"
@@ -249,7 +193,7 @@ const SignupForm = () => {
               onChange={handleInputChange}
               placeholder="Enter Password"
               className={`w-full h-12 px-4 rounded-lg border ${
-                errors.password ? 'border-error' : 'border-input'
+                errors.password ? "border-error" : "border-input"
               } bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
             />
             {errors.password && (
@@ -257,7 +201,6 @@ const SignupForm = () => {
             )}
           </div>
 
-          {/* Confirm Password */}
           <div>
             <input
               type="password"
@@ -266,7 +209,7 @@ const SignupForm = () => {
               onChange={handleInputChange}
               placeholder="Confirm Password"
               className={`w-full h-12 px-4 rounded-lg border ${
-                errors.confirmPassword ? 'border-error' : 'border-input'
+                errors.confirmPassword ? "border-error" : "border-input"
               } bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
             />
             {errors.confirmPassword && (
@@ -276,9 +219,8 @@ const SignupForm = () => {
             )}
           </div>
 
-          {/* Phone Number */}
           <div className="flex gap-2">
-            <div className=" text-[#565658] w-20 h-12 px-2 rounded-lg border border-input bg-background flex items-center justify-center text-sm text-muted-foreground">
+            <div className="text-[#565658] w-20 h-12 px-2 rounded-lg border border-input bg-background flex items-center justify-center text-sm text-muted-foreground">
               +234
             </div>
             <div className="flex-1">
@@ -290,7 +232,7 @@ const SignupForm = () => {
                 placeholder="Enter Phone Number"
                 maxLength="10"
                 className={`w-full h-12 px-4 rounded-lg border ${
-                  errors.phoneNumber ? 'border-error' : 'border-input'
+                  errors.phoneNumber ? "border-error" : "border-input"
                 } bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring`}
               />
             </div>
@@ -299,7 +241,6 @@ const SignupForm = () => {
             <p className="text-error text-sm mt-1">{errors.phoneNumber}</p>
           )}
 
-          {/* reCAPTCHA */}
           <div>
             <div className="flex items-center p-3 border border-input rounded-lg bg-background">
               <input
@@ -321,16 +262,12 @@ const SignupForm = () => {
             )}
           </div>
 
-          {/* Register Button */}
-          
-           <button
+          <button
             type="submit"
             className="w-full h-12 bg-[#4b3dfe] hover:bg-brand-primary-hover text-white font-medium rounded-lg transition-colors"
           >
             Register Now
           </button>
-          
-         
 
           <div className="text-left text-xs text-muted-foreground font-inter text-[#565658] text-[12px]">
             By registering, you accept our terms of use and privacy and agree
@@ -340,16 +277,17 @@ const SignupForm = () => {
 
           <div className="text-center">
             <span className="text-sm text-muted-foreground text-[14px] font-inter">
-              Already have an account?{' '}
+              Already have an account?{" "}
             </span>
             <Link
               to="/login"
-              className=" font-inter text-[14px] text-[#4438E7]  hover:text-brand-primary-hover font-medium transition-colors"
+              className="font-inter text-[14px] text-[#4438E7] hover:text-brand-primary-hover font-medium transition-colors"
             >
               Login Now
             </Link>
           </div>
-          {isPending && 'Signup successfully'}
+
+          {isPending && "Signup successful"}
         </form>
       </div>
     </div>

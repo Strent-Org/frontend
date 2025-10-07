@@ -233,7 +233,7 @@ const Agents = () => {
             <img
               src="https://placehold.co/16x16/E5E7EB/201A6B?text=v"
               alt="Down-icon"
-              className="absolute right-0 pointer-events-none"
+              className="absolute -right-2 lg:right-0 pointer-events-none"
             />
           </div>
         </div>
