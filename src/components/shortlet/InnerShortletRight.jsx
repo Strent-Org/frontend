@@ -4,25 +4,25 @@ import ShortletCards from "./ShortletCards";
 const InnerShortletRight = () => {
   const [activeTab, setActiveTab] = useState("Overview");
   return (
-    <div className="flex-[2.7] flex flex-col gap-4 order-1 lg:order-2">
+    <div className="flex-[2.7] flex flex-col gap-4 order-1 lg:order-2 mt-6 sm:mt-0">
       {/* Property Title - 2 Bedroom Apartment With Notch Amenities */}
       <div className="flex flex-col gap-4">
-        <h1 className="text-xl sm:text-2xl font-bold text-[#1E1E1E]">
+        <h1 className="text-xl sm:text-2xl font-semibold text-[#1E1E1E] font-sora leading-snug">
           2 Bedroom Apartment With Notch Amenities
         </h1>
         <div className="flex flex-wrap gap-2 items-center">
           <img
-            className="w-5 h-5"
+            className="w-6 h-6 object-cover"
             src="/locationInnerShortlet.png"
             alt="Location"
           />
-          <p className="text-[#1E1E1E] text-lg">Ikate Elegushi Lekki Lagos</p>
+          <p className="text-[#1E1E1E] text-xs sm:text-sm font-inter leading-snug">Ikate Elegushi Lekki Lagos</p>
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-bold text-[#1E1E1E]">
+        <h1 className="text-xl sm:text-2xl font-semibold font-sora text-[#1E1E1E] leading-snug">
           ₦140,000/day
         </h1>
-        <p className="text-sm sm:text-lg text-[#1E1E1E]">
+        <p className="text-xs sm:text-sm text-[#1E1E1E] font-inter leading-snug">
           2 bedroom Flat & Apartment Short let Ikate Elegushi Lekki Lagos
         </p>
 
@@ -34,34 +34,31 @@ const InnerShortletRight = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 text-[#1E1E1E] text-sm sm:text-lg"
+              className="flex items-center gap-2 text-[#1E1E1E] text-xs sm:text-sm font-inter leading-snug"
             >
               <img className="w-5 h-5" src={item.icon} alt={item.text} />
               <p>{item.text}</p>
             </div>
           ))}
         </div>
-        {/* 
-              
-              <img src="/toilet.png" alt="" /> */}
       </div>
 
       {/* Saftety Tips */}
       <div className="flex flex-col gap-2 p-4 sm:p-6 bg-[#F9F9FF]">
-        <h1 className="font-bold text-lg sm:text-xl text-[#1E1E1E]">
+        <h1 className="font-semibold font-sora text-lg sm:text-xl text-[#1E1E1E]">
           Safety Tips
         </h1>
-        <ul className="flex flex-col gap-2 list-disc pl-5 text-sm sm:text-base text-[#1E1E1E]">
-          <li className="">
+        <ul className="flex flex-col gap-2 list-disc pl-5 text-sm sm:text-base font-inter text-[#1E1E1E]">
+          <li>
             Do not make any inspection fee without seeing the agent and
             property.
           </li>
-          <li className="">
+          <li>
             Only pay Rental fee, Shortlet fee or any upfront payment after you
             verify the Landlord.
           </li>
-          <li className="">Ensure you meet the Agent in an open location.</li>
-          <li className="">
+          <li>Ensure you meet the Agent in an open location.</li>
+          <li>
             The Agent does not represent PropertyPro and PropertyPro is not
             liable for any monetary transaction between you and the Agent.
           </li>
@@ -69,15 +66,14 @@ const InnerShortletRight = () => {
       </div>
 
       {/* Overview Tabs */}
-      <div className="flex flex-wrap items-center justify-between border-b border-[#576] gap-4">
+      <div className="flex flex-wrap items-center justify-between border-b border-[#DDDDE1] gap-4">
         {["Overview", "Location", "Video"].map((tab, i) => (
           <button
             key={i}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 cursor-pointer text-lg sm:text-2xl font-semibold transition-colors duration-200 ${
+            className={`pb-2 cursor-pointer text-lg sm:text-2xl font-semibold font-sora text-[#1E1E1E] leading-snug transition-colors duration-200 ${
               activeTab === tab
-                ? "border-b-2 border-[#4B3DFE]"
-                : "text-gray-500 hover:text-black"
+                && "border-b-2 border-[#4B3DFE]"
             }`}
           >
             {tab}
@@ -88,7 +84,7 @@ const InnerShortletRight = () => {
       {/* Overview Location Video content */}
       <div>
         {activeTab === "Overview" && (
-          <div className="flex flex-col gap-2 text-sm sm:text-base text-[#1E1E1E] leading-relaxed">
+          <div className="flex flex-col gap-4 text-sm sm:text-base font-inter text-[#1E1E1E] leading-normal">
             <p>
               You will be refunded your caution fee deposit at check out once
               inspection confirms nothing is missing or damaged.
@@ -161,7 +157,7 @@ const InnerShortletRight = () => {
         )}
 
         {activeTab === "Location" && (
-          <div className="flex flex-col gap-2 text-sm sm:text-base text-[#1E1E1E] leading-relaxed">
+          <div>
             <div className="w-full aspect-[4/3] rounded-lg overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7926.73620503506!2d3.420001!3d6.42805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4cae62b65f7%3A0x6e799d3b1a02c1d1!2sEko%20Hotels%20%26%20Suites!5e0!3m2!1sen!2sng!4v1691774105023!5m2!1sen!2sng"
@@ -176,7 +172,7 @@ const InnerShortletRight = () => {
         )}
 
         {activeTab === "Video" && (
-          <div className="flex flex-col gap-2 text-sm sm:text-base text-[#1E1E1E] leading-relaxed">
+          <div>
             <div className="w-full aspect-video rounded-lg overflow-hidden">
               <iframe
                 src="https://www.youtube.com/embed/6J1lsyf_1nc"
@@ -191,23 +187,24 @@ const InnerShortletRight = () => {
       </div>
 
       {/* Report Property */}
-      <div className="w-full border-2 rounded-xl py-4 px-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* <div className="w-full border-2 rounded-xl py-4 px-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"> */}
+      <div className="w-full border border-[#DDDDE1] rounded-md px-4 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <img
-            className="w-10 h-10 sm:w-12 sm:h-12"
+            className="w-9 h-11"
             src="/Vector.png"
             alt="Trusted Logo"
           />
           <div>
-            <h1 className="font-bold text-lg sm:text-xl">
+            <h1 className="font-semibold font-sora text-lg sm:text-xl leading-snug">
               Property is verified as real
             </h1>
-            <p className="text-sm">
+            <p className="text-sm font-inter leading-snug">
               If reported as fake, we'll investigate to confirm if
             </p>
           </div>
         </div>
-        <button className="border border-[#4B3DFE] text-[#3A2EDB] px-4 py-2 rounded-lg font-semibold text-sm sm:text-base">
+        <button className="border border-[#4B3DFE] text-[#3A2EDB] px-4 py-2 rounded-lg font-semibold font-inter text-sm sm:text-base">
           Report Property
         </button>
       </div>

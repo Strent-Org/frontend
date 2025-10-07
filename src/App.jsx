@@ -25,13 +25,23 @@ import Contact from './pages/ContactUs';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Faqs from "./pages/Faq";
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="main relative">
+      <ScrollToTop />
+
+      {/* chat bot */}
+      <img
+          className="hidden lg:block fixed right-6 bottom-6 w-12 h-12 z-50 cursor-pointer"
+          src="/chat.png"
+          alt="chat icon"
+        />
       {/* nav should be here */}
       <Nav />
 
+      {/* main content should be here */}
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
@@ -39,27 +49,22 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/shortlet" element={<Shortlets />} />
-         <Route path="/post-property" element={<PostProperties />} />
-           {/* <Route path="/edit/:id" element={<EditProperty />} /> */}
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/about Us" element={<AboutUs />} />
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
-        
-
           <Route index element={<Overview />} />
           <Route path="properties" element={<Properties  />} />
           <Route path="reviews" element={<Reviews />} />
-          <Route path="/agents/:id/reviews" element={<Reviews />} />
-          
         </Route>
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/faqs" element={<Faqs />} />
       </Routes>
+
       {/* footer should be here */}
       <Footer />
     </div>
