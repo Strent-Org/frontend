@@ -155,7 +155,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md px-6 pb-4">
           <ul className="flex flex-col space-y-4 text-base font-normal text-[#1E1E1E]">
-            {["about", "listings", "shortlet", "agents", "contact"].map(
+            {["about", "listings", "shortlet", "agents", "contact", "post-property"].map(
               (page, index) => (
                 <li key={index}>
                   <Link

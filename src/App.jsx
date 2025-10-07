@@ -18,22 +18,25 @@ import LoginForm from './pages/LoginForm';
 import SignupForm from './pages/SignupForm';
 import ForgotPassword from './pages/ForgotPassword';
 
+// import EditProperty from './pages/EditProperty';
+
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/ContactUs';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Faqs from "./pages/Faq";
 
-import Listing from './pages/listing-updated/Listing';
-import InnerListing from './pages/listing-updated/InnerListing';
+
+
+import Listings from './pages/listing';
+import ListingDetails from './pages/listingDetails';
+
+
 
 import NotFound from './pages/NotFound';
 import PostProperties from './pages/PostProperties';
 
-// import ForgotPassword from './pages/ForgotPassword';
-// import PostProperties from './pages/PostProperties';
-// import EditProperty from './pages/EditProperty';
-// import { Reviews } from './pages/innerAgents';
+
 
 function App() {
   return (
@@ -51,14 +54,14 @@ function App() {
         <Route path="/innershortlet/:id" element={<InnerShortlet />} />
 
         {/* Listings */}
-        <Route path="/listings" element={<Listing />} />
-        <Route path="/innerlisting/:id" element={<InnerListing />} />
+         <Route path="/listings" element={<Listings />} />
+         <Route path="/listing/:id" element={<ListingDetails />} />
 
         {/* Agents */}
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/:id" element={<InnerAgents />}>
           <Route index element={<Overview />} />
-          <Route path="properties" element={<Properties />} />
+          <Route path="properties" element={<Properties  />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
 

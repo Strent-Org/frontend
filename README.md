@@ -1,4 +1,5 @@
 # frontend
+
 # 🌟 Strent App
 
 A collaborative, responsive web project built with **React**, **Vite**, **Tailwind CSS**, and managed with **pnpm**. This app is designed for maintainability, reusability, and team collaboration as part of the AltSchool project initiative.
@@ -55,7 +56,7 @@ src/
 ├── hooks/             # Custom React hooks
 ├── utils/             # Utility/helper functions
 ├── images/            # Static image  in assets
-├── icons/             # Icon, SVGs  in asset
+├── icons/             # Icon, SVGs  in asset 
 ├── fonts/             # Web font files (optional) in asset
 │
 ├── App.jsx            # Root component with routes
@@ -104,7 +105,9 @@ Checkout the development branch:
 git checkout dev
 git pull origin dev
 
-Create a feature branch always
+
+Create a feature branch always 
+
 git checkout -b feature/ your-feature-name,  example: feature/footer if you are working on footer
 
 
@@ -112,17 +115,18 @@ Make Change and commit:
 git add .
 git commit -m " feat: added footer section" ie if working on footer
 
-push your feature to github:
+
+push your feature to github: 
 git push origin feature/footer  if are working on footer for example
 
-Open a pull request PR:
+Open a pull request PR: 
 Go to repository open pull request from your feature/footer to the dev
-Request a review if need
+Request a review if need 
 
 Important Notes:
 
-Do not commit directly to the main branch
+Do not commit directly to the main branch 
 Always pull from the dev before starting new work or opening a PR
 Use clear and consist branch names (feature/, fix/, style)
 keep your code clearn and follow project naming convention
-```
+
