@@ -67,7 +67,7 @@ const Posting = () => {
         <section className="w-[68%]">
           {active === "1" && (
             <div className="space-y-4 w-full">
-              <section className="flex flex-col gap-2 bg-white py-8 px-4 rounded-2xl">
+              <section className="flex flex-col gap-2 bg-white py-8 px-4 rounded-2xl shadow-md">
                 <label htmlFor="title" className="text-xl font-semibold">
                   Title
                 </label>
@@ -79,7 +79,7 @@ const Posting = () => {
                   className="rounded border py-1 px-4 font-semibold border-neutral2 "
                 />
               </section>
-              <section className="flex flex-col gap-2 bg-white py-8 px-4 rounded-2xl">
+              <section className="flex flex-col gap-2 bg-white py-8 px-4 rounded-2xl shadow-md">
                 <h3 className="text-xl font-semibold">Purpose</h3>
                 <div className="space-x-4">
                   <button className="rounded border py-2 w-[200px] font-bold text-xs border-neutral2 ">
@@ -92,7 +92,7 @@ const Posting = () => {
                   </button>
                 </div>
               </section>
-              <div className="bg-white py-8 px-4 rounded-2xl space-y-4">
+              <div className="bg-white py-8 px-4 rounded-2xl shadow-md space-y-4">
                 <section className="flex flex-col gap-2 ">
                   <h3 className="text-xl font-semibold">Select a Location</h3>
                   <div className="flex justify-between">
@@ -127,7 +127,7 @@ const Posting = () => {
                       </select>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2 bg-white rounded-2xl">
+                  <div className="flex flex-col gap-2 bg-white rounded-2xl shadow-md">
                     <label htmlFor="title" className="text-xl font-semibold">
                       Street / Estate / Neighbourhood
                     </label>
@@ -186,7 +186,7 @@ const Posting = () => {
           {/* 2nd page */}
           {active === "2" && (
             <div className="space-y-4 w-full">
-              <div className="bg-white py-8 px-4 rounded-2xl space-y-4">
+              <div className="bg-white py-8 px-4 rounded-2xl shadow-md space-y-4">
                 <section className="flex flex-col gap-2 ">
                   <h3 className="text-xl font-semibold">Pricing</h3>
                   <div className="flex justify-between">
@@ -220,7 +220,7 @@ const Posting = () => {
                       <span>Installmental Payment</span>
                     </label>
                   </div>
-                  <div className="flex flex-col gap-2 bg-white rounded-2xl">
+                  <div className="flex flex-col gap-2 bg-white rounded-2xl shadow-md">
                     <label htmlFor="title" className="text-xl font-semibold">
                       Append to
                     </label>
@@ -234,7 +234,7 @@ const Posting = () => {
                   </div>
                 </section>
               </div>
-              <div className="bg-white py-8 px-4 rounded-2xl space-y-4">
+              <div className="bg-white py-8 px-4 rounded-2xl shadow-md space-y-4">
                 <section className="flex flex-col gap-2 ">
                   <h3 className="text-xl font-semibold">Type</h3>
                   <div className="flex justify-between">
@@ -269,7 +269,7 @@ const Posting = () => {
                       </select>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2 bg-white rounded-2xl">
+                  <div className="flex flex-col gap-2 bg-white rounded-2xl shadow-md">
                     <label htmlFor="title" className="text-xl font-semibold">
                       Area Size
                     </label>
@@ -311,7 +311,7 @@ const Posting = () => {
                   </div>
                 </section>
               </div>
-              <div className="bg-white py-8 px-4 rounded-2xl space-y-4">
+              <div className="bg-white py-8 px-4 rounded-2xl shadow-md space-y-4">
                 <div className="">
                   <h3 className="text-xl font-sora font-semibold">
                     Description
