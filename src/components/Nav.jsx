@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/images/strent-logo.svg";
 import { useRecoilState } from "recoil";
 import { userInfo } from "./atom/user";
@@ -10,6 +10,9 @@ const Navbar = () => {
   let [user, setUser] = useRecoilState(userInfo);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const pathname = location.pathname;
 
   console.log("User data in Navbar:", user?.data);
 
@@ -66,7 +69,7 @@ const Navbar = () => {
       (accountType === "landlord" || accountType === "agent"));
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className={`${pathname.startsWith("/dashboard") ? 'hidden' : 'block'} bg-white shadow-sm sticky top-0 z-50`}>
       <nav className="max-w-7xl mx-auto md:px-20 px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">

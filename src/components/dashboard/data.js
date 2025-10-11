@@ -1,0 +1,18 @@
+export const Features = [
+    "Boys Quater",
+    "Free Coffee",
+    "Excision",
+    "Church Nearby",
+    "Child Care",
+    "Fast Internet",
+    "Big Compound",
+    "24 hours Electricity",
+    "Drainage System",
+    "All Room Ensuit",
+    "C of O",
+    "Elevator",
+    "Front Desk Service",
+    "24 Hours Security",
+    "CCTV Cameras",
+    "Free WiFi",
+]

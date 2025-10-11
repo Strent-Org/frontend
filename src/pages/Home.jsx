@@ -14,7 +14,7 @@ import { useState } from "react";
 function FaqList({ faq }) {
   const [isOpen, setIsOpen] = useState(faq.isOpen);
   const toggleOpen = () => setIsOpen(!isOpen);
-
+  
   return (
     <div className="grid grid-cols-1">
       <article
@@ -61,6 +61,7 @@ function FaqList({ faq }) {
 }
 
 export default function HomePage() {
+  const [toggleButton, setToggleButton] = useState("rent");
   return (
     <>
       <main className="flex flex-col items-center justify-center text-center h-auto w-full overflow-x-hidden">
@@ -80,10 +81,10 @@ export default function HomePage() {
             </h3>
           </div>
           <div className="flex  w-fit text-base gap-2 font-inter mt-8 mb-4">
-            <button className="text-white bg-primary py-2 w-[140px] px-6 rounded-md">
+            <button onClick={() => setToggleButton("rent")} className={`${toggleButton === "rent" ? 'text-white bg-primary' : 'bg-white text-black'} py-2 w-[140px] px-6 rounded-md`}>
               Rent
             </button>
-            <button className="bg-white py-2 px-6 rounded-md w-[140px]">
+            <button onClick={() => setToggleButton("shortlet")} className={`${toggleButton === "shortlet" ? 'text-white bg-primary' : 'bg-white text-black'} py-2 px-6 rounded-md w-[140px]`}>
               Shortlet
             </button>
           </div>
@@ -114,25 +115,39 @@ export default function HomePage() {
                   id="property-type"
                   className="text-white bg-transparent text-xs"
                 >
-                  <option value="#">Property type</option>
+                  <option value="#" className="text-black">Property type</option>
+                  <option value="apartment" className="text-black">Apartment</option>
+                  <option value="condos" className="text-black">Condos</option>
+                  <option value="town-houses" className="text-black">Town Houses</option>
+                  <option value="bungalow" className="text-black">Bungalow</option>
+                  <option value="duplex" className="text-black">Duplex</option>
                 </select>
                 <select
                   id="Bedrooms"
                   className="text-white bg-transparent text-xs"
                 >
-                  <option value="#">Bedrooms</option>
+                  <option value="#" className="text-black">Bedrooms</option>
+                  <option value="1" className="text-black">1 Bedrooms</option>
+                  <option value="2" className="text-black">2 Bedrooms</option>
+                  <option value="3" className="text-black">3 Bedrooms</option>
                 </select>
                 <select
                   id="min-price"
                   className="text-white bg-transparent text-xs"
                 >
-                  <option value="#">Min Price</option>
+                  <option value="#" className="text-black">Min Price</option>
+                  <option value="1" className="text-black">#1 Million</option>
+                  <option value="2" className="text-black">#5 Million</option>
+                  <option value="3" className="text-black">#10 Million</option>
                 </select>
                 <select
                   id="max-price"
-                  className="text-white bg-transparent text-xs"
+                  className="text-white bg-transparent text-xs" 
                 >
-                  <option value="#">Max Price</option>
+                  <option value="#" className="text-black">Max Price</option>
+                  <option value="1" className="text-black">#5 Million</option>
+                  <option value="2" className="text-black">#10 Million</option>
+                  <option value="3" className="text-black">#25 Million</option>
                 </select>
               </div>
             </form>
